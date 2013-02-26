@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	>
+	    <TextView
+		    android:layout_width="0dip"
+		    android:layout_height="wrap_content"
+		    android:layout_weight=".3"
+	        android:layout_gravity="center_horizontal|center_vertical"
+		    android:text="@string/gps_location_zoom"
+	    />
+	    <EditText
+	        android:id="@+id/gpsLocationMapZoomTxt"
+	        android:inputType="number"
+	        android:layout_width="0dip"
+	        android:layout_height="wrap_content"
+		    android:layout_weight=".1"
+	        android:layout_gravity="center_horizontal|center_vertical"
+	        android:background="@color/transparent"
+	        android:ems="10"
+	        android:textColor="@android:color/white" >
+	    </EditText>
+		<SeekBar
+	        android:id="@+id/gpsLocationMapZoomBar"
+	        android:layout_width="0dip"
+	        android:layout_height="wrap_content"
+		    android:layout_weight=".6"
+	        android:layout_gravity="center_horizontal|center_vertical"
+	        android:max="30"
+	    />
+	</LinearLayout>
+
+
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	>
+	    <TextView
+		    android:layout_width="0dip"
+		    android:layout_height="wrap_content"
+		    android:layout_weight=".3"
+	        android:layout_gravity="center_horizontal|center_vertical"
+		    android:text="@string/map_screenshoot_quality"
+	    />
+	    <EditText
+	        android:id="@+id/mapScreenShootQualityTxt"
+	        android:inputType="number"
+	        android:layout_width="0dip"
+	        android:layout_height="wrap_content"
+		    android:layout_weight=".1"
+	        android:layout_gravity="center_horizontal|center_vertical"
+	        android:background="@color/transparent"
+	        android:ems="10"
+	        android:textColor="@android:color/white" >
+	    </EditText>
+		<SeekBar
+	        android:id="@+id/mapScreenShootQuality"
+	        android:layout_width="0dip"
+	        android:layout_height="wrap_content"
+		    android:layout_weight=".6"
+	        android:layout_gravity="center_horizontal|center_vertical"
+	        android:max="100"
+	    />
+	</LinearLayout>
+	
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	>
+
+	    <TextView
+		    android:layout_width="0dip"
+		    android:layout_height="wrap_content"
+		    android:layout_weight=".3"
+	        android:layout_gravity="center_horizontal|center_vertical"
+		    android:text="@string/log"
+	    />
+
+		<LinearLayout
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+        	android:layout_weight=".7"
+		    android:orientation="horizontal"
+		>
+		    <ToggleButton
+		        android:id="@+id/toggleButtonLog"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:textOn="@string/log"
+		        android:textOff="@string/log"
+		    />
+		    <ToggleButton
+		        android:id="@+id/toggleButtonSysOut"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:textOn="@string/sysout"
+		        android:textOff="@string/sysout"
+		    />
+		    <ToggleButton
+		        android:id="@+id/toggleButtonSd"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:textOn="@string/sd"
+		        android:textOff="@string/sd"
+		    />
+	    </LinearLayout>
+	    
+	</LinearLayout>
+		
+</LinearLayout>

@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout   
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainLayout"
+    android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+	<TableLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:shrinkColumns="*"
+	    android:stretchColumns="*" >
+
+ 	    <TableRow
+ 	        android:layout_width="fill_parent"
+ 	        android:layout_height="wrap_content"
+ 	        android:orientation="horizontal" >
+
+			<!-- ElapsedTime -->
+
+			<LinearLayout
+			    android:layout_width="0dip"
+			    android:layout_height="wrap_content"
+			    android:layout_weight=".5"
+			    android:orientation="vertical"
+			    android:padding="10dip" >
+
+				<TextView
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:gravity="center_horizontal"
+				    android:text="@string/elapsed_time"
+				    android:textSize="16dip" />
+
+				<TextView
+				    android:id="@+id/TextElapsedTime"
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:gravity="center_horizontal"
+				    android:textColor="@color/text_black_default"
+				    android:textSize="24dip"
+				    android:textStyle="bold" />
+
+			</LinearLayout>
+
+			<!-- Distance -->
+
+			<LinearLayout
+			    android:layout_width="0dip"
+			    android:layout_height="wrap_content"
+			    android:layout_weight=".5"
+			    android:orientation="vertical"
+			    android:padding="10dip" >
+
+				<TextView
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_weight=".3"
+				    android:gravity="center_horizontal"
+				    android:text="@string/distance"
+				    android:textSize="16dip" />
+
+				<TextView
+				    android:id="@+id/TextDistance"
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_weight=".7"
+				    android:gravity="center_horizontal"
+				    android:textColor="@color/text_black_default"
+				    android:textSize="24dip"
+				    android:textStyle="bold" />
+
+			</LinearLayout>
+		</TableRow>
+
+	    <TableRow
+ 	        android:layout_width="fill_parent"
+ 	        android:layout_height="wrap_content" >
+
+			<!-- KmH -->
+
+			<LinearLayout
+			    android:layout_width="0dip"
+			    android:layout_height="wrap_content"
+			    android:layout_weight=".5"
+			    android:orientation="vertical"
+			    android:padding="10dip" >
+
+				<TextView
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:gravity="center_horizontal"
+				    android:text="@string/speed_average"
+				    android:textSize="16dip" />
+
+				<TextView
+				    android:id="@+id/TextKmH"
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:gravity="center_horizontal"
+				    android:textColor="@color/text_black_default"
+				    android:textSize="24dip"
+				    android:textStyle="bold" />
+
+			</LinearLayout>
+
+			<LinearLayout
+			    android:layout_width="0dip"
+			    android:layout_height="wrap_content"
+			    android:layout_weight=".5"
+			    android:orientation="vertical"
+			    android:padding="10dip" >
+
+			</LinearLayout>
+		</TableRow>
+
+	</TableLayout>
+
+	<TableLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:shrinkColumns="*"
+	    android:stretchColumns="*"
+        android:padding="10dip"
+        android:layout_gravity="bottom"
+	>
+	    <TableRow
+ 	        android:layout_width="fill_parent"
+ 	        android:layout_height="wrap_content"
+ 	        android:orientation="horizontal"
+ 	    >
+			<!-- Start -->
+			<ImageView
+				android:layout_width="24dip"
+				android:layout_height="24dip"
+				android:src="@drawable/map_flag_start_48x48"
+		    	android:contentDescription="@string/flag_start"/>
+			<TextView
+			    android:id="@+id/TextStart"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:textSize="14dip"
+			    android:textStyle="bold"/>
+		</TableRow>
+
+ 	    <TableRow
+ 	        android:layout_width="fill_parent"
+ 	        android:layout_height="wrap_content"
+ 	        android:orientation="horizontal"
+ 	    >
+			<!-- End -->
+			<ImageView
+				android:layout_width="24dip"
+				android:layout_height="24dip"
+				android:src="@drawable/map_flag_finish_48x48"
+		    	android:contentDescription="@string/flag_finish"
+		    />
+			<TextView
+			    android:id="@+id/TextEnd"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:textSize="14dip"
+			    android:textStyle="bold"
+			/>
+		</TableRow>
+		<!-- Nb Localisation -->
+<!-- 	    <TableRow
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+	    	android:orientation="horizontal"
+	    	android:visibility="gone"
+		>
+			<TextView
+				android:layout_width="0dip"
+				android:layout_height="wrap_content"
+				android:layout_weight=".3"
+				android:text="@string/nb_localisation"
+		    />
+			<TextView
+			    android:id="@+id/TextNb"
+				android:layout_width="0dip"
+				android:layout_height="wrap_content"
+				android:layout_weight=".7"
+		    />
+		</TableRow>
+ -->		<!-- Time Start -->
+<!-- 	    <TableRow
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+	    	android:orientation="horizontal"
+	    	android:visibility="gone"
+		>
+			<TextView
+				android:layout_width="0dip"
+				android:layout_height="wrap_content"
+				android:layout_weight=".3"
+				android:text="@string/time_start"
+		    />
+			<TextView
+			    android:id="@+id/TextTimeStart"
+				android:layout_width="0dip"
+				android:layout_height="wrap_content"
+				android:layout_weight=".7"
+		    />
+		</TableRow>
+ -->		<!-- Time Stop -->
+<!-- 	    <TableRow
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+	    	android:orientation="horizontal"
+	    	android:visibility="gone"
+		>
+			<TextView
+				android:layout_width="0dip"
+				android:layout_height="wrap_content"
+				android:layout_weight=".3"
+				android:text="@string/time_stop"
+		    />
+			<TextView
+			    android:id="@+id/TextTimeStop"
+				android:layout_width="0dip"
+				android:layout_height="wrap_content"
+				android:layout_weight=".7"
+		    />
+		</TableRow>
+ -->
+<!--  	    <TableRow
+ 	        android:layout_width="fill_parent"
+ 	        android:layout_height="wrap_content"
+ 	        android:orientation="vertical"
+ 	        android:padding="10dip"
+ 	        android:visibility="gone"
+ 	    >
+
+			Time Send
+			<TextView
+				android:layout_width="0dip"
+				android:layout_height="wrap_content"
+				android:layout_weight=".3"
+				android:text="@string/time_send"
+		    />
+			<TextView
+			    android:id="@+id/TextTimeSend"
+				android:layout_width="0dip"
+				android:layout_height="wrap_content"
+				android:layout_weight=".7"
+		    />
+		</TableRow>
+ -->
+  	</TableLayout>
+  	<LinearLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+ 		android:background="@drawable/borderline_gray"
+ 		android:layout_margin="5dip"
+  	>
+	 	<ImageView
+	 	    android:id="@+id/imageMap"
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent"
+		    android:src="@drawable/no_image"
+	 		android:contentDescription="@string/map"
+ 		    android:padding="10dip"
+	 	/>
+  	</LinearLayout>
+</LinearLayout>

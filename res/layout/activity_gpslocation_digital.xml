@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout   
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="#888888">
+
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="0dip"
+		android:layout_weight=".8"
+    	android:orientation="vertical"
+    	android:background="#FFFFFF"
+		android:layout_marginBottom="1dip"
+	>
+		<LinearLayout
+			android:layout_width="fill_parent"
+			android:layout_height="0dip"
+			android:layout_weight=".1"
+	    	android:orientation="horizontal"
+		>
+	    	<com.runningstars.widget.textview.TextFitTextView
+			    android:id="@+id/TextAddress"
+				android:layout_width="0dip"
+				android:layout_height="fill_parent"
+				android:layout_weight=".5"
+				android:padding="5dip"
+			/>
+	    	<com.runningstars.widget.textview.TextFitTextView
+			    android:id="@+id/TextSpeedAverage"
+				android:layout_width="0dip"
+				android:layout_height="fill_parent"
+				android:layout_weight=".5"
+				android:padding="5dip"
+			/>
+	    </LinearLayout>
+
+		<LinearLayout
+		    android:layout_width="fill_parent"
+		    android:layout_height="0dip"
+		    android:layout_weight=".9"
+		    android:orientation="vertical"
+		    android:paddingBottom="2dip" >
+
+			<com.runningstars.widget.textview.TextFitTextView
+			    android:id="@+id/TextSpeed"
+				android:layout_width="fill_parent"
+				android:layout_height="0dip"
+				android:layout_weight=".88"
+			/>
+			<SlidingDrawer 
+			    android:id="@+id/slidingMap"
+				android:layout_width="fill_parent"
+				android:layout_height="0dip"
+				android:layout_weight=".12"
+				android:handle="@+id/slidingMapButton"
+				android:content="@+id/mapview"
+				android:clickable="true"
+				android:animateOnClick="true"
+			>
+				<Button 
+				   android:id="@+id/slidingMapButton" 
+				   android:layout_width="25dip" 
+				   android:layout_height="25dip"
+				   android:background="@drawable/slide_button_red_01">
+				</Button>
+		        <com.google.android.maps.MapView
+				    android:id="@+id/mapview"
+					android:layout_width="fill_parent"
+					android:layout_height="fill_parent"
+				    android:clickable="true"
+				    android:apiKey="@string/mapKey"
+				/>
+			</SlidingDrawer>
+        </LinearLayout>
+    </LinearLayout>
+
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="0dip"
+		android:layout_weight=".2"
+    	android:orientation="horizontal"
+	>
+		<com.runningstars.widget.textview.TextFitTextView
+	    	android:id="@+id/TextElapsedTime"
+			android:layout_height="fill_parent"
+			android:layout_width="0dip"
+			android:layout_weight=".5"
+			android:singleLine="true"
+			android:layout_marginRight="1dip"
+    		android:background="#FFFFFF"
+    		android:padding="5dip"
+    	/>
+
+		<com.runningstars.widget.textview.TextFitTextView
+	    	android:id="@+id/TextDistance"
+			android:layout_height="fill_parent"
+			android:layout_width="0dip"
+			android:layout_weight=".5"
+			android:layout_marginLeft="1dip"
+    		android:background="#FFFFFF"
+    		android:padding="5dip"
+		/>
+	</LinearLayout>
+</LinearLayout>
