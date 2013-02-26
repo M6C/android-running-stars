@@ -1,6 +1,6 @@
 <project name="build" default="ivy-publish" xmlns:ivy="antlib:org.apache.ivy.ant">
  
-	<import file="../Script/ant/build-ivy.xml" as="build-ivy"/>
+	<import file="../continuous-integration-script/ant/build-ivy.xml" as="build-ivy"/>
 
 	<target name="ivy-makepom">
   	    <antcall target="build-ivy.ivy-makepom-snapshot"/>
