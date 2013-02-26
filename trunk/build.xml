@@ -1,0 +1,12 @@
+<project name="build" default="ivy-publish" xmlns:ivy="antlib:org.apache.ivy.ant">
+ 
+	<import file="../Script/ant/build-ivy.xml" as="build-ivy"/>
+
+	<target name="ivy-makepom">
+  	    <antcall target="build-ivy.ivy-makepom-snapshot"/>
+	</target>
+
+	<target name="ivy-publish">
+  	    <antcall target="build-ivy.ivy-publish-snapshot"/>
+	</target>
+</project>
