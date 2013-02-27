@@ -29,7 +29,13 @@
             <scope>provided</scope>
 		    <optional>false</optional>
 	    </dependency>
-        </dependencies>
+	   <dependency>
+	        <groupId>com.google.android.maps</groupId>
+	        <artifactId>maps</artifactId>
+	        <version>8_r2</version>
+	        <scope>provided</scope>
+	    </dependency>
+	</dependencies>
 
     <build>
 	  <sourceDirectory>src</sourceDirectory>
