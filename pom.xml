@@ -22,7 +22,7 @@
 		</dependency>
 	    <dependency>
 		    <groupId>org.cameleon</groupId>
-		    <artifactId>android.addon.api.12</artifactId>
+		    <artifactId>android.addon.api.10</artifactId>
 		    <version>1.0-SNAPSHOT</version>
             <scope>provided</scope>
 		    <optional>false</optional>
