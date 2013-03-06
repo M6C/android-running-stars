@@ -12,9 +12,14 @@
         <dependency>
             <groupId>com.google.android</groupId>
             <artifactId>android</artifactId>
-            <version>2.1.2</version>
+            <version>2.3.3</version>
             <scope>provided</scope>
         </dependency>
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<version>3.0</version>
+		</dependency>
 	    <dependency>
 		    <groupId>org.cameleon</groupId>
 		    <artifactId>android.addon.api.12</artifactId>
@@ -90,7 +95,7 @@
 
                   <configuration>
                       <sdk>
-                          <platform>2.1</platform>
+                          <platform>2.3.3</platform>
                       </sdk>
                       <sign><debug>false</debug></sign>
                       <deleteConflictingFiles>true</deleteConflictingFiles>
@@ -101,8 +106,8 @@
               <plugin>
                   <artifactId>maven-compiler-plugin</artifactId>
                   <configuration>
-                      <source>1.5</source>
-                      <target>1.5</target>
+                      <source>1.6</source>
+                      <target>1.6</target>
                   </configuration>
               </plugin>
           </plugins>
