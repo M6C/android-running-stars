@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
     
 	<parent>
 		<groupId>com.laposte.android</groupId>
 		<artifactId>android-laposte-remise-parent</artifactId>
+<!-- 		<version>${artifact.version.snapshot}</version> -->
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 
@@ -121,7 +121,7 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-    
+
 	<build>
 		<sourceDirectory>${basedir}/target/generated-sources/main/java</sourceDirectory>
 		<testSourceDirectory>${basedir}/target/generated-sources/test/java</testSourceDirectory>
@@ -168,16 +168,27 @@
                 <extensions>true</extensions>
             </plugin>
 
- 		      <plugin>
-		        <groupId>org.apache.maven.plugins</groupId>
-		        <artifactId>maven-compiler-plugin</artifactId>
-		        <version>2.5.1</version>
-		        <configuration>
-		          <source>1.6</source>
-		          <target>1.6</target>
-		          <encoding>Cp1252</encoding>
-		        </configuration>
-		      </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.5.1</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<encoding>Cp1252</encoding>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<tagBase>
+						https://svn.collaboratif-courrier.fr/svn/mFacteur/terminal/Prod/maven/Remise/tags
+					</tagBase>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 </project>
