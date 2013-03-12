@@ -186,7 +186,7 @@
                             <excludeScope>provided</excludeScope>
                             <skip>true</skip>
                             <includes>**/*.class</includes>
-                            <outputDirectory>${project.basedir}/target/classes</outputDirectory>
+                            <outputDirectory>${project.basedir}/bin</outputDirectory>
                             <overWriteReleases>true</overWriteReleases>
                             <overWriteSnapshots>true</overWriteSnapshots>
                         </configuration>
