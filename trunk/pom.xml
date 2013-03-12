@@ -178,8 +178,17 @@
                 <executions>
                     <execution>
                         <id>unpack</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>unpack-dependencies</goal>
+                        </goals>
                         <configuration>
-                            <skip>false</skip>
+                            <excludeScope>provided</excludeScope>
+                            <skip>true</skip>
+                            <includes>**/*.class</includes>
+                            <outputDirectory>${project.basedir}/bin</outputDirectory>
+                            <overWriteReleases>true</overWriteReleases>
+                            <overWriteSnapshots>true</overWriteSnapshots>
                         </configuration>
                     </execution>
                 </executions>
