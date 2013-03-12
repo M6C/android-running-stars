@@ -26,13 +26,13 @@
 		    <groupId>org.cameleon</groupId>
 		    <artifactId>android.addon.api.10</artifactId>
 		    <version>1.0-SNAPSHOT</version>
-		    <scope>compile</scope>
+		    <scope>provided</scope>
 	    </dependency>
 	    <dependency>
 		    <groupId>org.cameleon</groupId>
 		    <artifactId>gdocument.tracer.gps</artifactId>
 		    <version>1.0-SNAPSHOT</version>
-		    <scope>compile</scope>
+		    <scope>provided</scope>
 	    </dependency>
 
 	   <dependency>
@@ -186,7 +186,7 @@
                             <excludeScope>provided</excludeScope>
                             <skip>true</skip>
                             <includes>**/*.class</includes>
-                            <outputDirectory>${project.basedir}/target/generated-sources/extracted-dependencies</outputDirectory>
+                            <outputDirectory>${project.basedir}/target/classes</outputDirectory>
                             <overWriteReleases>true</overWriteReleases>
                             <overWriteSnapshots>true</overWriteSnapshots>
                         </configuration>
