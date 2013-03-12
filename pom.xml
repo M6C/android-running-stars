@@ -178,7 +178,7 @@
                 <executions>
                     <execution>
                         <id>unpack</id>
-                        <phase>generate-sources</phase>
+                        <phase>compile</phase>
                         <goals>
                             <goal>unpack-dependencies</goal>
                         </goals>
