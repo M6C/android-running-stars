@@ -33,6 +33,11 @@
 			<version>r7</version>
 		</dependency>
 	    <dependency>
+			<groupId>com.android.future</groupId>
+			<artifactId>usb</artifactId>
+			<version>10_r2</version>
+		</dependency>
+	    <dependency>
 		    <groupId>org.cameleon</groupId>
 		    <artifactId>android.addon.api.10</artifactId>
 		    <version>1.0-SNAPSHOT</version>
@@ -49,7 +54,7 @@
 	        <groupId>com.google.android.maps</groupId>
 	        <artifactId>maps</artifactId>
 	        <version>8_r2</version>
- 	        <scope>provided</scope>
+<!--  	        <scope>provided</scope> -->
 	    </dependency>
  
 	</dependencies>
