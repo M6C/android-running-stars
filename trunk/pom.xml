@@ -178,11 +178,11 @@
 						<sign><debug>false</debug></sign>
 						<deleteConflictingFiles>true</deleteConflictingFiles>
 						<undeployBeforeDeploy>true</undeployBeforeDeploy>
+						<dex>
+						<coreLibrary>true</coreLibrary>
+						</dex>
 					</configuration>
 					<extensions>true</extensions>
-					<dex>
-					<coreLibrary>true</coreLibrary>
-					</dex>
               </plugin>
               <plugin>
                   <artifactId>maven-compiler-plugin</artifactId>
