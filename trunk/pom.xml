@@ -179,7 +179,7 @@
 						<deleteConflictingFiles>true</deleteConflictingFiles>
 						<undeployBeforeDeploy>true</undeployBeforeDeploy>
 						<dex>
-						<coreLibrary>true</coreLibrary>
+						<coreLibrary>false</coreLibrary>
 						</dex>
 					</configuration>
 					<extensions>true</extensions>
