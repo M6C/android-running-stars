@@ -26,13 +26,11 @@
 		    <groupId>org.cameleon</groupId>
 		    <artifactId>android.addon.api.10</artifactId>
 		    <version>1.0-SNAPSHOT</version>
-		    <scope>runtime</scope>
 	    </dependency>
 	    <dependency>
 		    <groupId>org.cameleon</groupId>
 		    <artifactId>gdocument.tracer.gps</artifactId>
 		    <version>1.0-SNAPSHOT</version>
-		    <scope>runtime</scope>
 	    </dependency>
 
 	   <dependency>
@@ -84,7 +82,7 @@
                                         </versionRange>
                                         <goals>
                                             <goal>generate-sources</goal>
-                                            <goal>proguard</goal>
+<!--                                             <goal>proguard</goal> -->
                                             <goal>manifest-update</goal>
                                         </goals>
                                     </pluginExecutionFilter>
