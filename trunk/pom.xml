@@ -158,6 +158,9 @@
 						    <path>${android-sdk-path}</path>
 						    <platform>2.3.3</platform>
 						</sdk>
+	                    <zipalign>
+	                        <verbose>true</verbose>
+	                    </zipalign>
 						<sign><debug>false</debug></sign>
 						<deleteConflictingFiles>true</deleteConflictingFiles>
 						<undeployBeforeDeploy>true</undeployBeforeDeploy>
