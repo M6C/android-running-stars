@@ -180,7 +180,9 @@
 						<undeployBeforeDeploy>true</undeployBeforeDeploy>
 					</configuration>
 					<extensions>true</extensions>
-					<CoreLibrary>true</CoreLibrary>
+					<dex>
+					<coreLibrary>true</coreLibrary>
+					</dex>
               </plugin>
               <plugin>
                   <artifactId>maven-compiler-plugin</artifactId>
