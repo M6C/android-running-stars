@@ -14,5 +14,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="org.apache.ivyde.eclipse.cpcontainer.IVYDE_CONTAINER/?project=android-running-stars&amp;ivyXmlPath=ivy-1.0-SNAPSHOT.xml&amp;confs=*"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
