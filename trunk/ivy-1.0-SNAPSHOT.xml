@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd">
-    <info organisation="org.cameleon" module="running.stars" revision="1.0-SNAPSHOT" status="release" publication="20130308233412"/>
+    <info organisation="org.cameleon" module="running.stars" revision="1.0-SNAPSHOT" status="snapshot" publication="20130308233412"/>
+
+	<configurations>
+	    <conf name="runtime" description="Required to compile application"/>
+	</configurations>
 
     <dependencies>
-	    <dependency org="org.cameleon" name="android.addon.api.10" rev="1.0-SNAPSHOT" changing="true"/>
-	    <dependency org="org.cameleon" name="gdocument.tracer.gps" rev="1.0-SNAPSHOT" changing="true"/>
+	    <dependency org="org.cameleon" name="android.addon.api.10" rev="1.0-SNAPSHOT" conf="runtime->default"/>
+	    <dependency org="org.cameleon" name="gdocument.tracer.gps" rev="1.0-SNAPSHOT" conf="runtime->default"/>
 <!-- 	    <dependency org="com.google.android" name="android" rev="2.2.1"/> -->
     </dependencies>
 
