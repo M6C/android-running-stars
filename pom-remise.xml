@@ -158,7 +158,7 @@
                     <sdk>
                         <path>${env.ANDROID_HOME}</path>
                         <platform>17</platform>
-                    </sdk>
+                    </sdk> 
                     <emulator>
                         <avd>16</avd>
                     </emulator>
@@ -190,5 +190,19 @@
 				</configuration>
 			</plugin>
 		</plugins>
+
+		<!-- SVN -->
+		<extensions>
+		    <extension>
+				<groupId>org.apache.maven.scm</groupId>
+				<artifactId>maven-scm-provider-svnexe</artifactId>
+				<version>1.8</version>
+		    </extension>
+		    <extension>
+				<groupId>org.apache.maven.scm</groupId>
+				<artifactId>maven-scm-provider-svn-commons</artifactId>
+				<version>1.8</version>
+		    </extension>
+		</extensions>
 	</build>
 </project>
