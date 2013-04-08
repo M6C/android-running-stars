@@ -13,82 +13,152 @@
 	<name>android-laposte-remise</name>
     
 	<properties>
+		<!-- Dependencies -->
 		<platform.version>4.1.1.4</platform.version>
+		<java.version>1.6</java.version>
 		<android.sdk.version>17</android.sdk.version>
-		<android-sdk-path>C:\Program Files (x86)\Android\android-sdk\</android-sdk-path>
-		<android-sdk-path-release>E:\Java\android-sdk</android-sdk-path-release>
-<!-- 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> -->
+
+		<!-- Plugins -->
+		<maven-compiler-plugin.version>2.5.1</maven-compiler-plugin.version>
+		<android-maven-plugin.version>3.5.1</android-maven-plugin.version>
+		<cobertura.version>2.5.2</cobertura.version>
+
+		<!-- Sonar common configuration -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
 	</properties>
-    
-    <pluginRepositories>
-        <pluginRepository>
-            <id>laposte</id>
-            <name>laposte</name>
-            <url>http://console.facteo.courrier.intra.laposte.fr:8081/nexus/content/groups/public</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
-    
+
+	<scm>
+		<connection>scm:svn:https://svn.collaboratif-courrier.fr/svn/mFacteur/terminal/Prod/Android/trunk/RemisePFMC</connection>
+	</scm>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>laposte</id>
+			<name>laposte</name>
+			<url>http://console.facteo.courrier.intra.laposte.fr:8081/nexus/content/groups/public</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.google.android</groupId>
+				<artifactId>android</artifactId>
+				<version>${platform.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.google.android</groupId>
+				<artifactId>android-test</artifactId>
+				<version>${platform.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.jayway.maven.plugins.android.generation2</groupId>
+				<artifactId>android-maven-plugin</artifactId>
+				<version>3.5.1</version>
+			</dependency>
+			<dependency>
+				<groupId>com.jayway.maven.plugins.android.generation2</groupId>
+				<artifactId>maven-android-plugin</artifactId>
+				<version>2.8.4</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 	<dependencies>
 		<dependency>
 			<groupId>com.google.android</groupId>
 			<artifactId>android</artifactId>
-			<version>${platform.version}</version>
-			<scope>provided</scope>
+			<exclusions>
+			  <exclusion>
+			    <groupId>xpp3</groupId>
+			    <artifactId>xpp3</artifactId>
+			  </exclusion>
+			</exclusions>
 		</dependency>
-         <dependency>
-            <groupId>com.laposte.android</groupId>
-            <artifactId>android-laposte-signature</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.laposte.android</groupId>
-            <artifactId>android-laposte-zxing</artifactId>
-            <version>1.0.0</version>
-            <type>apklib</type>
-        </dependency>
-        <dependency>
-            <groupId>com.laposte.android</groupId>
-            <artifactId>android-laposte-antibrouillard</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.actionbarsherlock</groupId>
-            <artifactId>library</artifactId>
-            <version>4.2.0</version>
-            <type>apklib</type>
-        </dependency>
-        <dependency>
-            <groupId>com.j256.ormlite</groupId>
-            <artifactId>ormlite-android</artifactId>
-            <version>4.42</version>
-        </dependency>
-        <dependency>
-            <groupId>com.capptain.android</groupId>
-            <artifactId>capptain-agent</artifactId>
-            <version>1.15.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.capptain.android</groupId>
-            <artifactId>capptain-common</artifactId>
-            <version>1.15.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.capptain.android</groupId>
-            <artifactId>capptain-reach</artifactId>
-            <version>1.15.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.capptain.android</groupId>
-            <artifactId>capptain-service</artifactId>
-            <version>1.15.0</version>
-        </dependency>
-        
+		<dependency>
+			<groupId>xmlpull</groupId>
+			<artifactId>xmlpull</artifactId>
+			<version>1.1.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.laposte.android</groupId>
+			<artifactId>android-laposte-signature</artifactId>
+			<version>1.0.1</version>
+			<type>apklib</type>
+		</dependency>
+		<dependency>
+			<groupId>com.laposte.android</groupId>
+			<artifactId>android-laposte-zxing</artifactId>
+			<version>1.0.0</version>
+			<type>apklib</type>
+		</dependency>
+		<dependency>
+			<groupId>com.laposte.android</groupId>
+			<artifactId>android-laposte-antibrouillard</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.actionbarsherlock</groupId>
+			<artifactId>library</artifactId>
+			<version>4.2.0</version>
+			<type>apklib</type>
+		</dependency>
+		<dependency>
+			<groupId>com.laposte.android</groupId>
+			<artifactId>android-laposte-graphique</artifactId>
+			<version>1.0.3</version>
+			<type>apklib</type>
+		</dependency>
+		<dependency>
+			<groupId>org.simpleframework</groupId>
+			<artifactId>simple-xml</artifactId>
+			<version>2.7</version>
+			<exclusions>
+			  <exclusion>
+			    <groupId>xpp3</groupId>
+			    <artifactId>xpp3</artifactId>
+			  </exclusion>
+			  <exclusion>
+			    <groupId>stax</groupId>
+			    <artifactId>stax-api</artifactId>
+			  </exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.j256.ormlite</groupId>
+			<artifactId>ormlite-android</artifactId>
+			<version>4.42</version>
+		</dependency>
+		<dependency>
+			<groupId>com.capptain.android</groupId>
+			<artifactId>capptain-agent</artifactId>
+			<version>1.15.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.capptain.android</groupId>
+			<artifactId>capptain-common</artifactId>
+			<version>1.15.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.capptain.android</groupId>
+			<artifactId>capptain-reach</artifactId>
+			<version>1.15.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.capptain.android</groupId>
+			<artifactId>capptain-service</artifactId>
+			<version>1.15.0</version>
+		</dependency>
+
 		<!-- robolectric testing -->
 		<dependency>
 			<groupId>com.pivotallabs</groupId>
@@ -96,23 +166,23 @@
 			<version>1.1</version>
 			<scope>test</scope>
 		</dependency>
-        <dependency>
-            <groupId>org.easymock</groupId>
-            <artifactId>easymock</artifactId>
-            <version>3.1</version>
-        </dependency>
+		<dependency>
+			<groupId>org.easymock</groupId>
+			<artifactId>easymock</artifactId>
+			<version>3.1</version>
+		</dependency>
 		<dependency>
 			<groupId>org.hamcrest</groupId>
-            <artifactId>hamcrest-all</artifactId>
-            <version>1.3</version>
+			<artifactId>hamcrest-all</artifactId>
+			<version>1.3</version>
 			<scope>test</scope>
 		</dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.1</version>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.1</version>
 			<scope>test</scope>
-        </dependency>
+		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -122,50 +192,109 @@
 	</dependencies>
 
 	<build>
-		<sourceDirectory>${basedir}/target/generated-sources/main/java</sourceDirectory>
-		<testSourceDirectory>${basedir}/target/generated-sources/test/java</testSourceDirectory>
+		<sourceDirectory>${basedir}/src</sourceDirectory>
+
+		<pluginManagement>
+			<plugins>
+
+				<plugin>
+					<groupId>com.jayway.maven.plugins.android.generation2</groupId>
+					<artifactId>android-maven-plugin</artifactId>
+					<version>${android-maven-plugin.version}</version>
+					<configuration>
+						<sdk>
+							<platform>${android.sdk.version}</platform>
+							<path>${android-sdk-path}</path>
+						</sdk>
+						<undeployBeforeDeploy>true</undeployBeforeDeploy>
+					</configuration>
+					<extensions>true</extensions>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.maven.plugins</groupId>
+										<artifactId>maven-antrun-plugin</artifactId>
+										<versionRange>[1.7,)</versionRange>
+										<goals>
+											<goal>run</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>2.4</version>
+			        <configuration>
+<!-- 			          <preparationGoals>antrun:run</preparationGoals> -->
+<!-- 			          <goals>antrun:run</goals> -->
+<!--
+			          <checkModificationExcludes>
+				      	<checkModificationExclude>src</checkModificationExclude>
+			          </checkModificationExcludes>
+-->
+                      <!-- If you have args specific for your release, put them here: -->
+                      <releaseProfiles>ant-run-release</releaseProfiles>
+			    	</configuration>
+				</plugin>
+
+			</plugins>
+		</pluginManagement>
 
 		<plugins>
 
- 			<plugin>
-			   <groupId>org.codehaus.mojo</groupId>
-			    <artifactId>build-helper-maven-plugin</artifactId>
-			    <version>1.1</version>
-			    <executions>
-			        <execution>
-			            <id>add-source</id>
-			            <phase>generate-sources</phase>
-			            <goals>
-			                <goal>add-source</goal>
-			            </goals>
-			            <configuration>
-			                <sources>
-			                    <source>${basedir}/src/main/java</source>
-			                    <source>${basedir}/target/generated-sources</source>
-			                    <source>${basedir}/target/generated-sources/r</source>
-			                    <source>${basedir}/target/generated-sources/main/java</source>
-    			                </sources>
-			            </configuration>
-			        </execution>
-			    </executions>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.1</version>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+			                    <source>${basedir}/src</source>
+								<source>${basedir}/target/generated-sources</source>
+								<source>${basedir}/target/generated-sources/r</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
-		    <plugin>
-                <groupId>com.jayway.maven.plugins.android.generation2</groupId>
-                <artifactId>android-maven-plugin</artifactId>
+			<plugin>
+				<groupId>com.jayway.maven.plugins.android.generation2</groupId>
+				<artifactId>android-maven-plugin</artifactId>
 				<version>3.5.1</version>
 				<configuration>
-                    <sdk>
-                        <path>${env.ANDROID_HOME}</path>
-                        <platform>17</platform>
-                    </sdk> 
-                    <emulator>
-                        <avd>16</avd>
-                    </emulator>
-                    <deleteConflictingFiles>true</deleteConflictingFiles>
-                    <undeployBeforeDeploy>true</undeployBeforeDeploy>
-                </configuration>
-                <extensions>true</extensions>
-            </plugin>
+					<sdk>
+						<path>${env.ANDROID_HOME}</path>
+						<platform>17</platform>
+					</sdk>
+					<emulator>
+						<avd>16</avd>
+					</emulator>
+					<deleteConflictingFiles>true</deleteConflictingFiles>
+					<undeployBeforeDeploy>true</undeployBeforeDeploy>
+				</configuration>
+				<extensions>true</extensions>
+			</plugin>
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -184,24 +313,127 @@
 				<version>2.4</version>
 				<configuration>
 					<tagBase>
-						https://svn.collaboratif-courrier.fr/svn/mFacteur/terminal/Prod/maven/Remise/tags
+						https://svn.collaboratif-courrier.fr/svn/mFacteur/terminal/Prod/Android/tags
 					</tagBase>
 				</configuration>
 			</plugin>
+<!--
+		    <plugin>
+		       <groupId>org.apache.maven.plugins</groupId>
+		       <artifactId>maven-scm-plugin</artifactId>
+		       <version>1.8.1</version>
+		       <configuration>
+		         <username>david.roca</username>
+		         <password>dra013</password>
+		       </configuration>
+		       <executions>
+		         <execution>
+		           <id>export-formation</id>
+		           <phase>clean</phase>
+		           <goals>
+		             <goal>export</goal>
+		           </goals>
+		           <configuration>
+				     <basedir>scm:svn:https://svn.collaboratif-courrier.fr/svn/mFacteur/terminal/Prod/Android/trunk/RemisePFMC</basedir>
+				     <exportDirectory>${basedir}/target/export_formation</exportDirectory>
+		           </configuration>
+		         </execution>     
+		       </executions>
+		     </plugin>
+-->
+<!-- 
+ 	        <plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.7</version>
+	            <executions>
+	                <execution>
+	                    <id>run</id>
+						<phase>clean</phase>
+	                    <goals>
+	                        <goal>run</goal>
+	                    </goals>
+	                    <configuration>
+	                      <tasks>
+							<echo>************** ANT ****************</echo>
+	                        <property name="maven.project.url" value="${project.url}" />
+	                        <ant antfile="build-generate-sources.xml" />
+	                      </tasks>
+	                    </configuration>
+	                </execution>
+	             </executions>
+	        </plugin>
+ -->
 		</plugins>
 
 		<!-- SVN -->
 		<extensions>
-		    <extension>
+			<extension>
 				<groupId>org.apache.maven.scm</groupId>
 				<artifactId>maven-scm-provider-svnexe</artifactId>
 				<version>1.8</version>
-		    </extension>
-		    <extension>
+			</extension>
+			<extension>
 				<groupId>org.apache.maven.scm</groupId>
 				<artifactId>maven-scm-provider-svn-commons</artifactId>
 				<version>1.8</version>
-		    </extension>
+			</extension>
 		</extensions>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>emma</id>
+			<properties>
+				<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+				<sonar.branch>emma</sonar.branch>
+				<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+				<sonar.core.codeCoveragePlugin>emma</sonar.core.codeCoveragePlugin>
+				<sonar.emma.reportPath>target/emma</sonar.emma.reportPath>
+			</properties>
+		</profile>
+        <profile>
+            <id>ant-run-release</id>
+
+            <build>
+                <plugins>
+<!-- 
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>1.7</version>
+                        <executions>
+			                <execution>
+			                    <id>run_prepare_deploy</id>
+			                    <goals>
+			                        <goal>run</goal>
+			                    </goals>
+			                    <configuration>
+			                     <task>
+			                         <property name="maven.project.url" value="${project.url}" />
+			                         <ant antfile="build-prepare-package.xml" />
+			                     </task>
+			                    </configuration>
+			                </execution>
+                        </executions>
+                    </plugin>
+ -->
+                </plugins>
+            </build>
+        </profile>
+	</profiles>
+
+	<distributionManagement>
+		<repository>
+			<id>lapostemirror</id>
+			<name>facteo.courrier.intra.laposte.fr</name>
+			<url>http://console.facteo.courrier.intra.laposte.fr:8081/nexus/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>lapostemirror</id>
+			<name>facteo.courrier.intra.laposte.fr</name>
+			<url>http://console.facteo.courrier.intra.laposte.fr:8081/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
 </project>
