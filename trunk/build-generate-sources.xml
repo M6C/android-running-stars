@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Remise-initialize" default="generate-sources">
+    
+    <target name="setup-properties">
+        <echo message="*** Setup-Properties: setting all props ***" />
+        <loadproperties srcFile="remise.properties"/>
+
+		<!-- Set Default Directory to 'export.directory' property if not set -->
+		<condition property="export.directory" value="${basedir}/target/export_formation">
+		    <not><isset property="export.directory"/></not>
+		</condition>
+		<echo message="export.directory property is set to : '${export.directory}'" />
+
+        <property name="remise.url" value="Recette_externe" />
+        <property name="remise.debug" value="true"/>
+        <property name="remise.version" value="R3S-V5.000"/>
+        <property name="remise.formation" value="true" />
+        <property name="remise.build" value="3" />
+        
+        <condition property="remise.icon" value="@drawable/ic_formation" else="@drawable/ic_launcher">
+            <equals arg1="${remise.formation}" arg2="true" />
+        </condition>
+        <condition property="remise.app_name" value="Formation" else="Remise">
+            <equals arg1="${remise.formation}" arg2="true" />
+        </condition>
+        <condition property="target.package.name" value="remisepfmcformation" else="remisepfmcpack">
+            <equals arg1="${remise.formation}" arg2="true" />
+        </condition>
+        <property name="base.package" value="com.laposte" />
+        <property name="source.package" value="${base.package}.remisepfmcpack" />
+        <property name="target.package" value="${base.package}.${target.package.name}" />
+    </target>
+
+    <target name="generate-sources" depends="setup-properties">
+        <echo message="*** Initialize : replacing URL, DEBUG and VERSION parameters ***" />
+        <property name="remise.path.root" value="${export.directory}"/>
+        <property name="remise.fakeimei" value="false"/>
+        <property name="remise.proxymock" value="false"/>
+        <property name="remise.path.src" value="${remise.path.root}/src/main/java"/>
+        <property name="remise.path.src.test" value="${remise.path.root}/src/test/java"/>
+
+<!--         <property name="remise.path.src" value="target/generated-sources/main/java"/> -->
+<!--         <property name="remise.path.src.test" value="target/generated-sources/test/java"/> -->
+<!--         <property name="remise.path.src" value="target/checkout/src/main/java"/> -->
+<!--         <property name="remise.path.src.test" value="target/checkout/src/test/java"/> --> 
+        <antcall target="-copy-sources"/>
+
+        <copy file="${remise.path.root}/res/raw/remisetemplate.properties" tofile="${remise.path.root}/res/raw/remise.properties" overwrite="true">
+            <filterchain>
+                <replacetokens>
+                    <token key="URL" value="${remise.url}"/>
+                    <token key="DEBUG" value="${remise.debug}"/>
+                    <token key="VERSION" value="${remise.version}"/>
+                    <token key="FORMATION" value="${remise.formation}"/>
+                    <token key="FAKEIMEI" value="${remise.fakeimei}"/>
+                    <token key="PROXYMOCK" value="${remise.proxymock}"/>
+                </replacetokens>
+            </filterchain>
+        </copy>
+<!--  
+         <copy file="${remise.path.root}/AndroidManifest.xml" tofile="${remise.path.root}/AndroidManifest_formation.xml" overwrite="true">
+            <filterchain>
+                <tokenfilter>
+                    <replaceregex pattern='package="com.laposte.remisepfmcpack"' replace='package="com.laposte.remisepfmcformation"' flags='g'/>
+                    <replaceregex pattern='android:icon="@drawable/ic_launcher"' replace='android:icon="@drawable/ic_formation"' flags='g'/>
+                    <replaceregex pattern='android:name=".ApplicationRemise3S"' replace='android:name="ApplicationRemise3S"' flags='g'/>
+                    <replaceregex pattern='android:label="Remise"' replace='android:label="Formation"' flags='g'/>
+                </tokenfilter>
+            </filterchain>
+        </copy>
+        <delete file="${remise.path.root}/AndroidManifest.xml"/>
+        <copy file="${remise.path.root}/AndroidManifest_formation.xml" tofile="${remise.path.root}/AndroidManifest.xml"/>
+        <delete file="${remise.path.root}/AndroidManifest_formation.xml"/>
+ -->
+        <copy file="${remise.path.root}/AndroidManifestTemplate.xml" tofile="${remise.path.root}/AndroidManifest.xml" overwrite="true">
+            <filterchain>
+                <replacetokens>
+                    <token key="VERSION" value="${remise.version}"/>
+                    <token key="ICON" value="${remise.icon}"/>
+                    <token key="APP_NAME" value="${remise.app_name}"/>
+                    <token key="BUILD" value="${remise.build}"/>
+                    <token key="PACKAGE" value="${target.package}"/>
+                </replacetokens>
+            </filterchain>
+        </copy>
+    </target>
+    
+    <target name="-copy-sources" if="remise.formation">
+<!-- 
+        <echo message="Generate path from package ${target.package} and ${source.package}"/>
+        <echo message="${target.package}" file="some.tmp.file" />
+        <loadfile property="target.package.path" srcFile="some.tmp.file">
+            <filterchain>
+                <tokenfilter>
+                    <replaceregex pattern="\." replace="/" flags="g"/>
+                </tokenfilter>
+            </filterchain>
+        </loadfile>
+        <echo message="${source.package}" file="some.tmp.file" />
+        <loadfile property="source.package.path" srcFile="some.tmp.file">
+            <filterchain>
+                <tokenfilter>
+                    <replaceregex pattern="\." replace="/" flags="g"/>
+                </tokenfilter>
+            </filterchain>
+        </loadfile>
+        <delete file="some.tmp.file" />
+        
+        <echo message="creating target directory structure : ${target.package.path} ..." />
+        <mkdir dir="${remise.path.src}/${target.package.path}"/>
+        
+        <echo message="Moving java files from : ${remise.path.src}/${source.package.path} to ${remise.path.src}/${target.package.path} ..." />
+        <copy todir="${remise.path.src}/${target.package.path}">
+            <fileset dir="${remise.path.src}/${source.package.path}"/>
+        </copy>
+        
+        <echo message="Moving java files from : src/test/java/${source.package.path} to target/generated-sources/test/java/${target.package.path} ..." />
+         <copy todir="${remise.path.src.test}/${target.package.path}">
+            <fileset dir="${remise.path.src.test}/${source.package.path}"/>
+        </copy>
+ -->
+        <echo message="Replacing package names ${source.package} to ${target.package}, in files ..." />
+        <replace dir="${remise.path.src}/" token="${source.package}" value="${target.package}"/>
+        <replace dir="${remise.path.src.test}/" token="${source.package}" value="${target.package}"/>
+<!-- 
+        <echo message="Delete directory ${remise.path.src}/${source.package.path}" />
+        <delete dir="${remise.path.src}/${source.package.path}" />
+        <echo message="Delete directory ${remise.path.src.test}/${source.package.path}" />
+        <delete dir="${remise.path.src.test}/${source.package.path}" />
+ -->
+    </target>
+</project>
