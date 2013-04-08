@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="svn-formation">
+<!-- 	<property file="build.properties"></property> -->
+<!--  	<xmlproperty file="pom.xml"/> -->
+
+	<property name="project.name" value="android-laposte-remise"/>
+	<property name="version.name" value="${project.version}"/>
+	<property name="branch.name" value="formation_${project.name}"/><!-- -${version.name}"/> -->
+<!-- 	<property name="export.directory" value="${basedir}/target/export_formation"/> -->
+<!-- 	<property name="export.directory" value="${basedir}"/> -->
+
+	<property name="svn.base.url" value="https://svn.collaboratif-courrier.fr/svn/mFacteur/terminal/Prod/maven/Remise" />
+	<property name="svn.branch.url" value="${svn.base.url}/branches/${branch.name}" />
+	<property name="svn.trunk.url" value="${svn.base.url}/trunk/${project.name}" />
+	<property name="svn.username" value="david.roca"/>
+	<property name="svn.password" value="dra013"/>
+	
+	<!-- SVN and SVN-ANT Tasks properties -->
+	<property name="svnant.lib.dir" location="lib/svn-ant-1.7.8" />
+	<property name="svnant.javahl" value="false" />
+	<property name="svnant.svnkit" value="true" />
+	<!-- SVN and SVN-ANT Tasks properties -->
+
+	<!-- *************************************************************** -->
+	<!-- Set-Up of SVN-ANT classpath -->
+	<!-- *************************************************************** -->
+	<path id="svnant.classpath">
+		<fileset dir="${svnant.lib.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<!-- *************************************************************** -->
+	<!-- Loading of SVN task -->
+	<!-- *************************************************************** -->
+	<typedef resource="org/tigris/subversion/svnant/svnantlib.xml" classpathref="svnant.classpath" />
+
+	<!-- *************************************************************** -->
+	<!-- Settings of SVN task -->
+	<!-- *************************************************************** -->
+	<svnSetting
+        javahl="${svnant.javahl}"
+        svnkit="${svnant.svnkit}"
+        username="${svn.username}"
+        password="${svn.password}"
+        id="svn.settings"
+    />
+		
+	<!-- *************************************************************** -->
+	<!-- tool-availability: Determine if SVN-ANT is available. -->
+	<!-- *************************************************************** -->
+	<target name="tool-availability">
+		<available resource="org/tigris/subversion/svnant/svnantlib.xml" classpathref="svnant.classpath" property="available.svnant" />
+		<echo message="SVN-ANT is available = ${available.svnant}" />
+	</target>
+
+	<!-- *************************************************************** -->
+	<!-- init-env: Environnement initialisation. -->
+	<!-- *************************************************************** -->
+	<target name="init-env" depends="does-svnant-exist" description="Environnement initialisation">
+		<!-- Set Default Directory to 'export.directory' property if not set -->
+		<condition property="export.directory" value="${basedir}/target/export_formation">
+		    <not><isset property="export.directory"/></not>
+		</condition>
+		<echo message="export.directory property is set to : '${export.directory}'" />
+	</target>
+	
+	<!-- **************************************************************** -->
+	<!-- does-svnant-exist: depends on tool-availablility and -->
+	<!-- displays error message -->
+	<!-- ***************************************************************** -->
+	<target name="does-svnant-exist" depends="tool-availability">
+		<fail unless="available.svnant">
+			SVN-ANT is not available, cannot perform tagging or checkout/export svn ant task.
+		</fail>
+	</target>
+
+	<!-- ****************************************************************** -->
+	<!-- svnbranch: creates a new branch using properties from -->
+	<!-- build.properties and uses SVNANT tasks -->
+	<!-- ****************************************************************** -->
+	<target name="svnbranch" depends="init-env" description="creates a new branch for individual project using svnant task">
+	
+		<property name="branch.src.url" value="${svn.trunk.url}" />
+		<property name="branch.dest.url" value="${svn.branch.url}" />
+ 
+		<property name="branch.svn.message.delete.check" value="Checking old branch '${branch.dest.url}' exist" />
+		<echo message="${branch.svn.message.delete.check}" />
+		<condition property="branchExist" value="true">
+			<svnExists refid="svn.settings" target="${branch.dest.url}"/>
+		</condition>
+		<echo message="branchExist:${branchExist}" />
+
+		<antcall target="svnbranch-delete"/>
+
+		<property name="branch.svn.message" value="Creating new branch from '${branch.src.url}' to '${branch.dest.url}'" />
+		<echo message="${branch.svn.message}" />
+		<svn refid="svn.settings">
+			<copy srcUrl="${branch.src.url}" destUrl="${branch.dest.url}" message="${branch.svn.message}" />
+		</svn>
+ 
+		<property name="branch.rename.src.from.url" value="${branch.dest.url}/src/main/java/com/laposte/remisepfmcpack"/>
+		<property name="branch.rename.src.to.url" value="${branch.dest.url}/src/main/java/com/laposte/remisepfmcformation"/>
+		<property name="branch.rename.src.svn.message" value="Rename new branch from '${branch.rename.src.from.url}' to '${branch.rename.src.to.url}'" />
+		<echo message="${branch.rename.src.svn.message}" />
+		<svn refid="svn.settings">
+			<move srcUrl="${branch.rename.src.from.url}" destUrl="${branch.rename.src.to.url}" message="${branch.rename.src.svn.message}"/>
+		</svn>
+
+		<property name="branch.rename.tst.from.url" value="${branch.dest.url}/src/test/java/com/laposte/remisepfmcpack"/>
+		<property name="branch.rename.tst.to.url" value="${branch.dest.url}/src/test/java/com/laposte/remisepfmcformation"/>
+		<property name="branch.rename.tst.svn.message" value="Rename new branch from '${branch.rename.tst.from.url}' to '${branch.rename.tst.to.url}'" />
+		<echo message="${branch.rename.tst.svn.message}" />
+		<svn refid="svn.settings">
+			<move srcUrl="${branch.rename.tst.from.url}" destUrl="${branch.rename.tst.to.url}" message="${branch.rename.tst.svn.message}"/>
+		</svn>
+		
+	</target>
+
+	<!-- ****************************************************************** -->
+	<!-- svnbranch-delete: delete old branch using properties from -->
+	<!-- build.properties and uses SVNANT tasks -->
+	<!-- ****************************************************************** -->
+	<target name="svnbranch-delete" if="branchExist" description="delete old branch for individual project using svnant task">
+	
+		<property name="branch.delete.url" value="${svn.branch.url}" />
+
+		<property name="branch.svn.message.delete" value="Deleting old branch '${branch.delete.url}'" />
+		<echo message="${branch.svn.message.delete}" />
+		<svn refid="svn.settings">
+			<delete url="${branch.delete.url}" force="true" message="${branch.svn.message.delete}" />
+		</svn>
+	</target>
+	
+	<!-- ****************************************************************** -->
+	<!-- ini-svnexport: performs task initialisation -->
+	<!-- ****************************************************************** -->
+	<target name="ini-svnexport-directory" description="svnexport task initialisation">
+	    <mkdir dir="${export.directory}"/>
+	</target>
+
+	<!-- ****************************************************************** -->
+	<!-- svnexport: performs checkout using properties from -->
+	<!-- build.properties and uses SVNANT tasks -->
+	<!-- ****************************************************************** -->
+	<target name="svncheckout" depends="does-svnant-exist,ini-svnexport-directory" description="checkout individual project using svnant task">
+		<property name="checkout.src.url" value="${svn.branch.url}" />
+		<property name="checkout.destPath" value="${export.directory}" />
+
+		<property name="checkout.svn.message" value="Checkout '${checkout.src.url}' to '${checkout.destPath}'" />
+		<echo message="${checkout.svn.message}" />
+		<svn refid="svn.settings">
+			<checkout url="${checkout.src.url}" destPath="${checkout.destPath}" />
+		</svn>
+	</target>
+
+	<!-- ****************************************************************** -->
+	<!-- svnswitch: performs switch using properties from -->
+	<!-- build.properties and uses SVNANT tasks -->
+	<!-- ****************************************************************** -->
+	<target name="svnswitch" depends="does-svnant-exist,ini-svnexport-directory" description="checkout individual project using svnant task">
+		<property name="switch.src.url" value="${svn.branch.url}" />
+		<property name="switch.destPath" value="${export.directory}" />
+
+		<property name="switch.svn.message" value="Switch '${switch.destPath}' to '${switch.src.url}'" />
+		<echo message="${switch.svn.message}" />
+		<svn refid="svn.settings">
+			<switch url="${switch.src.url}" path="${switch.destPath}" />
+		</svn>
+	</target>
+
+
+	<!-- ****************************************************************** -->
+	<!-- svnexport: performs commit using properties from -->
+	<!-- build.properties and uses SVNANT tasks -->
+	<!-- ****************************************************************** -->
+	<target name="svncommit" depends="init-env" description="commit individual project using svnant task">
+		<property name="commit.srcPath" value="${export.directory}" />
+		<property name="commit.dest.url" value="${svn.branch.url}" />
+<!--   
+		<property name="delete.svn.message" value="Delete 'remisepfmcpack' directories" />
+		<echo message="${delete.svn.message}" />
+ -->
+<!-- 		<svn refid="svn.settings"> -->
+<!--  		    <delete url="${commit.dest.url}/src/main/java/com/laposte/remisepfmcpack" message="deleting src main"/> -->
+<!--  		    <delete url="${commit.dest.url}/src/test/java/com/laposte/remisepfmcpack" message="deleting src test"/> -->
+<!-- 		    <delete dir="${commit.srcPath}/src/main/java/com/laposte/remisepfmcpack" message="deleting src main"/> -->
+<!-- 		    <delete dir="${commit.srcPath}/src/test/java/com/laposte/remisepfmcpack" message="deleting src test"/> -->
+<!-- 		</svn> -->
+<!--  
+		<property name="update.svn.message" value="Update '${commit.srcPath}'" />
+		<echo message="${update.svn.message}" />
+		<svn refid="svn.settings">
+		    <update dir="${commit.srcPath}"/>
+		</svn>
+ -->
+<!--   
+		<echo message="Delete directory ${commit.srcPath}/src/main/java/com/laposte/remisepfmcpack" />
+        <delete dir="${commit.srcPath}/src/main/java/com/laposte/remisepfmcpack" />
+        <echo message="Delete directory ${commit.srcPath}/src/test/java/com/laposte/remisepfmcpack" />
+        <delete dir="${commit.srcPath}/src/test/java/com/laposte/remisepfmcpack" />
+ -->
+<!--  
+		<property name="add.svn.message" value="Add 'remisepfmcformation' directories" />
+		<echo message="${add.svn.message}" />
+		<svn refid="svn.settings">
+		    <add dir="${commit.srcPath}/src/main/java/com/laposte/remisepfmcformation"/>
+		    <add dir="${commit.srcPath}/src/test/java/com/laposte/remisepfmcformation"/>
+		</svn>
+ --> 
+		<property name="commit.svn.message" value="Commit from '${commit.srcPath}' to '${commit.dest.url}'" />
+		<echo message="${commit.svn.message}" />
+		<svn refid="svn.settings">
+		    <commit dir="${commit.srcPath}" message="${commit.svn.message}" />
+		</svn>
+
+  	</target>
+
+</project>
