@@ -1,22 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="svn-formation">
 <!-- 	<property file="build.properties"></property> -->
-<!--  	<xmlproperty file="pom.xml"/> -->
+<!--   	<xmlproperty file="pom.xml"/> -->
 
-	<property name="project.name" value="android-laposte-remise"/>
-	<property name="version.name" value="${project.version}"/>
-	<property name="branch.name" value="formation_${project.name}"/><!-- -${version.name}"/> -->
-<!-- 	<property name="export.directory" value="${basedir}/target/export_formation"/> -->
-<!-- 	<property name="export.directory" value="${basedir}"/> -->
-
-	<property name="svn.base.url" value="https://svn.collaboratif-courrier.fr/svn/mFacteur/terminal/Prod/maven/Remise" />
-	<property name="svn.branch.url" value="${svn.base.url}/branches/${branch.name}" />
-	<property name="svn.trunk.url" value="${svn.base.url}/trunk/${project.name}" />
-	<property name="svn.username" value="david.roca"/>
-	<property name="svn.password" value="dra013"/>
-	
+	<property file="${build.file.propertie}" />
+	<property name="src.main.java.path" value="/src"/>
+<!-- 	<property name="src.test.java.path" value="/src/test/java"/> -->
+			
 	<!-- SVN and SVN-ANT Tasks properties -->
-	<property name="svnant.lib.dir" location="lib/svn-ant-1.7.8" />
+	<property name="svnant.lib.dir" location="libs/svn-ant-1.6" />
 	<property name="svnant.javahl" value="false" />
 	<property name="svnant.svnkit" value="true" />
 	<!-- SVN and SVN-ANT Tasks properties -->
@@ -58,11 +50,31 @@
 	<!-- init-env: Environnement initialisation. -->
 	<!-- *************************************************************** -->
 	<target name="init-env" depends="does-svnant-exist" description="Environnement initialisation">
+
 		<!-- Set Default Directory to 'export.directory' property if not set -->
 		<condition property="export.directory" value="${basedir}/target/export_formation">
 		    <not><isset property="export.directory"/></not>
 		</condition>
 		<echo message="export.directory property is set to : '${export.directory}'" />
+		
+		<!-- Set Default Value to 'svn.version.url' property if not set -->
+		<condition property="svn.version.url" value="branches/${svn.branch.version.name}" else="trunk">
+		    <isset property="svn.branch.version.name"/>
+		</condition>
+		<echo message="svn.version.url property is set to : '${svn.version.url}'" />
+
+		<!-- Set Default Value to 'branch.name' property if not set -->
+		<condition property="branch.name" value="formation_${svn.project.name}_${svn.branch.version.name}"  else="formation_${svn.project.name}_trunk">
+		    <isset property="svn.branch.version.name"/>
+		</condition>
+		<echo message="branch.name property is set to : '${branch.name}'" />
+
+		<property name="svn.branch.url" value="${svn.base.url}/branches/${branch.name}" />
+		<echo message="svn.branch.url property is set to : '${svn.branch.url}'" />
+
+		<property name="svn.trunk.url" value="${svn.base.url}/${svn.version.url}/${svn.project.name}" />
+		<echo message="svn.trunk.url property is set to : '${svn.trunk.url}'" />
+
 	</target>
 	
 	<!-- **************************************************************** -->
@@ -99,22 +111,22 @@
 			<copy srcUrl="${branch.src.url}" destUrl="${branch.dest.url}" message="${branch.svn.message}" />
 		</svn>
  
-		<property name="branch.rename.src.from.url" value="${branch.dest.url}/src/main/java/com/laposte/remisepfmcpack"/>
-		<property name="branch.rename.src.to.url" value="${branch.dest.url}/src/main/java/com/laposte/remisepfmcformation"/>
+		<property name="branch.rename.src.from.url" value="${branch.dest.url}${src.main.java.path}/com/laposte/remisepfmcpack"/>
+		<property name="branch.rename.src.to.url" value="${branch.dest.url}${src.main.java.path}/com/laposte/remisepfmcformation"/>
 		<property name="branch.rename.src.svn.message" value="Rename new branch from '${branch.rename.src.from.url}' to '${branch.rename.src.to.url}'" />
 		<echo message="${branch.rename.src.svn.message}" />
 		<svn refid="svn.settings">
 			<move srcUrl="${branch.rename.src.from.url}" destUrl="${branch.rename.src.to.url}" message="${branch.rename.src.svn.message}"/>
 		</svn>
-
-		<property name="branch.rename.tst.from.url" value="${branch.dest.url}/src/test/java/com/laposte/remisepfmcpack"/>
-		<property name="branch.rename.tst.to.url" value="${branch.dest.url}/src/test/java/com/laposte/remisepfmcformation"/>
+<!-- 
+		<property name="branch.rename.tst.from.url" value="${branch.dest.url}${src.test.java.path}/com/laposte/remisepfmcpack"/>
+		<property name="branch.rename.tst.to.url" value="${branch.dest.url}${src.test.java.path}/com/laposte/remisepfmcformation"/>
 		<property name="branch.rename.tst.svn.message" value="Rename new branch from '${branch.rename.tst.from.url}' to '${branch.rename.tst.to.url}'" />
 		<echo message="${branch.rename.tst.svn.message}" />
 		<svn refid="svn.settings">
 			<move srcUrl="${branch.rename.tst.from.url}" destUrl="${branch.rename.tst.to.url}" message="${branch.rename.tst.svn.message}"/>
 		</svn>
-		
+ -->		
 	</target>
 
 	<!-- ****************************************************************** -->
@@ -182,10 +194,10 @@
 		<echo message="${delete.svn.message}" />
  -->
 <!-- 		<svn refid="svn.settings"> -->
-<!--  		    <delete url="${commit.dest.url}/src/main/java/com/laposte/remisepfmcpack" message="deleting src main"/> -->
-<!--  		    <delete url="${commit.dest.url}/src/test/java/com/laposte/remisepfmcpack" message="deleting src test"/> -->
-<!-- 		    <delete dir="${commit.srcPath}/src/main/java/com/laposte/remisepfmcpack" message="deleting src main"/> -->
-<!-- 		    <delete dir="${commit.srcPath}/src/test/java/com/laposte/remisepfmcpack" message="deleting src test"/> -->
+<!--  		    <delete url="${commit.dest.url}${src.main.java.path}/com/laposte/remisepfmcpack" message="deleting src main"/> -->
+<!--  		    <delete url="${commit.dest.url}${src.test.java.path}/com/laposte/remisepfmcpack" message="deleting src test"/> -->
+<!-- 		    <delete dir="${commit.srcPath}${src.main.java.path}/com/laposte/remisepfmcpack" message="deleting src main"/> -->
+<!-- 		    <delete dir="${commit.srcPath}${src.test.java.path}/com/laposte/remisepfmcpack" message="deleting src test"/> -->
 <!-- 		</svn> -->
 <!--  
 		<property name="update.svn.message" value="Update '${commit.srcPath}'" />
@@ -195,17 +207,17 @@
 		</svn>
  -->
 <!--   
-		<echo message="Delete directory ${commit.srcPath}/src/main/java/com/laposte/remisepfmcpack" />
-        <delete dir="${commit.srcPath}/src/main/java/com/laposte/remisepfmcpack" />
-        <echo message="Delete directory ${commit.srcPath}/src/test/java/com/laposte/remisepfmcpack" />
-        <delete dir="${commit.srcPath}/src/test/java/com/laposte/remisepfmcpack" />
+		<echo message="Delete directory ${commit.srcPath}${src.main.java.path}/com/laposte/remisepfmcpack" />
+        <delete dir="${commit.srcPath}${src.main.java.path}/com/laposte/remisepfmcpack" />
+        <echo message="Delete directory ${commit.srcPath}${src.test.java.path}/com/laposte/remisepfmcpack" />
+        <delete dir="${commit.srcPath}${src.test.java.path}/com/laposte/remisepfmcpack" />
  -->
 <!--  
 		<property name="add.svn.message" value="Add 'remisepfmcformation' directories" />
 		<echo message="${add.svn.message}" />
 		<svn refid="svn.settings">
-		    <add dir="${commit.srcPath}/src/main/java/com/laposte/remisepfmcformation"/>
-		    <add dir="${commit.srcPath}/src/test/java/com/laposte/remisepfmcformation"/>
+		    <add dir="${commit.srcPath}${src.main.java.path}/com/laposte/remisepfmcformation"/>
+		    <add dir="${commit.srcPath}${src.test.java.path}/com/laposte/remisepfmcformation"/>
 		</svn>
  --> 
 		<property name="commit.svn.message" value="Commit from '${commit.srcPath}' to '${commit.dest.url}'" />
