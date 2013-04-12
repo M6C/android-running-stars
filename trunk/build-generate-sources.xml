@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="Remise-initialize" default="generate-sources">
+	<property file="${build.file.propertie}" />
     
     <target name="setup-properties">
         <echo message="*** Setup-Properties: setting all props ***" />
@@ -36,8 +37,8 @@
         <property name="remise.path.root" value="${export.directory}"/>
         <property name="remise.fakeimei" value="false"/>
         <property name="remise.proxymock" value="false"/>
-        <property name="remise.path.src" value="${remise.path.root}/src/main/java"/>
-        <property name="remise.path.src.test" value="${remise.path.root}/src/test/java"/>
+        <property name="remise.path.src" value="${remise.path.root}/src"/>
+<!--         <property name="remise.path.src.test" value="${remise.path.root}/src/test/java"/> -->
 
 <!--         <property name="remise.path.src" value="target/generated-sources/main/java"/> -->
 <!--         <property name="remise.path.src.test" value="target/generated-sources/test/java"/> -->
@@ -121,7 +122,7 @@
  -->
         <echo message="Replacing package names ${source.package} to ${target.package}, in files ..." />
         <replace dir="${remise.path.src}/" token="${source.package}" value="${target.package}"/>
-        <replace dir="${remise.path.src.test}/" token="${source.package}" value="${target.package}"/>
+<!--         <replace dir="${remise.path.src.test}/" token="${source.package}" value="${target.package}"/> -->
 <!-- 
         <echo message="Delete directory ${remise.path.src}/${source.package.path}" />
         <delete dir="${remise.path.src}/${source.package.path}" />
