@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-    
-	<parent>
-		<groupId>com.laposte.android</groupId>
-		<artifactId>android-laposte-remise-parent</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
-	</parent>
 
+	<groupId>com.laposte.android</groupId>
 	<artifactId>android-laposte-remise</artifactId>
+	<version>5.0.1${artifact-prefix}-SNAPSHOT</version>
 	<packaging>apk</packaging>
 	<name>android-laposte-remise</name>
-    
+
 	<properties>
+	    <build.file.properties>build-remise.properties</build.file.properties>
+		<svn.url>https://svn.collaboratif-courrier.fr/svn/mFacteur/terminal/Prod/Android/branches/formation_RemisePFMC_5.0</svn.url>
+		<username>${svn.username}</username>
+		<password>${svn.password}</password>
+		<artifact-prefix></artifact-prefix>
+		
 		<!-- Dependencies -->
 		<platform.version>4.1.1.4</platform.version>
 		<java.version>1.6</java.version>
@@ -27,9 +29,9 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
 	</properties>
-
+ 
 	<scm>
-		<connection>scm:svn:https://svn.collaboratif-courrier.fr/svn/mFacteur/terminal/Prod/Android/trunk/RemisePFMC</connection>
+		<connection>scm:svn:${svn.url}</connection>
 	</scm>
 
 	<pluginRepositories>
@@ -92,24 +94,24 @@
 		<dependency>
 			<groupId>com.laposte.android</groupId>
 			<artifactId>android-laposte-signature</artifactId>
-			<version>1.0.1</version>
+			<version>5.0.0</version>
 			<type>apklib</type>
 		</dependency>
 		<dependency>
 			<groupId>com.laposte.android</groupId>
 			<artifactId>android-laposte-zxing</artifactId>
-			<version>1.0.0</version>
+			<version>5.0.0</version>
 			<type>apklib</type>
 		</dependency>
 		<dependency>
 			<groupId>com.laposte.android</groupId>
 			<artifactId>android-laposte-antibrouillard</artifactId>
-			<version>1.0.1</version>
+			<version>5.0.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.actionbarsherlock</groupId>
-			<artifactId>library</artifactId>
-			<version>4.2.0</version>
+			<artifactId>actionbarsherlock</artifactId>
+			<version>5.0.0</version>
 			<type>apklib</type>
 		</dependency>
 		<dependency>
@@ -189,6 +191,11 @@
 			<version>4.8.2</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+		    <groupId>org.codehaus.mojo</groupId>
+		    <artifactId>properties-maven-plugin</artifactId>
+		    <version>1.0-alpha-2</version>
+		</dependency> 
 	</dependencies>
 
 	<build>
@@ -207,6 +214,7 @@
 							<path>${android-sdk-path}</path>
 						</sdk>
 						<undeployBeforeDeploy>true</undeployBeforeDeploy>
+						<androidManifestFile>${basedir}/AndroidManifest.xml</androidManifestFile>
 					</configuration>
 					<extensions>true</extensions>
 				</plugin>
@@ -249,6 +257,7 @@
 -->
                       <!-- If you have args specific for your release, put them here: -->
                       <releaseProfiles>ant-run-release</releaseProfiles>
+<!--                       <tagNameFormat>${svn.tag.name.format}</tagNameFormat> -->
 			    	</configuration>
 				</plugin>
 
@@ -256,6 +265,49 @@
 		</pluginManagement>
 
 		<plugins>
+
+			<plugin>
+		        <groupId>org.codehaus.mojo</groupId>
+		        <artifactId>properties-maven-plugin</artifactId>
+		        <version>1.0-alpha-2</version>
+		        <executions>
+		          <execution>
+		            <phase>initialize</phase>
+		            <goals>
+		              <goal>read-project-properties</goal>
+		            </goals>
+		            <configuration>
+		              <files>
+		                <file>${basedir}/${build.file.properties}</file>
+		              </files>
+		            </configuration>
+		          </execution>
+		        </executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.1</version>
+				<executions>
+					<execution>
+						<phase>initialize</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<tasks>
+								<echo>Displaying value of '${build.file.properties}' property</echo>
+								<echo>svn.project.name=${svn.project.name}</echo>
+								<echo>svn.branch.version.name=${svn.branch.version.name}</echo>
+								<echo>svn.base.url=${svn.base.url}</echo>
+								<echo>svn.branch.url=${svn.branch.url}</echo>
+								<echo>svn.tag.url=${svn.tag.url}</echo>
+							</tasks>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
@@ -292,6 +344,7 @@
 					</emulator>
 					<deleteConflictingFiles>true</deleteConflictingFiles>
 					<undeployBeforeDeploy>true</undeployBeforeDeploy>
+					<androidManifestFile>${basedir}/AndroidManifest.xml</androidManifestFile>
 				</configuration>
 				<extensions>true</extensions>
 			</plugin>
@@ -313,7 +366,7 @@
 				<version>2.4</version>
 				<configuration>
 					<tagBase>
-						https://svn.collaboratif-courrier.fr/svn/mFacteur/terminal/Prod/Android/tags
+						${svn.tag.url}
 					</tagBase>
 				</configuration>
 			</plugin>
@@ -382,6 +435,13 @@
 	</build>
 
 	<profiles>
+	    <profile>
+	        <id>formation</id>
+			<properties>
+				<artifact-prefix>-formation</artifact-prefix>
+<!-- 				<svn.tag.name.format>@{project.artifactId}-@{project.version}${artifact-prefix}</svn.tag.name.format> -->
+			</properties>
+	    </profile>
 		<profile>
 			<id>emma</id>
 			<properties>
