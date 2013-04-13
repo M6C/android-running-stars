@@ -11,7 +11,8 @@
   <properties>
       	<android.sdk.version>10</android.sdk.version> 
 <!-- 		<android-sdk-path>C:\Program Files (x86)\Android\android-sdk</android-sdk-path> -->
-		<android-sdk-path>D:\android-sdk</android-sdk-path>
+<!--		<android-sdk-path>D:\android-sdk</android-sdk-path>-->
+		<android-sdk-path>/share/MD0_DATA/Download/adt-bundle-linux-x86-20130219/sdk</android-sdk-path>
 <!-- 		<android-sdk-path>${env.ANDROID_HOME}</android-sdk-path> -->
 		<!-- Sign Apk -->
 	  <keystore.location>android.keystore</keystore.location>
