@@ -34,19 +34,19 @@
 
     <target name="generate-sources" depends="setup-properties">
         <echo message="*** Initialize : replacing URL, DEBUG and VERSION parameters ***" />
-        <property name="remise.path.root" value="${export.directory}"/>
-        <property name="remise.fakeimei" value="false"/>
-        <property name="remise.proxymock" value="false"/>
-        <property name="remise.path.src" value="${remise.path.root}/src"/>
-<!--         <property name="remise.path.src.test" value="${remise.path.root}/src/test/java"/> -->
 
-<!--         <property name="remise.path.src" value="target/generated-sources/main/java"/> -->
-<!--         <property name="remise.path.src.test" value="target/generated-sources/test/java"/> -->
-<!--         <property name="remise.path.src" value="target/checkout/src/main/java"/> -->
-<!--         <property name="remise.path.src.test" value="target/checkout/src/test/java"/> --> 
         <antcall target="-copy-sources"/>
 
-        <copy file="${remise.path.root}/res/raw/remisetemplate.properties" tofile="${remise.path.root}/res/raw/remise.properties" overwrite="true">
+        <antcall target="generate-remise-properties"/>
+        
+        <antcall target="generate-android-manifest"/>
+    </target>
+
+    <target name="generate-remise-properties">
+        <property name="remise.fakeimei" value="false"/>
+        <property name="remise.proxymock" value="false"/>
+        <echo message="Writing remise.properties url:${export.directory}/res/raw/remise.properties debug:${remise.debug} version:${remise.version} formation:${remise.formation} fakeimei:${remise.fakeimei} proxymock:${remise.proxymock} instance:${remise.instance}" />
+        <copy file="${export.directory}/res/raw/remisetemplate.properties" tofile="${export.directory}/res/raw/remise.properties" overwrite="true">
             <filterchain>
                 <replacetokens>
                     <token key="URL" value="${remise.url}"/>
@@ -55,11 +55,17 @@
                     <token key="FORMATION" value="${remise.formation}"/>
                     <token key="FAKEIMEI" value="${remise.fakeimei}"/>
                     <token key="PROXYMOCK" value="${remise.proxymock}"/>
+                    <token key="INSTANCE" value="${remise.instance}"/>
+                    <token key="PACKAGENAME" value="${target.package.name}"/>
                 </replacetokens>
             </filterchain>
         </copy>
+    </target>
+
+    <target name="generate-android-manifest">
+        <echo message="Writing ${export.directory}/AndroidManifest.xml version:${remise.version} icon:${remise.icon} app_name:${remise.app_name} build:${remise.build} package:${target.package}" />
 <!--  
-         <copy file="${remise.path.root}/AndroidManifest.xml" tofile="${remise.path.root}/AndroidManifest_formation.xml" overwrite="true">
+         <copy file="${export.directory}/AndroidManifest.xml" tofile="${export.directory}/AndroidManifest_formation.xml" overwrite="true">
             <filterchain>
                 <tokenfilter>
                     <replaceregex pattern='package="com.laposte.remisepfmcpack"' replace='package="com.laposte.remisepfmcformation"' flags='g'/>
@@ -69,11 +75,11 @@
                 </tokenfilter>
             </filterchain>
         </copy>
-        <delete file="${remise.path.root}/AndroidManifest.xml"/>
-        <copy file="${remise.path.root}/AndroidManifest_formation.xml" tofile="${remise.path.root}/AndroidManifest.xml"/>
-        <delete file="${remise.path.root}/AndroidManifest_formation.xml"/>
+        <delete file="${export.directory}/AndroidManifest.xml"/>
+        <copy file="${export.directory}/AndroidManifest_formation.xml" tofile="${export.directory}/AndroidManifest.xml"/>
+        <delete file="${export.directory}/AndroidManifest_formation.xml"/>
  -->
-        <copy file="${remise.path.root}/AndroidManifestTemplate.xml" tofile="${remise.path.root}/AndroidManifest.xml" overwrite="true">
+        <copy file="${export.directory}/AndroidManifestTemplate.xml" tofile="${export.directory}/AndroidManifest.xml" overwrite="true">
             <filterchain>
                 <replacetokens>
                     <token key="VERSION" value="${remise.version}"/>
@@ -85,8 +91,10 @@
             </filterchain>
         </copy>
     </target>
-    
+
     <target name="-copy-sources" if="remise.formation">
+        <property name="remise.path.src" value="${export.directory}/src"/>
+        <property name="remise.path.res" value="${export.directory}/res"/>
 <!-- 
         <echo message="Generate path from package ${target.package} and ${source.package}"/>
         <echo message="${target.package}" file="some.tmp.file" />
@@ -120,8 +128,15 @@
             <fileset dir="${remise.path.src.test}/${source.package.path}"/>
         </copy>
  -->
-        <echo message="Replacing package names ${source.package} to ${target.package}, in files ..." />
+        <echo message="Replacing package names ${source.package} to ${target.package}, in ${remise.path.src}" />
         <replace dir="${remise.path.src}/" token="${source.package}" value="${target.package}"/>
+
+        <echo message="Replacing package names ${source.package} to ${target.package}, in ${remise.path.res}" />
+        <replace token="${source.package}" value="${target.package}">
+			<fileset dir="${remise.path.res}">
+			  <exclude name="**/*.png"/>
+			</fileset>
+        </replace>
 <!--         <replace dir="${remise.path.src.test}/" token="${source.package}" value="${target.package}"/> -->
 <!-- 
         <echo message="Delete directory ${remise.path.src}/${source.package.path}" />
