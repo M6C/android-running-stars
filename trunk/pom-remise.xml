@@ -3,17 +3,17 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.laposte.android</groupId>
-	<artifactId>android-laposte-remise</artifactId>
-	<version>5.0.1${artifact-prefix}-SNAPSHOT</version>
+	<artifactId>android-laposte-remise${artifact-prefix}</artifactId>
+	<version>5.0.0-SNAPSHOT</version>
 	<packaging>apk</packaging>
 	<name>android-laposte-remise</name>
 
 	<properties>
 	    <build.file.properties>build-remise.properties</build.file.properties>
-		<svn.url>https://svn.collaboratif-courrier.fr/svn/mFacteur/terminal/Prod/Android/branches/formation_RemisePFMC_5.0</svn.url>
+		<svn.url>https://svn.collaboratif-courrier.fr/svn/mFacteur/terminal/Prod/Android/branches/5.0/RemisePFMC</svn.url>
 		<username>${svn.username}</username>
 		<password>${svn.password}</password>
-		<artifact-prefix></artifact-prefix>
+		<artifact-prefix />
 		
 		<!-- Dependencies -->
 		<platform.version>4.1.1.4</platform.version>
@@ -439,6 +439,7 @@
 	        <id>formation</id>
 			<properties>
 				<artifact-prefix>-formation</artifact-prefix>
+				<svn.url>https://svn.collaboratif-courrier.fr/svn/mFacteur/terminal/Prod/Android/branches/formation_RemisePFMC_5.0</svn.url>
 <!-- 				<svn.tag.name.format>@{project.artifactId}-@{project.version}${artifact-prefix}</svn.tag.name.format> -->
 			</properties>
 	    </profile>
