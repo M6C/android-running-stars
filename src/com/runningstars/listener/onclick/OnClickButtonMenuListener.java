@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 import com.runningstars.activity.GPSLocationActivity;
+import com.runningstars.activity.ProfilActivity;
 import com.runningstars.activity.SessionManagerActivity;
 
 public class OnClickButtonMenuListener implements OnClickListener {
@@ -16,7 +17,8 @@ public class OnClickButtonMenuListener implements OnClickListener {
 	}
 
 	public void onClick(View v) {
-		context.startActivity(new Intent(context, SessionManagerActivity.class));
+//		context.startActivity(new Intent(context, SessionManagerActivity.class));
+		context.startActivity(new Intent(context, ProfilActivity.class));
 	}
 
 }

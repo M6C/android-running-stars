@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.runningstars.activity.DbToolActivity;
+import com.runningstars.activity.ProfilActivity;
 import com.runningstars.activity.SessionManagerActivity;
 
 
@@ -24,6 +25,7 @@ public class ParameterGestureListener extends AbstractGestureListener {
 
 	@Override
 	protected Intent getFlingLeft(Context context) {
-		return new Intent(this.context.getBaseContext(), SessionManagerActivity.class);
+//		return new Intent(this.context.getBaseContext(), SessionManagerActivity.class);
+		return new Intent(this.context.getBaseContext(), ProfilActivity.class);
 	}
 }

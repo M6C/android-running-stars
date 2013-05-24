@@ -1,0 +1,748 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout   
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainLayout"
+    android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+	<LinearLayout   
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:background="@color/red_redwood"
+	>
+	
+		<LinearLayout
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:orientation="vertical"
+		>
+			<!-- Profil Image -->
+			<ImageView
+				android:contentDescription="@string/image_description_profil"
+			    android:src="@drawable/profil_user_2"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:gravity="center_horizontal"
+			    android:layout_weight=".3"
+		    	android:padding="10dip"
+			/>
+		</LinearLayout>
+
+		<LinearLayout
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:orientation="vertical"
+		>
+
+			<TextView
+			    android:id="@+id/messageStartStopSession"
+			    android:layout_width="fill_parent"
+			    android:layout_height="wrap_content"
+			    android:textSize="12sp"
+			    android:text="@string/message_start_stop_session"
+			/>
+			<LinearLayout
+			    android:layout_width="fill_parent"
+			    android:layout_height="wrap_content"
+			    android:orientation="horizontal"
+			>
+
+				<ProgressBar
+				    android:id="@+id/progressSessionSend"
+				    android:layout_width="0dp"
+				    android:layout_weight="1"
+				    android:layout_height="wrap_content"
+				    style="?android:attr/progressBarStyleHorizontal"
+				    android:indeterminate="false"
+				    android:indeterminateOnly="false"
+				/>
+
+				<!-- Nb Session Total -->
+				<TextView
+				    android:id="@+id/nbSession"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_weight=".4"
+				    android:textSize="16sp"
+				/>
+				<!-- Sum Distance -->
+			</LinearLayout>
+
+			<!--
+				Distance
+				Time
+			-->
+		    <TableLayout
+		        android:id="@+id/tableGeneral"
+			    android:layout_width="fill_parent"
+			    android:layout_height="wrap_content"
+			    android:layout_weight=".7"
+			    android:shrinkColumns="*"
+			    android:stretchColumns="*"
+			>
+				<!--
+					Legende
+				-->
+		 	    <TableRow
+		 	        android:layout_width="fill_parent"
+		 	        android:layout_height="wrap_content"
+		 	        android:orientation="horizontal"
+		 	    >
+					<LinearLayout
+					    android:layout_width="fill_parent"
+					    android:layout_height="wrap_content"
+					    android:layout_weight=".4"
+					/>
+					<TextView
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    android:layout_weight=".2"
+					    android:gravity="center_horizontal"
+					    android:textColor="@color/text_black_default"
+					    android:textSize="12sp"
+					    android:textStyle="bold"
+					    android:text="@string/legende_total"
+					/>
+				</TableRow>
+				<!--
+					Distance
+				-->
+		 	    <TableRow
+		 	        android:layout_width="fill_parent"
+		 	        android:layout_height="wrap_content"
+		 	        android:orientation="horizontal"
+		 	    >
+		
+					<!-- Distance -->	
+					<TextView
+					    android:layout_width="fill_parent"
+					    android:layout_height="wrap_content"
+					    android:layout_weight=".4"
+					    android:gravity="center_horizontal"
+					    android:text="@string/distance"
+					    android:textSize="14sp" />
+	
+					<!-- Distance Sum -->	
+					<TextView
+					    android:id="@+id/dataDistanceSum"
+					    android:layout_width="fill_parent"
+					    android:layout_height="wrap_content"
+					    android:layout_weight=".2"
+					    android:gravity="center_horizontal"
+					    android:textColor="@color/text_black_default"
+					    android:textSize="12sp"
+					    android:textStyle="bold"
+					/>
+				</TableRow>
+				<!--
+					Time
+				-->
+		 	    <TableRow
+		 	        android:layout_width="fill_parent"
+		 	        android:layout_height="wrap_content"
+		 	        android:orientation="horizontal"
+		 	    >
+					<!--
+						Time
+					-->
+					<TextView
+					    android:layout_width="fill_parent"
+					    android:layout_height="wrap_content"
+					    android:layout_weight=".4"
+					    android:gravity="center_horizontal"
+					    android:text="@string/time"
+					    android:textSize="14sp" />
+	
+					<!-- Speed Sum -->	
+					<TextView
+					    android:id="@+id/dataTimeSum"
+					    android:layout_width="fill_parent"
+					    android:layout_height="wrap_content"
+					    android:layout_weight=".2"
+					    android:gravity="center_horizontal"
+					    android:textColor="@color/text_black_default"
+					    android:textSize="12sp"
+					    android:textStyle="bold"
+					/>
+				</TableRow>
+			</TableLayout>
+		</LinearLayout>
+	</LinearLayout>
+
+	<LinearLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical"
+	>
+		<RadioGroup
+	        android:id="@+id/radioStatType"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal"
+	        android:background="@color/orange"
+	   >
+
+	        <RadioButton
+	            android:id="@+id/radioMessage1"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:checked="true"
+	        />
+
+	        <RadioButton
+	            android:id="@+id/radioMessage2"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	        />
+	        
+	        <RadioButton
+	            android:id="@+id/radioMessage3"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	        />
+	        
+	        <RadioButton
+	            android:id="@+id/radioMessage4"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	        />
+	        
+	        <RadioButton
+	            android:id="@+id/radioMessage5"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	        />
+	        
+	        <RadioButton
+	            android:id="@+id/radioStatAvgMaxMin"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	        />
+	 
+	        <RadioButton
+	            android:id="@+id/radioStatHigherLower"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	        />
+	 
+	    </RadioGroup>
+
+		<!--
+			Message 1
+		-->
+		<LinearLayout
+	        android:id="@+id/tabMessage1"
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent"
+		>
+			<TextView
+			    android:id="@+id/messageGlobalDistanceTime"
+			    android:layout_width="fill_parent"
+			    android:layout_height="fill_parent"
+			    android:textColor="@color/text_black_default"
+			    android:textSize="12sp"
+			    android:textStyle="bold"
+			    android:text="@string/message_global_distance_time"
+			/>
+		</LinearLayout>
+
+		<!--
+			Message 2
+		-->
+		<LinearLayout
+	        android:id="@+id/tabMessage2"
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent"
+		    android:visibility="gone"
+		>
+			<TextView
+			    android:id="@+id/messageSpeedRecord"
+			    android:layout_width="fill_parent"
+			    android:layout_height="fill_parent"
+			    android:textColor="@color/text_black_default"
+			    android:textSize="12sp"
+			    android:textStyle="bold"
+			    android:text="@string/message_global_distance_time"
+			/>
+		</LinearLayout>
+
+		<!--
+			Message 3
+		-->
+		<LinearLayout
+	        android:id="@+id/tabMessage3"
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent"
+		    android:visibility="gone"
+		>
+			<TextView
+			    android:id="@+id/messageSlowestSpeed"
+			    android:layout_width="fill_parent"
+			    android:layout_height="fill_parent"
+			    android:textColor="@color/text_black_default"
+			    android:textSize="12sp"
+			    android:textStyle="bold"
+			    android:text="@string/message_global_distance_time"
+			/>
+		</LinearLayout>
+
+		<!--
+			Message 4
+		-->
+		<LinearLayout
+	        android:id="@+id/tabMessage4"
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent"
+		    android:visibility="gone"
+		>
+			<TextView
+			    android:id="@+id/messageDistanceRecord"
+			    android:layout_width="fill_parent"
+			    android:layout_height="fill_parent"
+			    android:textColor="@color/text_black_default"
+			    android:textSize="12sp"
+			    android:textStyle="bold"
+			    android:text="@string/message_global_distance_time"
+			/>
+		</LinearLayout>
+
+		<!--
+			Message 5
+		-->
+		<LinearLayout
+	        android:id="@+id/tabMessage5"
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent"
+		    android:visibility="gone"
+		>
+			<TextView
+			    android:id="@+id/messageShortestDistance"
+			    android:layout_width="fill_parent"
+			    android:layout_height="fill_parent"
+			    android:textColor="@color/text_black_default"
+			    android:textSize="12sp"
+			    android:textStyle="bold"
+			    android:text="@string/message_global_distance_time"
+			/>
+		</LinearLayout>
+
+		<!--
+			Distance : Average, Max, Min
+			Speed : Average, Max, Min
+			Time : Average, Max, Min
+		-->
+	    <TableLayout
+	        android:id="@+id/tabAvgMaxMin"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_weight=".7"
+		    android:shrinkColumns="*"
+		    android:stretchColumns="*"
+		    android:visibility="gone"
+		>
+			<!--
+				Legende
+			-->
+	 	    <TableRow
+	 	        android:layout_width="fill_parent"
+	 	        android:layout_height="wrap_content"
+	 	        android:orientation="horizontal"
+	 	    >
+				<LinearLayout
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_weight=".4"
+				/>
+				<TextView
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_weight=".2"
+				    android:gravity="center_horizontal"
+				    android:textColor="@color/text_black_default"
+				    android:textSize="12sp"
+				    android:textStyle="bold"
+				    android:text="@string/legende_avg"
+				/>
+				<TextView
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_weight=".2"
+				    android:gravity="center_horizontal"
+				    android:textColor="@color/text_black_default"
+				    android:textSize="12sp"
+				    android:textStyle="bold"
+				    android:text="@string/legende_max"
+				/>
+				<TextView
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_weight=".2"
+				    android:gravity="center_horizontal"
+				    android:textColor="@color/text_black_default"
+				    android:textSize="12sp"
+				    android:textStyle="bold"
+				    android:text="@string/legende_min"
+				/>
+			</TableRow>
+			<!--
+				Distance : Average, Max, Min
+			-->
+	 	    <TableRow
+	 	        android:layout_width="fill_parent"
+	 	        android:layout_height="wrap_content"
+	 	        android:orientation="horizontal"
+	 	    >
+	
+				<!-- Distance -->	
+				<TextView
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_weight=".4"
+				    android:gravity="center_horizontal"
+				    android:text="@string/distance"
+				    android:textSize="14sp" />
+	
+				<!-- Distance Average -->	
+				<TextView
+				    android:id="@+id/dataDistanceAvg"
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_weight=".2"
+				    android:gravity="center_horizontal"
+				    android:textColor="@color/text_black_default"
+				    android:textSize="12sp"
+				    android:textStyle="bold"
+				/>
+	
+				<!-- Distance Max -->	
+				<TextView
+				    android:id="@+id/dataDistanceMax"
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_weight=".2"
+				    android:gravity="center_horizontal"
+				    android:textColor="@color/text_black_default"
+				    android:textSize="12sp"
+				    android:textStyle="bold"
+				/>
+	
+				<!-- Distance Min -->	
+				<TextView
+				    android:id="@+id/dataDistanceMin"
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_weight=".2"
+				    android:gravity="center_horizontal"
+				    android:textColor="@color/text_black_default"
+				    android:textSize="12sp"
+				    android:textStyle="bold"
+				/>
+			</TableRow>
+			<!--
+				Speed : Average, Max, Min
+			-->
+	 	    <TableRow
+	 	        android:layout_width="fill_parent"
+	 	        android:layout_height="wrap_content"
+	 	        android:orientation="horizontal"
+	 	    >
+				<!--
+					Speed
+				-->
+				<TextView
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_weight=".4"
+				    android:gravity="center_horizontal"
+				    android:text="@string/speed"
+				    android:textSize="14sp" />
+	
+				<!-- Speed Average -->	
+				<TextView
+				    android:id="@+id/dataSpeedAvg"
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_weight=".2"
+				    android:gravity="center_horizontal"
+				    android:textColor="@color/text_black_default"
+				    android:textSize="12sp"
+				    android:textStyle="bold"
+				/>
+	
+				<!-- Speed Max -->	
+				<TextView
+				    android:id="@+id/dataSpeedMax"
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_weight=".2"
+				    android:gravity="center_horizontal"
+				    android:textColor="@color/text_black_default"
+				    android:textSize="12sp"
+				    android:textStyle="bold"
+				/>
+	
+				<!-- Speed Min -->	
+				<TextView
+				    android:id="@+id/dataSpeedMin"
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_weight=".2"
+				    android:gravity="center_horizontal"
+				    android:textColor="@color/text_black_default"
+				    android:textSize="12sp"
+				    android:textStyle="bold"
+				/>
+			</TableRow>
+			<!--
+				Time : Average, Max, Min
+			-->
+	 	    <TableRow
+	 	        android:layout_width="fill_parent"
+	 	        android:layout_height="wrap_content"
+	 	        android:orientation="horizontal"
+	 	    >
+				<!--
+					Time
+				-->
+				<TextView
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_weight=".4"
+				    android:gravity="center_horizontal"
+				    android:text="@string/time"
+				    android:textSize="14sp" />
+	
+				<!-- Speed Average -->	
+				<TextView
+				    android:id="@+id/dataTimeAvg"
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_weight=".2"
+				    android:gravity="center_horizontal"
+				    android:textColor="@color/text_black_default"
+				    android:textSize="12sp"
+				    android:textStyle="bold"
+				/>
+	
+				<!-- Speed Max -->	
+				<TextView
+				    android:id="@+id/dataTimeMax"
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_weight=".2"
+				    android:gravity="center_horizontal"
+				    android:textColor="@color/text_black_default"
+				    android:textSize="12sp"
+				    android:textStyle="bold"
+				/>
+	
+				<!-- Speed Min -->	
+				<TextView
+				    android:id="@+id/dataTimeMin"
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_weight=".2"
+				    android:gravity="center_horizontal"
+				    android:textColor="@color/text_black_default"
+				    android:textSize="12sp"
+				    android:textStyle="bold"
+				/>
+			</TableRow>
+		</TableLayout>
+	
+		<!--
+		Nb Session Higher of Speed Average
+		Nb Session Lower of Speed Average
+		Nb Session Higher of Distance Average
+		Nb Session Lower of Distance Average
+		Sum Distance
+		-->
+	    <TableLayout
+	        android:id="@+id/tabHigherLower"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_weight=".7"
+		    android:shrinkColumns="*"
+		    android:stretchColumns="*"
+		    android:visibility="gone"
+		>
+			<!--
+				Legende
+			-->
+	 	    <TableRow
+	 	        android:layout_width="fill_parent"
+	 	        android:layout_height="wrap_content"
+	 	        android:orientation="horizontal"
+	 	    >
+				<!-- Distance -->
+				<LinearLayout
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_weight=".4"
+				/>
+				<TextView
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_weight=".2"
+				    android:gravity="center_horizontal"
+				    android:textColor="@color/text_black_default"
+				    android:textSize="12sp"
+				    android:textStyle="bold"
+				    android:text="@string/legende_avg_higher"
+				/>
+				<TextView
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_weight=".2"
+				    android:gravity="center_horizontal"
+				    android:textColor="@color/text_black_default"
+				    android:textSize="12sp"
+				    android:textStyle="bold"
+				    android:text="@string/legende_avg_lower"
+				/>
+			</TableRow>
+			<!--
+				Nb Session with Distance higher as avg
+				Nb Session with Distance lower as avg
+				Nb Session with Speed higher as avg
+				Nb Session with Speed lower as avg
+			-->
+	 	    <TableRow
+	 	        android:layout_width="fill_parent"
+	 	        android:layout_height="wrap_content"
+	 	        android:orientation="horizontal"
+	 	    >
+	
+				<!-- Distance -->	
+				<TextView
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_weight=".4"
+				    android:gravity="center_horizontal"
+				    android:text="@string/distance"
+				    android:textSize="14sp" />
+	
+				<!-- Nb Session with Distance higher as avg -->	
+				<TextView
+				    android:id="@+id/dataCntSessionDistanceHi"
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_weight=".2"
+				    android:gravity="center_horizontal"
+				    android:textColor="@color/text_black_default"
+				    android:textSize="12sp"
+				    android:textStyle="bold"
+				/>
+	
+				<!-- Nb Session with Distance lower as avg-->	
+				<TextView
+				    android:id="@+id/dataCntSessionDistanceLo"
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_weight=".2"
+				    android:gravity="center_horizontal"
+				    android:textColor="@color/text_black_default"
+				    android:textSize="12sp"
+				    android:textStyle="bold"
+				/>
+			</TableRow>
+			<!--
+				Nb Session with Speed higher as avg
+				Nb Session with Speed lower as avg
+			-->
+	 	    <TableRow
+	 	        android:layout_width="fill_parent"
+	 	        android:layout_height="wrap_content"
+	 	        android:orientation="horizontal"
+	 	    >
+	
+				<!-- Speed -->	
+				<TextView
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_weight=".4"
+				    android:gravity="center_horizontal"
+				    android:text="@string/speed"
+				    android:textSize="14sp"
+				/>
+	
+				<!-- Nb Session with Speed higher as avg -->	
+				<TextView
+				    android:id="@+id/dataCntSessionSpeedHi"
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_weight=".2"
+				    android:gravity="center_horizontal"
+				    android:textColor="@color/text_black_default"
+				    android:textSize="12sp"
+				    android:textStyle="bold"
+				/>
+	
+				<!-- Nb Session with Speed lower as avg-->	
+				<TextView
+				    android:id="@+id/dataCntSessionSpeedLo"
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_weight=".2"
+				    android:gravity="center_horizontal"
+				    android:textColor="@color/text_black_default"
+				    android:textSize="12sp"
+				    android:textStyle="bold"
+				/>
+			</TableRow>
+			<!--
+				Nb Session with Time higher as avg
+				Nb Session with Time lower as avg
+			-->
+	 	    <TableRow
+	 	        android:layout_width="fill_parent"
+	 	        android:layout_height="wrap_content"
+	 	        android:orientation="horizontal"
+	 	    >
+	
+				<!-- Speed -->	
+				<TextView
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_weight=".4"
+				    android:gravity="center_horizontal"
+				    android:text="@string/time"
+				    android:textSize="14sp"
+				/>
+	
+				<!-- Nb Session with Speed higher as avg -->	
+				<TextView
+				    android:id="@+id/dataCntSessionTimeHi"
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_weight=".2"
+				    android:gravity="center_horizontal"
+				    android:textColor="@color/text_black_default"
+				    android:textSize="12sp"
+				    android:textStyle="bold"
+				/>
+	
+				<!-- Nb Session with Speed lower as avg-->	
+				<TextView
+				    android:id="@+id/dataCntSessionTimeLo"
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_weight=".2"
+				    android:gravity="center_horizontal"
+				    android:textColor="@color/text_black_default"
+				    android:textSize="12sp"
+				    android:textStyle="bold"
+				/>
+			</TableRow>
+		</TableLayout>
+	</LinearLayout>
+
+	<ListView
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+ 		android:layout_margin="5dip"
+ 		android:id="@+id/ListSession"
+  	/>
+</LinearLayout>

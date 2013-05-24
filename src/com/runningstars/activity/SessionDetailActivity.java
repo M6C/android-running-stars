@@ -116,7 +116,8 @@ public class SessionDetailActivity extends Activity implements INotifierMessage 
 	@Override
 	public void onBackPressed() {
 		//TODO Trouver une autre solution pour retourner directement a l'Activity precedente
-		startActivity(new Intent(this, SessionManagerActivity.class));
+//		startActivity(new Intent(this, SessionManagerActivity.class));
+		startActivity(new Intent(this, ProfilActivity.class));
 	}
 
 	/* (non-Javadoc)
