@@ -51,7 +51,7 @@ public class ProfilActivity extends Activity implements INotifierMessage, OnItem
 	private TextView textDataDistanceSum;
 	private TextView textDataTimeSum;
 	private RadioGroup radioStatType;
-	private TextView textStartStopSession;
+	private TextView textStartEndSession;
 	private TextView textGlobalDistanceTime;
 	private TextView textSpeedRecord;
 	private TextView textSlowestSpeed;
@@ -89,7 +89,7 @@ public class ProfilActivity extends Activity implements INotifierMessage, OnItem
 		textDataCntSessionTimeLo = (TextView) findViewById(R.id.dataCntSessionTimeLo);
 		textDataDistanceSum = (TextView) findViewById(R.id.dataDistanceSum);
 		textDataTimeSum = (TextView) findViewById(R.id.dataTimeSum);
-		textStartStopSession = (TextView) findViewById(R.id.messageStartStopSession);
+		textStartEndSession = (TextView) findViewById(R.id.messageStartEndSession);
 		textGlobalDistanceTime = (TextView) findViewById(R.id.messageGlobalDistanceTime);
 		textSpeedRecord = (TextView) findViewById(R.id.messageSpeedRecord);
 		textSlowestSpeed = (TextView) findViewById(R.id.messageSlowestSpeed);
@@ -98,6 +98,7 @@ public class ProfilActivity extends Activity implements INotifierMessage, OnItem
 
 		radioStatType = (RadioGroup)findViewById(R.id.radioStatType);
 		radioStatType.setOnCheckedChangeListener(new OnCheckedStatTypeListener(this));
+		radioStatType.check(R.id.radioMessage1);
 
 		FactoryStyle.getInstance().centerTitle(this);
 	}
@@ -263,7 +264,7 @@ public class ProfilActivity extends Activity implements INotifierMessage, OnItem
 							ToolCalculate.formatDistanceKm(distanceSum)
 						));
 
-					textStartStopSession.setText(
+					textStartEndSession.setText(
 						String.format(getResources().getString(R.string.message_start_stop_session),
 							new Date(timeStart),
 							new Date(timeStop)
