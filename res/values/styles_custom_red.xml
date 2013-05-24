@@ -54,4 +54,8 @@
 		<item name="android:listSeparatorTextViewStyle">@style/CustomPreferenceRedListSeparator</item>
 	</style>
 
+	<style name="CustomRadioTab" parent="@android:style/Widget.CompoundButton.RadioButton">
+		<item name="android:button">@drawable/selector_custom_radio_tab</item>
+	</style>
+
 </resources>

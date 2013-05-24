@@ -10,7 +10,6 @@
 	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
 	    android:orientation="horizontal"
-	    android:background="@color/red_redwood"
 	>
 	
 		<LinearLayout
@@ -35,14 +34,6 @@
 		    android:layout_height="wrap_content"
 		    android:orientation="vertical"
 		>
-
-			<TextView
-			    android:id="@+id/messageStartStopSession"
-			    android:layout_width="fill_parent"
-			    android:layout_height="wrap_content"
-			    android:textSize="12sp"
-			    android:text="@string/message_start_stop_session"
-			/>
 			<LinearLayout
 			    android:layout_width="fill_parent"
 			    android:layout_height="wrap_content"
@@ -173,78 +164,29 @@
 
 	<LinearLayout
 	    android:layout_width="fill_parent"
-	    android:layout_height="wrap_content"
+	    android:layout_height="90dp"
 	    android:orientation="vertical"
 	>
-		<RadioGroup
-	        android:id="@+id/radioStatType"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:orientation="horizontal"
-	        android:background="@color/orange"
-	   >
-
-	        <RadioButton
-	            android:id="@+id/radioMessage1"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:checked="true"
-	        />
-
-	        <RadioButton
-	            android:id="@+id/radioMessage2"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	        />
-	        
-	        <RadioButton
-	            android:id="@+id/radioMessage3"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	        />
-	        
-	        <RadioButton
-	            android:id="@+id/radioMessage4"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	        />
-	        
-	        <RadioButton
-	            android:id="@+id/radioMessage5"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	        />
-	        
-	        <RadioButton
-	            android:id="@+id/radioStatAvgMaxMin"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	        />
-	 
-	        <RadioButton
-	            android:id="@+id/radioStatHigherLower"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	        />
-	 
-	    </RadioGroup>
-
 		<!--
 			Message 1
 		-->
 		<LinearLayout
 	        android:id="@+id/tabMessage1"
 		    android:layout_width="fill_parent"
-		    android:layout_height="fill_parent"
+		    android:layout_height="0dp"
+		    android:layout_weight="1"
+			android:gravity="center_vertical|center_horizontal"
+		    android:visibility="gone"
 		>
 			<TextView
-			    android:id="@+id/messageGlobalDistanceTime"
+			    android:id="@+id/messageStartEndSession"
 			    android:layout_width="fill_parent"
 			    android:layout_height="fill_parent"
 			    android:textColor="@color/text_black_default"
 			    android:textSize="12sp"
 			    android:textStyle="bold"
-			    android:text="@string/message_global_distance_time"
+			    android:text="@string/message_start_stop_session"
+			    android:gravity="center_vertical|center_horizontal"
 			/>
 		</LinearLayout>
 
@@ -254,13 +196,15 @@
 		<LinearLayout
 	        android:id="@+id/tabMessage2"
 		    android:layout_width="fill_parent"
-		    android:layout_height="fill_parent"
+		    android:layout_height="0dp"
+		    android:layout_weight="1"
+			android:gravity="center_vertical|center_horizontal"
 		    android:visibility="gone"
 		>
 			<TextView
-			    android:id="@+id/messageSpeedRecord"
-			    android:layout_width="fill_parent"
-			    android:layout_height="fill_parent"
+			    android:id="@+id/messageGlobalDistanceTime"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
 			    android:textColor="@color/text_black_default"
 			    android:textSize="12sp"
 			    android:textStyle="bold"
@@ -274,7 +218,32 @@
 		<LinearLayout
 	        android:id="@+id/tabMessage3"
 		    android:layout_width="fill_parent"
-		    android:layout_height="fill_parent"
+		    android:layout_height="0dp"
+		    android:layout_weight="1"
+			android:gravity="center_vertical|center_horizontal"
+		    android:visibility="gone"
+		>
+			<TextView
+			    android:id="@+id/messageSpeedRecord"
+			    android:layout_width="fill_parent"
+			    android:layout_height="fill_parent"
+			    android:textColor="@color/text_black_default"
+			    android:textSize="12sp"
+			    android:textStyle="bold"
+			    android:text="@string/message_global_distance_time"
+			    android:gravity="center_vertical|center_horizontal"
+			/>
+		</LinearLayout>
+
+		<!--
+			Message 4
+		-->
+		<LinearLayout
+	        android:id="@+id/tabMessage4"
+		    android:layout_width="fill_parent"
+		    android:layout_height="0dp"
+		    android:layout_weight="1"
+			android:gravity="center_vertical|center_horizontal"
 		    android:visibility="gone"
 		>
 			<TextView
@@ -285,16 +254,19 @@
 			    android:textSize="12sp"
 			    android:textStyle="bold"
 			    android:text="@string/message_global_distance_time"
+			    android:gravity="center_vertical|center_horizontal"
 			/>
 		</LinearLayout>
 
 		<!--
-			Message 4
+			Message 5
 		-->
 		<LinearLayout
-	        android:id="@+id/tabMessage4"
+	        android:id="@+id/tabMessage5"
 		    android:layout_width="fill_parent"
-		    android:layout_height="fill_parent"
+		    android:layout_height="0dp"
+		    android:layout_weight="1"
+			android:gravity="center_vertical|center_horizontal"
 		    android:visibility="gone"
 		>
 			<TextView
@@ -305,16 +277,19 @@
 			    android:textSize="12sp"
 			    android:textStyle="bold"
 			    android:text="@string/message_global_distance_time"
+			    android:gravity="center_vertical|center_horizontal"
 			/>
 		</LinearLayout>
 
 		<!--
-			Message 5
+			Message 6
 		-->
 		<LinearLayout
-	        android:id="@+id/tabMessage5"
+	        android:id="@+id/tabMessage6"
 		    android:layout_width="fill_parent"
-		    android:layout_height="fill_parent"
+		    android:layout_height="0dp"
+		    android:layout_weight="1"
+			android:gravity="center_vertical|center_horizontal"
 		    android:visibility="gone"
 		>
 			<TextView
@@ -325,9 +300,10 @@
 			    android:textSize="12sp"
 			    android:textStyle="bold"
 			    android:text="@string/message_global_distance_time"
+			    android:gravity="center_vertical|center_horizontal"
 			/>
 		</LinearLayout>
-
+		
 		<!--
 			Distance : Average, Max, Min
 			Speed : Average, Max, Min
@@ -336,8 +312,9 @@
 	    <TableLayout
 	        android:id="@+id/tabAvgMaxMin"
 		    android:layout_width="fill_parent"
-		    android:layout_height="wrap_content"
-		    android:layout_weight=".7"
+		    android:layout_height="0dp"
+		    android:layout_weight="1"
+			android:gravity="center_vertical|center_horizontal"
 		    android:shrinkColumns="*"
 		    android:stretchColumns="*"
 		    android:visibility="gone"
@@ -562,8 +539,9 @@
 	    <TableLayout
 	        android:id="@+id/tabHigherLower"
 		    android:layout_width="fill_parent"
-		    android:layout_height="wrap_content"
-		    android:layout_weight=".7"
+		    android:layout_height="0dp"
+		    android:layout_weight="1"
+			android:gravity="center_vertical|center_horizontal"
 		    android:shrinkColumns="*"
 		    android:stretchColumns="*"
 		    android:visibility="gone"
@@ -585,7 +563,7 @@
 				<TextView
 				    android:layout_width="fill_parent"
 				    android:layout_height="wrap_content"
-				    android:layout_weight=".2"
+				    android:layout_weight=".3"
 				    android:gravity="center_horizontal"
 				    android:textColor="@color/text_black_default"
 				    android:textSize="12sp"
@@ -595,7 +573,7 @@
 				<TextView
 				    android:layout_width="fill_parent"
 				    android:layout_height="wrap_content"
-				    android:layout_weight=".2"
+				    android:layout_weight=".3"
 				    android:gravity="center_horizontal"
 				    android:textColor="@color/text_black_default"
 				    android:textSize="12sp"
@@ -619,7 +597,6 @@
 				<TextView
 				    android:layout_width="fill_parent"
 				    android:layout_height="wrap_content"
-				    android:layout_weight=".4"
 				    android:gravity="center_horizontal"
 				    android:text="@string/distance"
 				    android:textSize="14sp" />
@@ -629,7 +606,6 @@
 				    android:id="@+id/dataCntSessionDistanceHi"
 				    android:layout_width="fill_parent"
 				    android:layout_height="wrap_content"
-				    android:layout_weight=".2"
 				    android:gravity="center_horizontal"
 				    android:textColor="@color/text_black_default"
 				    android:textSize="12sp"
@@ -641,7 +617,6 @@
 				    android:id="@+id/dataCntSessionDistanceLo"
 				    android:layout_width="fill_parent"
 				    android:layout_height="wrap_content"
-				    android:layout_weight=".2"
 				    android:gravity="center_horizontal"
 				    android:textColor="@color/text_black_default"
 				    android:textSize="12sp"
@@ -662,7 +637,6 @@
 				<TextView
 				    android:layout_width="fill_parent"
 				    android:layout_height="wrap_content"
-				    android:layout_weight=".4"
 				    android:gravity="center_horizontal"
 				    android:text="@string/speed"
 				    android:textSize="14sp"
@@ -673,7 +647,6 @@
 				    android:id="@+id/dataCntSessionSpeedHi"
 				    android:layout_width="fill_parent"
 				    android:layout_height="wrap_content"
-				    android:layout_weight=".2"
 				    android:gravity="center_horizontal"
 				    android:textColor="@color/text_black_default"
 				    android:textSize="12sp"
@@ -685,7 +658,6 @@
 				    android:id="@+id/dataCntSessionSpeedLo"
 				    android:layout_width="fill_parent"
 				    android:layout_height="wrap_content"
-				    android:layout_weight=".2"
 				    android:gravity="center_horizontal"
 				    android:textColor="@color/text_black_default"
 				    android:textSize="12sp"
@@ -706,7 +678,6 @@
 				<TextView
 				    android:layout_width="fill_parent"
 				    android:layout_height="wrap_content"
-				    android:layout_weight=".4"
 				    android:gravity="center_horizontal"
 				    android:text="@string/time"
 				    android:textSize="14sp"
@@ -717,7 +688,6 @@
 				    android:id="@+id/dataCntSessionTimeHi"
 				    android:layout_width="fill_parent"
 				    android:layout_height="wrap_content"
-				    android:layout_weight=".2"
 				    android:gravity="center_horizontal"
 				    android:textColor="@color/text_black_default"
 				    android:textSize="12sp"
@@ -729,7 +699,6 @@
 				    android:id="@+id/dataCntSessionTimeLo"
 				    android:layout_width="fill_parent"
 				    android:layout_height="wrap_content"
-				    android:layout_weight=".2"
 				    android:gravity="center_horizontal"
 				    android:textColor="@color/text_black_default"
 				    android:textSize="12sp"
@@ -737,6 +706,71 @@
 				/>
 			</TableRow>
 		</TableLayout>
+		<RadioGroup
+	        android:id="@+id/radioStatType"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal"
+	        android:gravity="right"
+	   >
+
+	        <RadioButton
+	            android:id="@+id/radioMessage1"
+	            android:layout_width="17dp"
+	            android:layout_height="17dp"
+	            android:button="@drawable/selector_custom_radio_tab"
+	        />
+
+	        <RadioButton
+	            android:id="@+id/radioMessage2"
+	            android:layout_width="17dp"
+	            android:layout_height="17dp"
+	            android:button="@drawable/selector_custom_radio_tab"
+	        />
+	        
+	        <RadioButton
+	            android:id="@+id/radioMessage3"
+	            android:layout_width="17dp"
+	            android:layout_height="17dp"
+	            android:button="@drawable/selector_custom_radio_tab"
+	        />
+	        
+	        <RadioButton
+	            android:id="@+id/radioMessage4"
+	            android:layout_width="17dp"
+	            android:layout_height="17dp"
+	            android:button="@drawable/selector_custom_radio_tab"
+	        />
+	        
+	        <RadioButton
+	            android:id="@+id/radioMessage5"
+	            android:layout_width="17dp"
+	            android:layout_height="17dp"
+	            android:button="@drawable/selector_custom_radio_tab"
+	        />
+	        
+	        <RadioButton
+	            android:id="@+id/radioMessage6"
+	            android:layout_width="17dp"
+	            android:layout_height="17dp"
+	            android:button="@drawable/selector_custom_radio_tab"
+	        />
+
+	        <RadioButton
+	            android:id="@+id/radioStatAvgMaxMin"
+	            android:layout_width="17dp"
+	            android:layout_height="17dp"
+	            android:button="@drawable/selector_custom_radio_tab"
+	        />
+	 
+	        <RadioButton
+	            android:id="@+id/radioStatHigherLower"
+	            android:layout_width="17dp"
+	            android:layout_height="17dp"
+	            android:button="@drawable/selector_custom_radio_tab"
+	        />
+	 
+	    </RadioGroup>
 	</LinearLayout>
 
 	<ListView
