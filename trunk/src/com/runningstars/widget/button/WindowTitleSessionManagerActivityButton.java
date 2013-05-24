@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 
+import com.runningstars.activity.ProfilActivity;
 import com.runningstars.activity.SessionManagerActivity;
 
 public class WindowTitleSessionManagerActivityButton extends Button {
@@ -16,7 +17,8 @@ public class WindowTitleSessionManagerActivityButton extends Button {
 			
 			public void onClick(View v) {
 				//
-				Intent myIntent = new Intent(getContext(), SessionManagerActivity.class);
+//				Intent myIntent = new Intent(getContext(), SessionManagerActivity.class);
+				Intent myIntent = new Intent(getContext(), ProfilActivity.class);
 
 				getContext().startActivity(myIntent);
 			}

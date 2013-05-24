@@ -52,12 +52,19 @@
         />
 
 	    <activity
-        	android:name=".activity.SessionManagerActivity"
+        	android:name=".activity.ProfilActivity"
             android:label="@string/title_activity_session_manager_no_session"
             android:screenOrientation="portrait"
             android:noHistory="true"
          />
 
+	    <activity
+        	android:name=".activity.SessionManagerActivity"
+            android:label="@string/title_activity_session_manager_no_session"
+            android:screenOrientation="portrait"
+            android:noHistory="true"
+         />
+	    
 	    <activity
 			android:name=".activity.SessionDetailActivity"
             android:label="@string/title_activity_session_detail"

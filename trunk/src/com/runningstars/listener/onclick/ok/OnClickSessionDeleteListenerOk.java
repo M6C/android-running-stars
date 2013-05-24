@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 
+import com.runningstars.activity.ProfilActivity;
 import com.runningstars.activity.SessionManagerActivity;
 import com.runningstars.activity.business.SessionDetailBusiness;
 
@@ -22,7 +23,8 @@ public class OnClickSessionDeleteListenerOk implements OnClickListener {
         	business.delete();
         	// Back to the session manager
         	Context context = business.getContext();
-        	context.startActivity(new Intent(context, SessionManagerActivity.class));
+//        	context.startActivity(new Intent(context, SessionManagerActivity.class));
+        	context.startActivity(new Intent(context, ProfilActivity.class));
 		}
 	}
 

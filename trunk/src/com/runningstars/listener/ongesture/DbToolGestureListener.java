@@ -7,6 +7,7 @@ import com.runningstars.ApplicationData;
 import com.runningstars.activity.ApplicationDataPreferenceActivity;
 import com.runningstars.activity.DbToolActivity;
 import com.runningstars.activity.ParameterActivity;
+import com.runningstars.activity.ProfilActivity;
 import com.runningstars.activity.SessionManagerActivity;
 
 
@@ -24,7 +25,8 @@ public class DbToolGestureListener extends AbstractGestureListener {
 		// Save Url in applcation data
 		ApplicationData.getInstance(context).setMysqlServerUrl(this.context.getUrl());
 
-		return new Intent(this.context.getBaseContext(), SessionManagerActivity.class);
+//		return new Intent(this.context.getBaseContext(), SessionManagerActivity.class);
+		return new Intent(this.context.getBaseContext(), ProfilActivity.class);
 	}
 
 	@Override
