@@ -141,7 +141,7 @@ public class ProfilActivity extends Activity implements INotifierMessage, OnItem
 		if (adapter instanceof ProfilSessionAdapter) {
 			ProfilSessionAdapter sessionAdapter = (ProfilSessionAdapter)adapter;
 			List<Session> listSession = sessionAdapter.getValue();
-			int nbSend = 0, nbTotal = 0;
+			int nbTotal = 0;
 			long timeStart = -1l, timeStop = -1l;
 			if (listSession!=null) {
 				nbTotal = listSession.size();
@@ -151,9 +151,6 @@ public class ProfilActivity extends Activity implements INotifierMessage, OnItem
 					float speedSum = 0f, speedAvg = 0f, speedMax = 0f, speedMin = -1f;
 					Date distanceMaxDate = null, distanceMinDate = null, speedMaxDate = null, speedMinDate = null;
 					for(Session session : listSession) {
-						if (session.getTimeSend()!=null)
-							nbSend++;
-	
 						Date startDate = (session.getTimeStart()!=null) ? session.getTimeStart() : new Date();
 						
 						double distance = session.getCalculateDistance();
@@ -245,13 +242,16 @@ public class ProfilActivity extends Activity implements INotifierMessage, OnItem
 					String dataCntSessionTimeHi = Integer.toString(cntSessionTimeHi);
 					String dataCntSessionTimeLo = Integer.toString(cntSessionTimeLo);
 					String dataCntSessionSend = Integer.toString(cntSessionSend);
+					String dataCntSession = Integer.toString(nbTotal);
 
-					String dataNbTotalSesion = Integer.toString(nbTotal);
-
+					nbSession.setText(String.format(
+						getResources().getString(R.string.progress_nb_session_send),
+						dataCntSessionSend,
+						dataCntSession
+					));
 					progressSessionSend.setIndeterminate(false);
 					progressSessionSend.setMax(nbTotal);
 					progressSessionSend.setProgress(cntSessionSend);
-					nbSession.setText(dataNbTotalSesion);
 					textDataDistanceAvg.setText(dataDistanceAvg);
 					textDataDistanceMax.setText(dataDistanceMax);
 					textDataDistanceMin.setText(dataDistanceMin);
