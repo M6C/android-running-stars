@@ -7,8 +7,8 @@ import org.gdocument.gtracergps.launcher.domain.Session;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -27,10 +27,12 @@ import com.runningstars.activity.inotifier.INotifierMessage;
 import com.runningstars.factory.FactoryStyle;
 import com.runningstars.listener.onchecked.OnCheckedStatTypeListener;
 import com.runningstars.listener.ontouch.SessionManagerOnTouchListener;
+import com.runningstars.listener.textwatcher.UserNameTextWatcherListener;
 import com.runningstars.tool.ToolCalculate;
 
 public class ProfilActivity extends Activity implements INotifierMessage, OnItemClickListener {
 
+	private static final String PREFS_NAME = "PROFIL_RUNNING";
 	private ProfilBusiness business;
 	private ListView listSession;
 	private ProgressBar progressSessionSend;
@@ -68,6 +70,8 @@ public class ProfilActivity extends Activity implements INotifierMessage, OnItem
 		setContentView(R.layout.activity_profil);
 		
 		setTitle(R.string.title_activity_profil);
+		
+		final SharedPreferences preferences = getSharedPreferences(PREFS_NAME, 0);
 
 		business = new ProfilBusiness(this);
 
@@ -103,7 +107,8 @@ public class ProfilActivity extends Activity implements INotifierMessage, OnItem
 		textShortestDistance = (TextView) findViewById(R.id.messageShortestDistance);
 		radioStatType = (RadioGroup)findViewById(R.id.radioStatType);
 
-		editUserName.setText("David ROCA");
+		editUserName.setText(preferences.getString(UserNameTextWatcherListener.USER_NAME_KEY, UserNameTextWatcherListener.USER_NAME_DEFAULT));
+		editUserName.addTextChangedListener(new UserNameTextWatcherListener(preferences));
 		
 		radioStatType.setOnCheckedChangeListener(new OnCheckedStatTypeListener(this));
 		radioStatType.check(R.id.radioMessage1);

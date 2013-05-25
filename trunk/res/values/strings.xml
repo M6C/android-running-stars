@@ -119,6 +119,7 @@
     <string name="image_description_trophee">trophee</string>
     <string name="image_description_slow_speed">slow speed</string>
     <string name="image_description_short_distance">short distance</string>
+    <string name="hint_user_name">user name</string>
     <string name="legende_avg">avg</string>
 	<string name="legende_max">max</string>
 	<string name="legende_min">min</string>
