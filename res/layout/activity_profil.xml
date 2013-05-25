@@ -35,12 +35,14 @@
 		    android:orientation="vertical"
 		>
 			<EditText
-			    android:inputType="textPersonName"
 			    android:id="@+id/editUserName"
+			    android:inputType="textPersonName"
+			    android:hint="@string/hint_user_name"
 			    android:layout_width="fill_parent"
 			    android:layout_height="wrap_content"
 			    android:textSize="18sp"
 			    android:textColor="@color/yellow_golden"
+			    android:textColorHint="@color/yellow_golden_transparent"
 			    android:singleLine="true"
 			    android:gravity="center_horizontal"
 			    android:background="@drawable/edit_noborder_white_bg"

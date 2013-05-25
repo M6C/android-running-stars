@@ -10,6 +10,7 @@
     	<!-- http://simple.wikipedia.org/wiki/Yellow -->
     <color name="yellow">#FFFF33</color>
     <color name="yellow_golden">#FFD700</color>
+    <color name="yellow_golden_transparent">#55FFD700</color>
     <!-- http://simple.wikipedia.org/wiki/Orange#Tones_of_orange_color_comparison_chart -->
     <color name="orange">#FFA500</color>
     <color name="orange_bright">#FF8C00</color>
