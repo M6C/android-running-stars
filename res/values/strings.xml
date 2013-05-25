@@ -12,6 +12,7 @@
     <string name="title_activity_dbTool">Database Tool</string>
     <string name="title_activity_session_manager_no_session">Session Manager - No session</string>
     <string name="title_activity_session_manager">Session Manager - %1$d/%2$d session send\n\nTime:%3$s Distance:%4$s</string>
+    <string name="title_activity_profil">Running Profil</string>
     <!-- http://developer.android.com/reference/java/util/Formatter.html -->
     <string name="title_activity_session_detail">Session %1$td/%1$tm/%1$ty at %1$tH:%1$tM:%1$tS</string>
     <string name="title_activity_parameter">Parameter</string>
@@ -113,14 +114,19 @@
     <string name="gps_session_service_label">Session service label</string>
 
     <string name="image_description_profil">profil</string>
-	<string name="legende_avg">avg</string>
+    <string name="image_description_borne_km">borne km</string>
+    <string name="image_description_horloge">horloge</string>
+    <string name="image_description_trophee">trophee</string>
+    <string name="image_description_slow_speed">slow speed</string>
+    <string name="image_description_short_distance">short distance</string>
+    <string name="legende_avg">avg</string>
 	<string name="legende_max">max</string>
 	<string name="legende_min">min</string>
 	<string name="legende_avg_higher">higher</string>
 	<string name="legende_avg_lower">lower</string>
 	<string name="legende_total">total</string>
-	<string name="message_start_stop_session">First trainning sessions start %1$td/%1$tm/%1$ty and last %2$td/%2$tm/%2$ty</string>
-	<string name="message_global_distance_time">You have ran %1$s in %2$s hours</string>
+	<string name="message_start_stop_session">First trainning sessions start <b>%1$td/%1$tm/%1$ty</b> and last <b>%2$td/%2$tm/%2$ty</b></string>
+	<string name="message_global_distance_time">You have ran %1$s in %2$s hours with an average speed of %3$s</string>
 	<string name="message_speed_record">Speed record %1$s on %2$td/%2$tm/%2$ty</string>
 	<string name="message_slowest_speed">Slowest speed %1$s on %2$td/%2$tm/%2$ty</string>
 	<string name="message_distance_record">Distance record %1$s on %2$td/%2$tm/%2$ty</string>

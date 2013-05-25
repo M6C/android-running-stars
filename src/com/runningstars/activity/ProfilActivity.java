@@ -8,9 +8,11 @@ import org.gdocument.gtracergps.launcher.domain.Session;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -57,12 +59,15 @@ public class ProfilActivity extends Activity implements INotifierMessage, OnItem
 	private TextView textSlowestSpeed;
 	private TextView textDistanceRecord;
 	private TextView textShortestDistance;
+	private EditText editUserName;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.activity_profil);
+		
+		setTitle(R.string.title_activity_profil);
 
 		business = new ProfilBusiness(this);
 
@@ -70,6 +75,7 @@ public class ProfilActivity extends Activity implements INotifierMessage, OnItem
 		listSession.setOnTouchListener(new SessionManagerOnTouchListener(this));
 		listSession.setOnItemClickListener(this);
 
+		editUserName = (EditText)findViewById(R.id.editUserName);
 		progressSessionSend = (ProgressBar) findViewById(R.id.progressSessionSend);
 		nbSession = (TextView) findViewById(R.id.nbSession);
 		textDataDistanceAvg = (TextView) findViewById(R.id.dataDistanceAvg);
@@ -95,10 +101,13 @@ public class ProfilActivity extends Activity implements INotifierMessage, OnItem
 		textSlowestSpeed = (TextView) findViewById(R.id.messageSlowestSpeed);
 		textDistanceRecord = (TextView) findViewById(R.id.messageDistanceRecord);
 		textShortestDistance = (TextView) findViewById(R.id.messageShortestDistance);
-
 		radioStatType = (RadioGroup)findViewById(R.id.radioStatType);
+
+		editUserName.setText("David ROCA");
+		
 		radioStatType.setOnCheckedChangeListener(new OnCheckedStatTypeListener(this));
 		radioStatType.check(R.id.radioMessage1);
+		radioStatType.requestFocus();
 
 		FactoryStyle.getInstance().centerTitle(this);
 	}
@@ -256,14 +265,6 @@ public class ProfilActivity extends Activity implements INotifierMessage, OnItem
 					textDataDistanceSum.setText(dataDistanceSum);
 					textDataTimeSum.setText(dataTimeSum);
 
-					setTitle(String.format(
-							getResources().getString(R.string.title_activity_session_manager), 
-							nbSend, 
-							nbTotal,
-							ToolCalculate.formatElapsedTime(timeSum),
-							ToolCalculate.formatDistanceKm(distanceSum)
-						));
-
 					textStartEndSession.setText(
 						String.format(getResources().getString(R.string.message_start_stop_session),
 							new Date(timeStart),
@@ -273,7 +274,8 @@ public class ProfilActivity extends Activity implements INotifierMessage, OnItem
 					textGlobalDistanceTime.setText(
 						String.format(getResources().getString(R.string.message_global_distance_time),
 							dataDistanceSum,
-							dataTimeSum
+							dataTimeSum,
+							dataSpeedAvg
 					));
 					textSpeedRecord.setText(
 						String.format(getResources().getString(R.string.message_speed_record),
