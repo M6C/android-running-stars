@@ -132,6 +132,7 @@
 	<string name="message_slowest_speed">Slowest speed %1$s on %2$td/%2$tm/%2$ty</string>
 	<string name="message_distance_record">Distance record %1$s on %2$td/%2$tm/%2$ty</string>
 	<string name="message_shortest_distance">Shortest distance %1$s on %2$td/%2$tm/%2$ty</string>
+	<string name="progress_nb_session_send">%1$s send to %2$s</string>
 <!-- 
     <string name="radio_message_1">1</string>
     <string name="radio_message_2">2</string>
