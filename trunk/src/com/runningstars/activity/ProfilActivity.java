@@ -1,5 +1,6 @@
 package com.runningstars.activity;
 
+import java.io.File;
 import java.util.Date;
 import java.util.List;
 
@@ -8,11 +9,18 @@ import org.gdocument.gtracergps.launcher.domain.Session;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -33,7 +41,11 @@ import com.runningstars.tool.ToolCalculate;
 public class ProfilActivity extends Activity implements INotifierMessage, OnItemClickListener {
 
 	private static final String PREFS_NAME = "PROFIL_RUNNING";
+	protected static final int ACTIVITY_SELECT_IMAGE = 0;
 	private ProfilBusiness business;
+	private SharedPreferences preferences;
+
+	private ImageView imageProfil;
 	private ListView listSession;
 	private ProgressBar progressSessionSend;
 	private TextView nbSession;
@@ -71,7 +83,7 @@ public class ProfilActivity extends Activity implements INotifierMessage, OnItem
 		
 		setTitle(R.string.title_activity_profil);
 		
-		final SharedPreferences preferences = getSharedPreferences(PREFS_NAME, 0);
+		preferences = getSharedPreferences(PREFS_NAME, 0);
 
 		business = new ProfilBusiness(this);
 
@@ -79,6 +91,7 @@ public class ProfilActivity extends Activity implements INotifierMessage, OnItem
 		listSession.setOnTouchListener(new SessionManagerOnTouchListener(this));
 		listSession.setOnItemClickListener(this);
 
+		imageProfil = (ImageView)findViewById(R.id.imageProfil);
 		editUserName = (EditText)findViewById(R.id.editUserName);
 		progressSessionSend = (ProgressBar) findViewById(R.id.progressSessionSend);
 		nbSession = (TextView) findViewById(R.id.nbSession);
@@ -114,14 +127,61 @@ public class ProfilActivity extends Activity implements INotifierMessage, OnItem
 		radioStatType.check(R.id.radioMessage1);
 		radioStatType.requestFocus();
 
+		imageProfil.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+				startActivityForResult(i, ACTIVITY_SELECT_IMAGE);
+			}
+		});
+
 		FactoryStyle.getInstance().centerTitle(this);
 	}
+
+		protected void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent) { 
+//			super.onActivityResult(requestCode, resultCode, imageReturnedIntent); 
+
+			switch(requestCode) {
+			case ACTIVITY_SELECT_IMAGE:
+			    if(resultCode == RESULT_OK){  
+			        Uri selectedImage = imageReturnedIntent.getData();
+			        String[] filePathColumn = {MediaStore.Images.Media.DATA};
+
+			        Cursor cursor = getContentResolver().query(selectedImage, filePathColumn, null, null, null);
+			        cursor.moveToFirst();
+
+			        int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+			        String filePath = cursor.getString(columnIndex);
+			        cursor.close();
+
+					File imageProfilfile = new File(filePath);
+					if (imageProfilfile.exists() && imageProfilfile.isFile()) {
+						preferences.edit().putString("IMAGE_PROFIL", filePath).commit();
+					}
+			    }
+			}
+		}
 
 	/* (non-Javadoc)
 	 * @see android.app.Activity#onResume()
 	 */
 	@Override
 	protected void onResume() {
+
+		if (preferences.contains("IMAGE_PROFIL")) {
+			String imageProfilPath = preferences.getString("IMAGE_PROFIL", "");
+			File imageProfilfile = new File(imageProfilPath);
+			if (imageProfilfile.exists() && imageProfilfile.isFile()) {
+				Bitmap bm = BitmapFactory.decodeFile(imageProfilPath);
+				int width = 211;
+				int height = 211;//bm.getWidth()<bm.getHeight() ? width * bm.getHeight() / bm.getWidth() : width * bm.getWidth() / bm.getHeight();
+				imageProfil.setImageBitmap(Bitmap.createScaledBitmap(bm, width, height, false));
+			}
+			else {
+				preferences.edit().remove("IMAGE_PROFIL").commit();
+			}
+		}
+
 		business.initData();
 		super.onResume();
 	}
