@@ -94,6 +94,14 @@ public class GPSMapActivity extends MapActivity implements INotifierMessage {
 	}
 
 	/* (non-Javadoc)
+	 * @see android.app.Activity#onBackPressed()
+	 */
+	@Override
+	public void onBackPressed() {
+		finish();
+	}
+
+	/* (non-Javadoc)
 	 * @see android.app.Activity#onCreateOptionsMenu(android.view.Menu)
 	 */
 	@Override

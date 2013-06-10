@@ -237,6 +237,14 @@ public class GPSLocationActivity extends MapActivity implements INotifierMessage
 		savedInstanceState.putBoolean(KEY_SAVE_STATE_SLIDINGBUTTON, slidingMap.isOpened());
 	}
 
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onBackPressed()
+	 */
+	@Override
+	public void onBackPressed() {
+		finish();
+	}
+
 	public void runInHandler(Runnable runnable) {
 		handler.post(runnable);
 	}
@@ -376,32 +384,34 @@ public class GPSLocationActivity extends MapActivity implements INotifierMessage
 
 		String data = null;
 		FieldData fieldData = fieldDataByView.get(view);
-		switch (fieldData) {
-			case DISTANCE: {
-				double distance = NumberUtil.formatDouble(session.getCalculateDistance());
-				data = /*
-						 * (distance < 1d) ? nf.format((int) (distance * 1000)) +
-						 * " M" :
-						 */nf.format(distance) + " KM";
-				break;
+		if (fieldData!=null) {
+			switch (fieldData) {
+				case DISTANCE: {
+					double distance = NumberUtil.formatDouble(session.getCalculateDistance());
+					data = /*
+							 * (distance < 1d) ? nf.format((int) (distance * 1000)) +
+							 * " M" :
+							 */nf.format(distance) + " KM";
+					break;
+				}
+				case ELAPSED_TIME: {
+					data = ToolDatetime.toTimeDefault(session.getCalculateElapsedTime());
+					break;
+				}
+				case SPEED_AVERAGE: {
+					logMe("setViewData SPEED_AVERAGE session start:"+session.getStart()+" end:"+session.getEnd()+" calculate distance:"+session.getCalculateDistance());
+					data = ToolCalculate.formatSpeedKmH(session);
+					break;
+				}
+				default:
+					break;
 			}
-			case ELAPSED_TIME: {
-				data = ToolDatetime.toTimeDefault(session.getCalculateElapsedTime());
-				break;
+			
+			if (view instanceof TextView) {
+				logMe("setViewData session fieldData:"+fieldData.name()+" data:"+data);
+				TextView tv = ((TextView) view);
+				tv.setText(data);
 			}
-			case SPEED_AVERAGE: {
-				logMe("setViewData SPEED_AVERAGE session start:"+session.getStart()+" end:"+session.getEnd()+" calculate distance:"+session.getCalculateDistance());
-				data = ToolCalculate.formatSpeedKmH(session);
-				break;
-			}
-			default:
-				break;
-		}
-
-		if (view instanceof TextView) {
-			logMe("setViewData session fieldData:"+fieldData.name()+" data:"+data);
-			TextView tv = ((TextView) view);
-			tv.setText(data);
 		}
 	}
 

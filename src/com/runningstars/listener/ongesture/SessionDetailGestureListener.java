@@ -12,13 +12,11 @@ import com.runningstars.business.SessionBusiness;
 
 public class SessionDetailGestureListener extends AbstractGestureListener {
 
-	private SessionDetailActivity context;
 	private SessionDetailBusiness business;
 	private SessionBusiness sessionBusiness;
 
 	public SessionDetailGestureListener(SessionDetailActivity context) {
 		super(context);
-		this.context = context;
 		business = context.getBusiness();
 		sessionBusiness = SessionBusiness.getInstance(context, context);
 	}
@@ -28,7 +26,7 @@ public class SessionDetailGestureListener extends AbstractGestureListener {
 		Intent intent = null;
 		Session session = sessionBusiness.getNext(business.getSession());
 		if (session!=null) {
-			intent = new Intent(this.context.getBaseContext(), SessionDetailActivity.class);
+			intent = new Intent(context, SessionDetailActivity.class);
 			intent.putExtra(SessionDetailBusiness.INTENT_KEY_SESSION, session.getId());
 		}
 		return intent;
@@ -39,7 +37,7 @@ public class SessionDetailGestureListener extends AbstractGestureListener {
 		Intent intent = null;
 		Session session = sessionBusiness.getPrevious(business.getSession());
 		if (session!=null) {
-			intent = new Intent(this.context.getBaseContext(), SessionDetailActivity.class);
+			intent = new Intent(context, SessionDetailActivity.class);
 			intent.putExtra(SessionDetailBusiness.INTENT_KEY_SESSION, session.getId());
 		}
 		return intent;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd">
-    <info organisation="org.cameleon" module="running.stars" revision="1.0-SNAPSHOT" status="release" publication="20130524232427"/>
+    <info organisation="org.cameleon" module="running.stars" revision="1.0-SNAPSHOT" status="release" publication="20130529222420"/>
 	<configurations>
 	    <conf name="runtime" description="Required to run application"/>
 	</configurations>

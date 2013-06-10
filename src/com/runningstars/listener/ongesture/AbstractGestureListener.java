@@ -25,6 +25,9 @@ public abstract class AbstractGestureListener extends SimpleOnGestureListener {
 	protected abstract Intent getFlingRight(Context context);
 	protected abstract Intent getFlingLeft(Context context);
 
+	protected void finishActivity() {
+		this.context.finish();
+	}
 	@Override
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
 
@@ -34,7 +37,8 @@ public abstract class AbstractGestureListener extends SimpleOnGestureListener {
 
         // right to left swipe
         if(e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
-            Intent intent = getFlingRight(GPSApplication.getAppContext());//new Intent(GPSApplication.getAppContext(), SessionManagerActivity.class);
+    		finishActivity();
+            Intent intent = getFlingRight(this.context.getBaseContext());//GPSApplication.getAppContext());//new Intent(GPSApplication.getAppContext(), SessionManagerActivity.class);
             if (intent!=null) {
         		context.setVisible(false);
 	        	context.startActivity(intent);
@@ -45,7 +49,8 @@ public abstract class AbstractGestureListener extends SimpleOnGestureListener {
             }
 	    // right to left swipe
         }  else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
-            Intent intent = getFlingLeft(GPSApplication.getAppContext());//new Intent(GPSApplication.getAppContext(), DbToolActivity.class);
+    		finishActivity();
+            Intent intent = getFlingLeft(this.context.getBaseContext());//GPSApplication.getAppContext());//new Intent(GPSApplication.getAppContext(), DbToolActivity.class);
             if (intent!=null) {
         		context.setVisible(false);
 	        	context.startActivity(intent);

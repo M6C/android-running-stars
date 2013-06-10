@@ -40,8 +40,10 @@ import com.runningstars.tool.ToolCalculate;
 
 public class ProfilActivity extends Activity implements INotifierMessage, OnItemClickListener {
 
-	private static final String PREFS_NAME = "PROFIL_RUNNING";
-	protected static final int ACTIVITY_SELECT_IMAGE = 0;
+	public static final String KEY_PREF_IMAGE_PROFIL = "IMAGE_PROFIL";
+	public static final String PREFS_NAME = "PROFIL_RUNNING";
+	public static final int ACTIVITY_SELECT_IMAGE = 0;
+
 	private ProfilBusiness business;
 	private SharedPreferences preferences;
 
@@ -156,7 +158,7 @@ public class ProfilActivity extends Activity implements INotifierMessage, OnItem
 
 					File imageProfilfile = new File(filePath);
 					if (imageProfilfile.exists() && imageProfilfile.isFile()) {
-						preferences.edit().putString("IMAGE_PROFIL", filePath).commit();
+						preferences.edit().putString(KEY_PREF_IMAGE_PROFIL, filePath).commit();
 					}
 			    }
 			}
@@ -168,8 +170,8 @@ public class ProfilActivity extends Activity implements INotifierMessage, OnItem
 	@Override
 	protected void onResume() {
 
-		if (preferences.contains("IMAGE_PROFIL")) {
-			String imageProfilPath = preferences.getString("IMAGE_PROFIL", "");
+		if (preferences.contains(KEY_PREF_IMAGE_PROFIL)) {
+			String imageProfilPath = preferences.getString(KEY_PREF_IMAGE_PROFIL, "");
 			File imageProfilfile = new File(imageProfilPath);
 			if (imageProfilfile.exists() && imageProfilfile.isFile()) {
 				Bitmap bm = BitmapFactory.decodeFile(imageProfilPath);
@@ -178,7 +180,7 @@ public class ProfilActivity extends Activity implements INotifierMessage, OnItem
 				imageProfil.setImageBitmap(Bitmap.createScaledBitmap(bm, width, height, false));
 			}
 			else {
-				preferences.edit().remove("IMAGE_PROFIL").commit();
+				preferences.edit().remove(KEY_PREF_IMAGE_PROFIL).commit();
 			}
 		}
 
@@ -192,6 +194,14 @@ public class ProfilActivity extends Activity implements INotifierMessage, OnItem
 		Intent intent = new Intent(this, SessionDetailActivity.class);
 		intent.putExtra(SessionDetailBusiness.INTENT_KEY_SESSION, session.getId());
 		startActivity(intent);
+	}
+
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onBackPressed()
+	 */
+	@Override
+	public void onBackPressed() {
+		finish();
 	}
 
 	/* (non-Javadoc)
