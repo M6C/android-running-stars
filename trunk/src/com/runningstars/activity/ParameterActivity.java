@@ -64,6 +64,14 @@ public class ParameterActivity extends Activity {
 		enableOnTouchListenerMain();
 	}
 
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onBackPressed()
+	 */
+	@Override
+	public void onBackPressed() {
+		finish();
+	}
+
 	public void enableOnTouchListenerMain() {
 
 		if (onTouchListener == null)

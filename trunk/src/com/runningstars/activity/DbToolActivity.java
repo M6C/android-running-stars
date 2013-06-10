@@ -85,6 +85,23 @@ public class DbToolActivity extends Activity implements INotifierMessage {
 		business.onPause();
 		super.onPause();
 	}
+	
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onDestroy()
+	 */
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		ApplicationData.getInstance(this).setMysqlServerUrl(getUrl());
+	}
+
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onBackPressed()
+	 */
+	@Override
+	public void onBackPressed() {
+		finish();
+	}
 
     public void runInHandler(Runnable runnable) {
     	handler.post(runnable);
@@ -93,15 +110,6 @@ public class DbToolActivity extends Activity implements INotifierMessage {
     public Handler getHandler() {
     	return handler;
     }
-
-    /* (non-Javadoc)
-	 * @see android.app.Activity#onDestroy()
-	 */
-	@Override
-	protected void onDestroy() {
-		super.onDestroy();
-		ApplicationData.getInstance(this).setMysqlServerUrl(getUrl());
-	}
 
 	/**
 	 * Obtaine url field content

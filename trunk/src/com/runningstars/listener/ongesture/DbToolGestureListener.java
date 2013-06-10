@@ -6,9 +6,7 @@ import android.content.Intent;
 import com.runningstars.ApplicationData;
 import com.runningstars.activity.ApplicationDataPreferenceActivity;
 import com.runningstars.activity.DbToolActivity;
-import com.runningstars.activity.ParameterActivity;
 import com.runningstars.activity.ProfilActivity;
-import com.runningstars.activity.SessionManagerActivity;
 
 
 public class DbToolGestureListener extends AbstractGestureListener {

@@ -100,6 +100,14 @@ public class ApplicationDataPreferenceActivity extends PreferenceActivity {
 	    getPreferenceScreen().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(spChanged);
 	}
 
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onBackPressed()
+	 */
+	@Override
+	public void onBackPressed() {
+		finish();
+	}
+
 	private void enableOnTouchListenerMain() {
 
 		if (onTouchListener == null)

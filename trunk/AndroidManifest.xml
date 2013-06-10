@@ -41,15 +41,15 @@
 			android:name=".activity.GPSMapActivity"
 			android:label="@string/app_name"
             android:screenOrientation="landscape"
-            android:noHistory="true"
 		/>
+<!--             android:noHistory="true" -->
 
 	    <activity
             android:name=".activity.DbToolActivity"
             android:label="@string/title_activity_dbTool"
             android:screenOrientation="portrait"
-            android:noHistory="true"
         />
+<!--             android:noHistory="true" -->
 
 	    <activity
         	android:name=".activity.ProfilActivity"
@@ -62,30 +62,30 @@
         	android:name=".activity.SessionManagerActivity"
             android:label="@string/title_activity_session_manager_no_session"
             android:screenOrientation="portrait"
-            android:noHistory="true"
          />
+<!--             android:noHistory="true" -->
 	    
 	    <activity
 			android:name=".activity.SessionDetailActivity"
             android:label="@string/title_activity_session_detail"
             android:screenOrientation="portrait"
-            android:noHistory="true"
          />
+<!--             android:noHistory="true" -->
 
 	    <activity
 	        android:name=".activity.ApplicationDataPreferenceActivity"
             android:label="@string/title_activity_application_data_preference"
             android:screenOrientation="portrait"
-            android:noHistory="true"
             android:theme="@style/CustomPreferenceRedTheme"
          />
+<!--             android:noHistory="true" -->
 	    
 	    <activity
 	        android:name=".activity.ParameterActivity"
             android:label="@string/title_activity_parameter"
             android:screenOrientation="portrait"
-            android:noHistory="true"
          />
+<!--             android:noHistory="true" -->
 
 		<activity
             android:name=".activity.dialog.RunDialogActivity"
