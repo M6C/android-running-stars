@@ -15,5 +15,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.apache.ivyde.eclipse.cpcontainer.IVYDE_CONTAINER/?project=android-running-stars&amp;ivyXmlPath=ivy-1.0-SNAPSHOT.xml&amp;confs=*&amp;acceptedTypes=jar%2Cbundle%2Cejb%2Cmaven-plugin&amp;alphaOrder=false&amp;resolveInWorkspace=true&amp;retrievedClasspath=true&amp;retrievedClasspathPattern=libs%2F%5Bartifact%5D-%5Brevision%5D.%5Bext%5D&amp;retrievedClasspathSync=false&amp;retrievedClasspathTypes=*"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/android-tracer-gps-common"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
