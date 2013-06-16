@@ -116,7 +116,8 @@ public class DBSessionDataSource {
 		logMe("Session updateCalculate with id: " + id);
 		ContentValues values = new ContentValues();
 		values.put(DBSessionHelper.COLUMN_CAL_DISTANCE, session.getCalculateDistance());
-		values.put(DBSessionHelper.COLUMN_CAL_ELAPSED_TIME, session.getCalculateElapsedTime());
+//		values.put(DBSessionHelper.COLUMN_CAL_ELAPSED_TIME, session.getCalculateElapsedTime());
+		values.put(DBSessionHelper.COLUMN_CAL_ELAPSED_TIME, session.getTimeStart()==null || session.getTimeStop()==null ? 0 : session.getTimeStop().getTime()-session.getTimeStart().getTime());
 
 		db.update(DBSessionHelper.TABLE_NAME, values, DBSessionHelper.COLUMN_ID + " = " + id, null);
 		logMe("updateCalculate(session.id:" + session.getId() + ")", dateStart);

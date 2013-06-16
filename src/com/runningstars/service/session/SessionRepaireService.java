@@ -103,6 +103,9 @@ public class SessionRepaireService extends IntentService {
 			if (time>0)
 				session.setTimeSend(new Date(time));
 		}
+		session.setCalculateElapsedTime(
+			session.getTimeStart()==null || session.getTimeStop()==null ? 0 : session.getTimeStop().getTime()-session.getTimeStart().getTime()
+		);
 	}
 
 	private void repaireLocalisation(Session session) {
