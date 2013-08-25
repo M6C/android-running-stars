@@ -1,4 +1,4 @@
-package com.runningstars.db.sqlite.helper;
+package com.cameleon.common.db.sqlite.helper;
 
 import java.io.File;
 import java.io.FileInputStream;
