@@ -3,6 +3,7 @@ package com.runningstars.db.sqlite.helper;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.cameleon.common.db.sqlite.helper.DBAbstractHelper;
 import com.runningstars.activity.inotifier.INotifierMessage;
 
 public class DBSessionHelper extends DBAbstractHelper {
