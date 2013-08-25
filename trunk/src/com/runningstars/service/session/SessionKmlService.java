@@ -8,8 +8,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 
+import com.cameleon.common.inotifier.INotifierMessage;
 import com.runningstars.ApplicationData;
-import com.runningstars.activity.inotifier.INotifierMessage;
 import com.runningstars.business.SessionBusiness;
 import com.runningstars.factory.FactoryNotifier;
 

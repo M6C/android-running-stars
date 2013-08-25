@@ -19,9 +19,9 @@ import android.os.Parcelable;
 import android.os.RemoteException;
 import android.widget.Toast;
 
+import com.cameleon.common.inotifier.INotifierMessage;
 import com.runningstars.R;
 import com.runningstars.activity.GPSLocationActivity;
-import com.runningstars.activity.inotifier.INotifierMessage;
 import com.runningstars.business.SessionBusiness;
 import com.runningstars.service.system.binder.SystemGpsSessionServiceBinder;
 import com.runningstars.service.system.connection.SystemGpsLocationServiceConnection;

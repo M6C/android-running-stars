@@ -11,9 +11,8 @@ import android.content.IntentFilter;
 import android.os.IBinder;
 import android.os.Parcelable;
 
+import com.cameleon.common.inotifier.INotifierMessage;
 import com.runningstars.ApplicationData;
-import com.runningstars.ApplicationData.METHODE_CALCUL_DISTANCE;
-import com.runningstars.activity.inotifier.INotifierMessage;
 import com.runningstars.db.sqlite.datasource.DBLocationDataSource;
 import com.runningstars.service.system.binder.SystemGpsLocationServiceBinder;
 import com.runningstars.service.system.listener.SystemGpsLocationListener;

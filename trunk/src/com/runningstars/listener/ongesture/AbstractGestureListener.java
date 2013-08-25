@@ -7,7 +7,6 @@ import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
 
 import com.runningstars.R;
-import com.runningstars.application.GPSApplication;
 
 public abstract class AbstractGestureListener extends SimpleOnGestureListener {
 //http://savagelook.com/blog/android/swipes-or-flings-for-navigation-in-android

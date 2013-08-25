@@ -6,7 +6,6 @@ import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 
 import com.runningstars.activity.ProfilActivity;
-import com.runningstars.activity.SessionManagerActivity;
 import com.runningstars.activity.business.SessionDetailBusiness;
 
 public class OnClickSessionDeleteListenerOk implements OnClickListener {

@@ -1,4 +1,4 @@
-package com.runningstars.activity.inotifier;
+package com.cameleon.common.inotifier;
 
 public interface INotifierMessage {
 	   

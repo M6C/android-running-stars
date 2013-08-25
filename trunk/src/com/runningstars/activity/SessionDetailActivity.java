@@ -16,9 +16,9 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.cameleon.common.inotifier.INotifierMessage;
 import com.runningstars.R;
 import com.runningstars.activity.business.SessionDetailBusiness;
-import com.runningstars.activity.inotifier.INotifierMessage;
 import com.runningstars.factory.FactoryDialog;
 import com.runningstars.factory.FactoryLayoutInFlater;
 import com.runningstars.factory.FactoryStyle;
