@@ -6,7 +6,7 @@ import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
 
-import com.runningstars.activity.inotifier.INotifierMessage;
+import com.cameleon.common.inotifier.INotifierMessage;
 import com.runningstars.db.sqlite.datasource.DBLocationDataSource;
 import com.runningstars.db.sqlite.datasource.DBSessionDataSource;
 import com.runningstars.factory.FactoryNotifier;

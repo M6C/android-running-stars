@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.cameleon.common.inotifier.INotifierMessage;
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapController;
@@ -21,7 +22,6 @@ import com.google.android.maps.OverlayItem;
 import com.runningstars.ApplicationData;
 import com.runningstars.R;
 import com.runningstars.activity.business.GPSMapBusiness;
-import com.runningstars.activity.inotifier.INotifierMessage;
 import com.runningstars.factory.FactoryStyle;
 import com.runningstars.map.GPSMapOverlay;
 import com.runningstars.map.GPSMapOverlay.OnZoomChangeListener;

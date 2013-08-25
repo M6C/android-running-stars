@@ -20,7 +20,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.addon.api.json.JsonWriter;
-import com.runningstars.activity.inotifier.INotifierMessage;
+import com.cameleon.common.inotifier.INotifierMessage;
 import com.runningstars.db.sqlite.datasource.DBLocationDataSource;
 import com.runningstars.json.JSONParser;
 import com.runningstars.tool.ToolMySQL;

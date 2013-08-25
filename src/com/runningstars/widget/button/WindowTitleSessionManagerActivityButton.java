@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.runningstars.activity.ProfilActivity;
-import com.runningstars.activity.SessionManagerActivity;
 
 public class WindowTitleSessionManagerActivityButton extends Button {
 

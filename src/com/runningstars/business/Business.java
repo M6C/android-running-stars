@@ -7,7 +7,7 @@ import org.gdocument.gtracergps.launcher.domain.Session;
 
 import android.content.Context;
 
-import com.runningstars.activity.inotifier.INotifierMessage;
+import com.cameleon.common.inotifier.INotifierMessage;
 import com.runningstars.db.sqlite.datasource.DBLocationDataSource;
 import com.runningstars.db.sqlite.datasource.DBSessionDataSource;
 

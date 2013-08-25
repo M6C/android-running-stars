@@ -7,10 +7,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cameleon.common.inotifier.INotifierMessage;
 import com.runningstars.ApplicationData;
 import com.runningstars.R;
 import com.runningstars.activity.business.DbToolBusiness;
-import com.runningstars.activity.inotifier.INotifierMessage;
 import com.runningstars.factory.FactoryStyle;
 import com.runningstars.listener.ontouch.DbToolOnTouchListener;
 import com.runningstars.listener.view.ViewOnClickBackupDbListener;

@@ -15,7 +15,7 @@ import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Environment;
 
-import com.runningstars.activity.inotifier.INotifierMessage;
+import com.cameleon.common.inotifier.INotifierMessage;
 import com.runningstars.tool.ToolDatetime;
 
 public abstract class DBAbstractHelper extends SQLiteOpenHelper {

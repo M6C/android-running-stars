@@ -8,8 +8,8 @@ import org.gdocument.gtracergps.launcher.domain.Session;
 
 import android.content.Context;
 
+import com.cameleon.common.inotifier.INotifierMessage;
 import com.runningstars.ApplicationData;
-import com.runningstars.activity.inotifier.INotifierMessage;
 import com.runningstars.db.sqlite.datasource.DBSessionDataSource;
 import com.runningstars.db.task.InsertSession;
 

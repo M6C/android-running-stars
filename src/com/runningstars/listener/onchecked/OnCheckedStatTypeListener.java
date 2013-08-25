@@ -1,8 +1,6 @@
 package com.runningstars.listener.onchecked;
 
 import android.app.Activity;
-import android.content.Context;
-import android.os.AsyncTask;
 import android.os.Handler;
 import android.view.View;
 import android.view.View.OnClickListener;

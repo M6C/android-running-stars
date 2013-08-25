@@ -2,7 +2,7 @@ package com.runningstars.factory;
 
 import android.content.Context;
 
-import com.runningstars.activity.inotifier.INotifierMessage;
+import com.cameleon.common.inotifier.INotifierMessage;
 import com.runningstars.factory.singleton.SingletonNotifierSendSessionProgress;
 import com.runningstars.factory.singleton.SingletonNotifierToast;
 import com.runningstars.service.session.receiver.inotifier.INotifierSessionProgress;

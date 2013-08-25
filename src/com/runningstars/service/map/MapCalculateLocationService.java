@@ -11,10 +11,9 @@ import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
 
+import com.cameleon.common.inotifier.INotifierMessage;
 import com.runningstars.ApplicationData;
 import com.runningstars.R;
-import com.runningstars.ApplicationData.METHODE_CALCUL_DISTANCE;
-import com.runningstars.activity.inotifier.INotifierMessage;
 import com.runningstars.business.Business;
 import com.runningstars.business.LocationBusiness;
 import com.runningstars.factory.FactoryNotifier;
