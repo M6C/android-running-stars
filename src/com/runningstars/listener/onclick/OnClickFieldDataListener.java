@@ -7,8 +7,8 @@ import android.view.View;
 import android.view.View.OnLongClickListener;
 import android.widget.AdapterView.OnItemClickListener;
 
+import com.cameleon.common.factory.FactoryDialog;
 import com.runningstars.R;
-import com.runningstars.factory.FactoryDialog;
 import com.runningstars.listener.onitemclick.IOnItemClickFieldData;
 import com.runningstars.listener.onitemclick.IOnItemClickFieldData.FieldData;
 import com.runningstars.listener.onitemclick.OnItemClickFieldDataListener;

@@ -15,9 +15,9 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.ToggleButton;
 
+import com.cameleon.common.factory.FactoryStyle;
 import com.runningstars.ApplicationData;
 import com.runningstars.R;
-import com.runningstars.factory.FactoryStyle;
 import com.runningstars.filter.NumericInputFilter;
 import com.runningstars.listener.ontouch.ParameterOnTouchListener;
 

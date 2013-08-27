@@ -1,4 +1,4 @@
-package com.runningstars.factory;
+package com.cameleon.common.factory;
 
 import android.app.Activity;
 import android.view.Gravity;

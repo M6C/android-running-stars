@@ -11,12 +11,12 @@ import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
 
+import com.cameleon.common.factory.FactoryNotifier;
 import com.cameleon.common.inotifier.INotifierMessage;
 import com.runningstars.ApplicationData;
 import com.runningstars.R;
 import com.runningstars.business.Business;
 import com.runningstars.business.LocationBusiness;
-import com.runningstars.factory.FactoryNotifier;
 import com.runningstars.service.map.receiver.MapCalculateLocationReceiver;
 import com.runningstars.service.session.receiver.SessionProgressReceiver;
 import com.runningstars.tool.ToolCalculate;

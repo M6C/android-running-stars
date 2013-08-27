@@ -5,9 +5,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 
+import com.cameleon.common.factory.FactoryDialog;
 import com.runningstars.R;
 import com.runningstars.activity.business.SessionDetailBusiness;
-import com.runningstars.factory.FactoryDialog;
 import com.runningstars.listener.onclick.ok.OnClickSessionDeleteListenerOk;
 import com.runningstars.listener.onclick.ok.OnClickSessionKmlListenerOk;
 import com.runningstars.listener.onclick.ok.OnClickSessionMapListenerOk;

@@ -7,8 +7,8 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 
+import com.cameleon.common.factory.FactoryDialog;
 import com.runningstars.R;
-import com.runningstars.factory.FactoryDialog;
 
 public class DBToolDialogButton extends Button {
 

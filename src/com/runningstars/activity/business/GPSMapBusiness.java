@@ -12,13 +12,13 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 
 import com.addon.api.graphics.ScreenShoot;
+import com.cameleon.common.factory.FactoryNotifier;
 import com.runningstars.ApplicationData;
 import com.runningstars.activity.GPSMapActivity;
 import com.runningstars.activity.SessionDetailActivity;
 import com.runningstars.business.Business;
 import com.runningstars.business.LocationBusiness;
 import com.runningstars.business.SessionBusiness;
-import com.runningstars.factory.FactoryNotifier;
 import com.runningstars.service.map.MapCalculateLocationService;
 import com.runningstars.service.map.receiver.MapCalculateLocationReceiver;
 import com.runningstars.service.map.receiver.inotifier.INotifierMapCalculateLocation;

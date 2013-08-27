@@ -1,4 +1,4 @@
-package com.runningstars.factory;
+package com.cameleon.common.factory;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
