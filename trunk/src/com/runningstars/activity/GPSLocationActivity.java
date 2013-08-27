@@ -24,6 +24,7 @@ import android.widget.TableLayout.LayoutParams;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cameleon.common.factory.FactoryFont;
 import com.cameleon.common.inotifier.INotifierMessage;
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
@@ -34,7 +35,6 @@ import com.google.android.maps.OverlayItem;
 import com.runningstars.ApplicationData;
 import com.runningstars.R;
 import com.runningstars.activity.business.GPSLocationBusiness;
-import com.runningstars.factory.FactoryFont;
 import com.runningstars.listener.onclick.OnClickButtonMenuListener;
 import com.runningstars.listener.onclick.OnClickButtonRunListener;
 import com.runningstars.listener.onclick.OnClickFieldDataListener;

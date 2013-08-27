@@ -7,11 +7,11 @@ import java.util.TimerTask;
 import android.graphics.drawable.Drawable;
 import android.view.MotionEvent;
 
+import com.cameleon.common.factory.FactoryDialog;
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.ItemizedOverlay;
 import com.google.android.maps.MapView;
 import com.google.android.maps.OverlayItem;
-import com.runningstars.factory.FactoryDialog;
 
 //http://www.tutos-android.com/ajouter-marqueurs-item-poi-google-map-android
 

@@ -1,4 +1,4 @@
-package com.runningstars.factory;
+package com.cameleon.common.factory;
 
 import android.content.Context;
 import android.graphics.Typeface;

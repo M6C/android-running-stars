@@ -11,12 +11,12 @@ import android.view.View;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import com.cameleon.common.factory.FactoryStyle;
 import com.cameleon.common.inotifier.INotifierMessage;
 import com.runningstars.R;
 import com.runningstars.activity.adapter.SessionManagerAdapter;
 import com.runningstars.activity.business.SessionDetailBusiness;
 import com.runningstars.activity.business.SessionManagerBusiness;
-import com.runningstars.factory.FactoryStyle;
 import com.runningstars.listener.ontouch.SessionManagerOnTouchListener;
 import com.runningstars.tool.ToolCalculate;
 

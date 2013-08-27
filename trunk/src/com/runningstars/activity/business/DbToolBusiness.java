@@ -8,9 +8,9 @@ import org.gdocument.gtracergps.launcher.log.Logger;
 import android.content.Intent;
 import android.content.IntentFilter;
 
+import com.cameleon.common.factory.FactoryNotifier;
 import com.runningstars.activity.DbToolActivity;
 import com.runningstars.db.sqlite.datasource.DBSessionDataSource;
-import com.runningstars.factory.FactoryNotifier;
 import com.runningstars.service.db.DbBackupService;
 import com.runningstars.service.db.DbRecreateService;
 import com.runningstars.service.db.DbRestoreService;

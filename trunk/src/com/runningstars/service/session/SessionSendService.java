@@ -7,11 +7,11 @@ import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
 
+import com.cameleon.common.factory.FactoryNotifier;
 import com.cameleon.common.inotifier.INotifierMessage;
 import com.runningstars.R;
 import com.runningstars.business.LocationBusiness;
 import com.runningstars.business.SessionBusiness;
-import com.runningstars.factory.FactoryNotifier;
 import com.runningstars.service.session.receiver.SessionProgressReceiver;
 
 public class SessionSendService extends IntentService {

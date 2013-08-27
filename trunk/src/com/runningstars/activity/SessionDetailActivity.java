@@ -16,12 +16,12 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.cameleon.common.factory.FactoryDialog;
+import com.cameleon.common.factory.FactoryLayoutInFlater;
+import com.cameleon.common.factory.FactoryStyle;
 import com.cameleon.common.inotifier.INotifierMessage;
 import com.runningstars.R;
 import com.runningstars.activity.business.SessionDetailBusiness;
-import com.runningstars.factory.FactoryDialog;
-import com.runningstars.factory.FactoryLayoutInFlater;
-import com.runningstars.factory.FactoryStyle;
 import com.runningstars.listener.onclick.OnDoubleClickListener;
 import com.runningstars.listener.onitemclick.OnItemClickSessionDetailManageListener;
 import com.runningstars.listener.onitemclick.OnItemClickSessionDetailTrackListener;

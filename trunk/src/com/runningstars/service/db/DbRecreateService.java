@@ -6,10 +6,10 @@ import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
 
+import com.cameleon.common.factory.FactoryNotifier;
 import com.cameleon.common.inotifier.INotifierMessage;
 import com.runningstars.db.sqlite.datasource.DBLocationDataSource;
 import com.runningstars.db.sqlite.datasource.DBSessionDataSource;
-import com.runningstars.factory.FactoryNotifier;
 
 public class DbRecreateService extends IntentService {
 	private static final String TAG = DbRecreateService.class.getCanonicalName();

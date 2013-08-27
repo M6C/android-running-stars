@@ -7,12 +7,12 @@ import org.gdocument.gtracergps.launcher.log.Logger;
 import android.content.Intent;
 import android.content.IntentFilter;
 
+import com.cameleon.common.factory.FactoryNotifier;
 import com.runningstars.activity.GPSMapActivity;
 import com.runningstars.activity.SessionDetailActivity;
 import com.runningstars.activity.business.notifier.SessionDetailRepaireProgressNotifier;
 import com.runningstars.business.LocationBusiness;
 import com.runningstars.business.SessionBusiness;
-import com.runningstars.factory.FactoryNotifier;
 import com.runningstars.service.session.SessionDeleteService;
 import com.runningstars.service.session.SessionKmlService;
 import com.runningstars.service.session.SessionRepaireService;

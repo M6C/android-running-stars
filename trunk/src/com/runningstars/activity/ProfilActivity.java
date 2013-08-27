@@ -27,12 +27,12 @@ import android.widget.ProgressBar;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.cameleon.common.factory.FactoryStyle;
 import com.cameleon.common.inotifier.INotifierMessage;
 import com.runningstars.R;
 import com.runningstars.activity.adapter.ProfilSessionAdapter;
 import com.runningstars.activity.business.ProfilBusiness;
 import com.runningstars.activity.business.SessionDetailBusiness;
-import com.runningstars.factory.FactoryStyle;
 import com.runningstars.listener.onchecked.OnCheckedStatTypeListener;
 import com.runningstars.listener.ontouch.SessionManagerOnTouchListener;
 import com.runningstars.listener.textwatcher.UserNameTextWatcherListener;

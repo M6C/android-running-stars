@@ -2,9 +2,9 @@ package com.runningstars.listener.view;
 
 import android.view.View;
 
+import com.cameleon.common.factory.FactoryDialog;
 import com.runningstars.R;
 import com.runningstars.activity.business.DbToolBusiness;
-import com.runningstars.factory.FactoryDialog;
 import com.runningstars.listener.onclick.ok.OnClickDropTableListenerOk;
 
 public class ViewOnClickDropTableListener implements View.OnClickListener {

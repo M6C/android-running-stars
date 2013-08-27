@@ -8,10 +8,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 
+import com.cameleon.common.factory.FactoryNotifier;
 import com.cameleon.common.inotifier.INotifierMessage;
 import com.runningstars.ApplicationData;
 import com.runningstars.business.SessionBusiness;
-import com.runningstars.factory.FactoryNotifier;
 
 public class SessionKmlService extends IntentService {
 	private static final String TAG = SessionKmlService.class.getCanonicalName();
