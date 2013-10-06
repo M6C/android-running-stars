@@ -283,29 +283,29 @@ public class DBSessionDataSource {
 		long time = 0;
 		Session session = new Session();
 		if (cursor.getColumnCount()>col)
-			session.setId(cursor.getLong(col++));
+			session.setId(DbTool.getInstance().toLong(cursor, col++));
 		if (cursor.getColumnCount()>col)
-			session.setIdSend(cursor.getLong(col++));
+			session.setIdSend(DbTool.getInstance().toLong(cursor, col++));
 		if (cursor.getColumnCount()>col)
-			session.setStart(new Localisation(cursor.getLong(col++)));
+			session.setStart(new Localisation(DbTool.getInstance().toLong(cursor, col++)));
 		if (cursor.getColumnCount()>col)
-			session.setEnd(new Localisation(cursor.getLong(col++)));
+			session.setEnd(new Localisation(DbTool.getInstance().toLong(cursor, col++)));
 		if (cursor.getColumnCount()>col) {
-			time = cursor.getLong(col++);
+			time = DbTool.getInstance().toLong(cursor, col++);
 			session.setTimeStart(time > 0 ? new Date(time) : null);
 		}
 		if (cursor.getColumnCount()>col) {
-			time = cursor.getLong(col++);
+			time = DbTool.getInstance().toLong(cursor, col++);
 			session.setTimeStop(time > 0 ? new Date(time) : null);
 		}
 		if (cursor.getColumnCount()>col) {
-			time = cursor.getLong(col++);
+			time = DbTool.getInstance().toLong(cursor, col++);
 			session.setTimeSend(time > 0 ? new Date(time) : null);
 		}
 		if (cursor.getColumnCount()>col)
 			session.setCalculateDistance(cursor.getDouble(col++));
 		if (cursor.getColumnCount()>col)
-			session.setCalculateElapsedTime(cursor.getLong(col++));
+			session.setCalculateElapsedTime(DbTool.getInstance().toLong(cursor, col++));
 		return session;
 	}
 

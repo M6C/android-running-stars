@@ -26,6 +26,7 @@ import android.widget.Toast;
 
 import com.cameleon.common.factory.FactoryFont;
 import com.cameleon.common.inotifier.INotifierMessage;
+import com.cameleon.common.tool.ToolDatetime;
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapController;
@@ -41,7 +42,6 @@ import com.runningstars.listener.onclick.OnClickFieldDataListener;
 import com.runningstars.listener.onitemclick.IOnItemClickFieldData;
 import com.runningstars.map.GPSMapOverlay;
 import com.runningstars.tool.ToolCalculate;
-import com.runningstars.tool.ToolDatetime;
 
 public class GPSLocationActivity extends MapActivity implements INotifierMessage, IOnItemClickFieldData {
 	private static final String TAG = GPSLocationActivity.class.getCanonicalName();

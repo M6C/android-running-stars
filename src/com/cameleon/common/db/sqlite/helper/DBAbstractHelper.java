@@ -16,7 +16,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Environment;
 
 import com.cameleon.common.inotifier.INotifierMessage;
-import com.runningstars.tool.ToolDatetime;
+import com.cameleon.common.tool.ToolDatetime;
 
 public abstract class DBAbstractHelper extends SQLiteOpenHelper {
 
