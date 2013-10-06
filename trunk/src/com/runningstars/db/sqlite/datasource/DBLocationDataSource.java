@@ -483,23 +483,23 @@ public class DBLocationDataSource {
 	private Localisation cursorToLocalisation(Cursor cursor) {
 		int col = 0;
 		Localisation localisation = new Localisation();
-		localisation.setId(cursor.getLong(col++));
-		localisation.setSession(new Session(cursor.getLong(col++)));
+		localisation.setId(DbTool.getInstance().toLong(cursor, col++));
+		localisation.setSession(new Session(DbTool.getInstance().toLong(cursor, col++)));
 		localisation.setSpeed(cursor.getFloat(col++));
 		localisation.setLongitude(cursor.getDouble(col++));
 		localisation.setLatitude(cursor.getDouble(col++));
 		localisation.setAltitude(cursor.getDouble(col++));
 		localisation.setAccuracy(cursor.getFloat(col++));
 		localisation.setBearing(cursor.getFloat(col++));
-		localisation.setTime(cursor.getLong(col++));
+		localisation.setTime(DbTool.getInstance().toLong(cursor, col++));
 		localisation.setAddressLine(cursor.getString(col++));
 		localisation.setPostalCode(cursor.getString(col++));
 		localisation.setLocality(cursor.getString(col++));
-		localisation.setTimeSend(cursor.getLong(col++));
+		localisation.setTimeSend(DbTool.getInstance().toLong(cursor, col++));
 		localisation.setCalculateDistance(cursor.getDouble(col++));
 		localisation.setCalculateDistanceCumul(cursor.getDouble(col++));
-		localisation.setCalculateElapsedTime(cursor.getLong(col++));
-		localisation.setCalculateElapsedTimeCumul(cursor.getLong(col++));
+		localisation.setCalculateElapsedTime(DbTool.getInstance().toLong(cursor, col++));
+		localisation.setCalculateElapsedTimeCumul(DbTool.getInstance().toLong(cursor, col++));
 		return localisation;
 	}
 

@@ -13,6 +13,7 @@ import android.os.Bundle;
 
 import com.addon.api.graphics.ScreenShoot;
 import com.cameleon.common.factory.FactoryNotifier;
+import com.cameleon.common.tool.ToolDatetime;
 import com.runningstars.ApplicationData;
 import com.runningstars.activity.GPSMapActivity;
 import com.runningstars.activity.SessionDetailActivity;
@@ -25,7 +26,6 @@ import com.runningstars.service.map.receiver.inotifier.INotifierMapCalculateLoca
 import com.runningstars.service.session.receiver.SessionProgressReceiver;
 import com.runningstars.service.session.receiver.inotifier.INotifierSessionProgress;
 import com.runningstars.tool.ToolCalculate;
-import com.runningstars.tool.ToolDatetime;
 
 public class GPSMapBusiness implements INotifierMapCalculateLocation {
 	private static final String TAG = GPSMapBusiness.class.getCanonicalName();

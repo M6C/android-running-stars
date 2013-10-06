@@ -2,6 +2,8 @@ package com.runningstars.tool;
 
 import java.util.Date;
 
+import com.cameleon.common.tool.ToolDatetime;
+
 public class ToolMySQL {
 
 	/**

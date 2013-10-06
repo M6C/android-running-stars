@@ -7,6 +7,7 @@ import org.gdocument.gtracergps.launcher.domain.Session;
 import org.gdocument.gtracergps.launcher.util.GpsUtil;
 import org.gdocument.gtracergps.launcher.util.NumberUtil;
 
+import com.cameleon.common.tool.ToolDatetime;
 import com.runningstars.ApplicationData.METHODE_CALCUL_DISTANCE;
 
 

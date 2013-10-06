@@ -12,10 +12,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.cameleon.common.tool.ToolDatetime;
 import com.runningstars.R;
 import com.runningstars.activity.SessionManagerActivity;
 import com.runningstars.tool.ToolCalculate;
-import com.runningstars.tool.ToolDatetime;
 
 public class SessionManagerAdapter extends ArrayAdapter<Session> {
 

@@ -1,4 +1,4 @@
-package com.runningstars.tool;
+package com.cameleon.common.tool;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
