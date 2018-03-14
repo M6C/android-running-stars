@@ -29,7 +29,6 @@
             android:noHistory="false"
             android:configChanges="keyboardHidden|orientation"
         >
-<!-- 			android:configChanges="keyboardHidden|orientation|screenSize" -->
 	        <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
