@@ -1,0 +1,145 @@
+<resources>
+
+    <dimen name="solutions_view_max_font_size">50dp</dimen>
+
+    <!--Maison <string name="mapKey">0NC_kQLhmewR48PaqBwUBwNOOPWXqDOQISoVK6A</string-->
+    <!--Pro--> <string name="mapKey">0NC_kQLhmewRx6s8DtplN12pVRbz1DkOhkwgRWg</string>
+    
+    <string name="app_name">RunningStars</string>
+    <string name="menu_settings">Settings</string>
+    <!--string name="title_activity_gpslocation">GPSLocationActivity</string-->
+    <string name="title_activity_gpslocation"></string>
+    <string name="title_activity_dbTool">Database Tool</string>
+    <string name="title_activity_session_manager_no_session">Session Manager - No session</string>
+    <string name="title_activity_session_manager">Session Manager - %1$d/%2$d session send\n\nTime:%3$s Distance:%4$s</string>
+    <string name="title_activity_profil">Running Profil</string>
+    <!-- http://developer.android.com/reference/java/util/Formatter.html -->
+    <string name="title_activity_session_detail">Session %1$td/%1$tm/%1$ty\n%1$tH:%1$tM:%1$tS - %2$tH:%2$tM:%2$tS</string>
+    <string name="title_activity_parameter">Parameter</string>
+    <string name="title_activity_application_data_preference">Application Preference</string>
+    <string name="title_activity_dialog_run">Run</string>
+
+    <string name="latitude">"Latitude: "</string>
+    <string name="unknown">unknown</string>
+    <string name="longitute">"Longitute: "</string>
+    <string name="button_action">Button Action</string>
+    <string name="manage_database">Manage Database</string>
+    <string name="manage_session">Manage Session</string>
+    <string name="logo">Logo</string>
+    <string name="on">On</string>
+    <string name="off">Off</string>
+    <string name="button_get_kml">KML</string>
+    
+    <string name="default_mysql_server_internet_url">http://82.232.21.94</string>
+    <string name="default_mysql_server_intranet_url">http://192.168.0.17</string>
+    <string name="text_address">Address</string>
+    <string name="text_distance">Distance</string>
+    <string name="text_speed">Speed</string>
+    <string name="text_time">time</string>
+    
+    <string name="dialog_backup_db_title">Confirme</string>
+    <string name="dialog_backup_db_message">Backup DB to SD ?</string>
+    <string name="dialog_drop_table_title">Confirme</string>
+    <string name="dialog_drop_table_message">Drop and Recreate Table ?</string>
+    <string name="dialog_restore_db_title">Confirme</string>
+    <string name="dialog_restore_db_message">Restore DB from SD ?</string>
+    <string name="dialog_send_data_title">Confirme</string>
+    <string name="dialog_send_data_message">Send Data ?</string>
+
+    <string name="dialog_title_menu">Menu</string>
+    <string name="btn_backup_db_to_sd">Backup DB to SD</string>
+    <string name="btn_restore_db_from_sd">Restore DB from SD</string>
+    <string name="btn_recreate_table">Recreate Table</string>
+    <string name="btn_send_localisation">Send Localisation</string>
+    
+    <string name="dialog_field_data_title">Field Data</string>
+    <string name="dialog_field_data_address">Address</string>
+    <string name="dialog_field_data_speed">Speed</string>
+    <string name="dialog_field_data_distance">Distance</string>
+    <string name="dialog_field_data_elapsed_time">Elapsed Time</string>
+    <string name="dialog_field_data_speed_average">Speed Average</string>
+    <string name="dialog_field_data_map">Map</string>
+
+    <string name="dialog_session_title_manage">Manage</string>
+    <string name="dialog_session_title_track">Track</string>
+    <string name="dialog_session_detail_title">Session Detail</string>
+    <string name="dialog_session_detail_delete">Delete</string>
+    <string name="dialog_session_detail_kml">KML</string>
+    <string name="dialog_session_detail_repair">Repair</string>
+    <string name="dialog_session_detail_send">Send</string>
+    <string name="dialog_session_detail_map">Map</string>
+    
+    <string name="text_no_session">No Session</string>
+    <string name="toast_error_service_initialisation">Initialisation service error</string>
+    <string name="toast_error_service_initialisation_system_gps_session_service">Unable to connection to System Gps Session Service</string>
+    <string name="toast_error_service_initialisation_system_gps_location_service">Unable to connection to System Gps Location Service</string>
+    
+    <string name="gps_location_zoom">Gps Zoom</string>
+    <string name="map_screenshoot_quality">Map PNG Quanlity</string>
+    <string name="log">Log</string>
+    <string name="sysout">SysOut</string>
+    <string name="sd">SD</string>
+    <string name="elapsed_time">Elapsed Time</string>
+    <string name="nb_localisation">Nb Localisation</string>
+    <string name="start">Start</string>
+    <string name="end">End</string>
+    <string name="time_start">Time Start</string>
+    <string name="time_stop">Time Stop</string>
+    <string name="time_send">Time Send</string>
+    <string name="distance">Distance</string>
+    <string name="speed">Speed</string>
+    <string name="time">Time</string>
+    <string name="speed_average">Speed Average</string>
+    <string name="flag_start">Flag Start</string>
+    <string name="flag_finish">Flag Finish</string>
+    <string name="map">map</string>
+
+    <string name="send_session_message_session">Sending session</string>
+    <string name="send_session_message_locations">Sending locations</string>
+    <string name="send_session_message_locations_count">Sending locations %1$d/%2$d</string>
+    <string name="send_session_message_finished">Sending finished !!!</string>
+
+    <string name="repaire_session_message_session">Repaire session</string>
+    <string name="repaire_session_message_locations">Repaire locations</string>
+    <string name="repaire_session_message_locations_count">Repaire locations %1$d/%2$d</string>
+    <string name="repaire_session_message_save">Repaire save</string>
+    <string name="repaire_session_message_finished">Repaire finished !!!</string>
+
+    <string name="map_session_message_location_scale">Get Location by Scale</string>
+    <string name="map_session_message_location_all">Get All Location</string>
+    <string name="map_session_message_locations_calculate_bearing">Calculate bearing locations %1$d/%2$d</string>
+    <string name="map_session_message_locations_finish">Finish</string>
+    
+    <string name="gps_session_service_started">Session service started</string>
+    <string name="gps_session_service_label">Session service label</string>
+
+    <string name="image_description_profil">profil</string>
+    <string name="image_description_borne_km">borne km</string>
+    <string name="image_description_horloge">horloge</string>
+    <string name="image_description_trophee">trophee</string>
+    <string name="image_description_slow_speed">slow speed</string>
+    <string name="image_description_short_distance">short distance</string>
+    <string name="hint_user_name">user name</string>
+    <string name="legende_avg">avg</string>
+	<string name="legende_max">max</string>
+	<string name="legende_min">min</string>
+	<string name="legende_avg_higher">higher</string>
+	<string name="legende_avg_lower">lower</string>
+	<string name="legende_total">total</string>
+	<string name="message_start_stop_session">First trainning sessions start <b>%1$td/%1$tm/%1$ty</b> and last <b>%2$td/%2$tm/%2$ty</b></string>
+	<string name="message_global_distance_time">You have ran %1$s in %2$s hours with an average speed of %3$s</string>
+	<string name="message_speed_record">Speed record %1$s on %2$td/%2$tm/%2$ty</string>
+	<string name="message_slowest_speed">Slowest speed %1$s on %2$td/%2$tm/%2$ty</string>
+	<string name="message_distance_record">Distance record %1$s on %2$td/%2$tm/%2$ty</string>
+	<string name="message_shortest_distance">Shortest distance %1$s on %2$td/%2$tm/%2$ty</string>
+	<string name="progress_nb_session_send">%1$s send to %2$s</string>
+<!-- 
+    <string name="radio_message_1">1</string>
+    <string name="radio_message_2">2</string>
+    <string name="radio_message_3">3</string>
+    <string name="radio_message_4">4</string>
+    <string name="radio_message_5">5</string>
+    <string name="radio_AvgMaxMin">Avg-Max-Min</string>
+    <string name="radio_HigherLower">Higher-Lower</string>
+ -->
+</resources>

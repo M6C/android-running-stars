@@ -1,0 +1,61 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- http://developer.android.com/guide/topics/ui/themes.html -->
+    <!-- https://android.googlesource.com/platform/frameworks/base/+/refs/heads/master/core/res/res/values/styles.xml -->
+    <!-- https://android.googlesource.com/platform/frameworks/base/+/refs/heads/master/core/res/res/values/themes.xml -->
+    <style name="CustomWindowTitleRedText" parent="android:TextAppearance.WindowTitle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Set the theme for the window title -->
+    <!-- NOTE: setting android:textAppearence to style defined above -->
+    <style name="CustomWindowTitleRed">
+         <item name="android:textAppearance">@style/CustomWindowTitleRedText</item>
+     </style>
+
+    <style name="CustomWindowTitleRedBackground">
+<!--          <item name="android:background">@drawable/title_red</item> -->
+         <item name="android:background">@drawable/gradient_red</item>
+	</style>
+
+    <style name="CustomThemeRed" parent="android:Theme">
+
+        <item name="android:windowTitleSize">60dip</item>
+        <item name="android:windowTitleStyle">@style/CustomWindowTitleRed</item>
+        <item name="android:windowTitleBackgroundStyle">@style/CustomWindowTitleRedBackground</item>
+        <item name="android:windowBackground">@color/blanc</item>
+ 	  	<item name="android:textColorPrimary">@color/text_black_default</item>
+<!-- 		<item name="android:alertDialogStyle">@style/AlertDialog</item> -->
+
+	</style>
+
+    <style name="CustomThemeNoTitleRed" parent="@android:style/Theme.NoTitleBar">
+
+        <item name="android:windowBackground">@color/blanc</item>
+ 	  	<item name="android:textColorPrimary">@color/text_black_default</item>
+<!-- 		<item name="android:alertDialogStyle">@style/AlertDialog</item> -->
+
+	</style>
+    
+	<style name="CustomPreferenceRedListSeparator">
+<!-- 		<item name="android:background">@color/orange_bright_transparent</item> -->
+		<item name="android:background">@drawable/gradient_red</item>
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_height">36dip</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:textColor">@color/text_white_default</item>
+		<item name="android:textSize">24sp</item>
+		<item name="android:gravity">center_vertical</item>
+		<item name="android:paddingLeft">5sp</item>
+	</style>
+	
+	<style name="CustomPreferenceRedTheme" parent="CustomThemeNoTitleRed">
+		<item name="android:listSeparatorTextViewStyle">@style/CustomPreferenceRedListSeparator</item>
+	</style>
+
+	<style name="CustomRadioTab" parent="@android:style/Widget.CompoundButton.RadioButton">
+		<item name="android:button">@drawable/selector_custom_radio_tab</item>
+	</style>
+
+</resources>

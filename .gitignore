@@ -1,0 +1,19 @@
+/local.properties
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+
+# Gradle local settings & cache
+.gradle
+gradle.properties
+
+# Android Studio
+.idea
+*.iml
+
+# Visual Studio Code
+**/.vscode
+**/.classpath
+**/.project
+**/.settings
