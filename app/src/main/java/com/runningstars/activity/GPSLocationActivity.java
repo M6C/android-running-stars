@@ -9,10 +9,14 @@ import org.gdocument.gtracergps.launcher.domain.Session;
 import org.gdocument.gtracergps.launcher.log.Logger;
 import org.gdocument.gtracergps.launcher.util.NumberUtil;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
@@ -55,6 +59,8 @@ public class GPSLocationActivity extends MapActivity implements INotifierMessage
 	private static final String KEY_SAVE_MAP_LONGITUDE = "SAVE_MAP_LONGITUDE";
 	private static final String KEY_SAVE_MAP_LATITUDE = "SAVE_MAP_LATITUDE";
 	private static final String KEY_SAVE_STATE_SLIDINGBUTTON = null;
+
+	private static final int PERMISSION_REQUEST_ACCESS_FINE_LOCATION = 1;
 
 	private TextView addressField;
 	private TextView speedAverageField;
@@ -199,7 +205,53 @@ public class GPSLocationActivity extends MapActivity implements INotifierMessage
 
 		logMe("onCreate END");
 	}
+	@Override
+	public void onResume() {
+		super.onResume();
 
+		if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+				!= PackageManager.PERMISSION_GRANTED) {
+
+			// Should we show an explanation?
+			if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)) {
+
+				// Show an expanation to the user *asynchronously* -- don't block
+				// this thread waiting for the user's response! After the user
+				// sees the explanation, try again to request the permission.
+
+			} else {
+
+				// No explanation needed, we can request the permission.
+				// PERMISSION_REQUEST_ACCESS_FINE_LOCATION can be any unique int
+				ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSION_REQUEST_ACCESS_FINE_LOCATION);
+			}
+		}
+	}
+
+	@Override
+	public void onRequestPermissionsResult(int requestCode,
+										   String permissions[], int[] grantResults) {
+		switch (requestCode) {
+			case PERMISSION_REQUEST_ACCESS_FINE_LOCATION: {
+				// If request is cancelled, the result arrays are empty.
+				if (grantResults.length > 0
+						&& grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+					// permission was granted, yay! Do the
+					// contacts-related task you need to do.
+
+				} else {
+
+					// permission denied, boo! Disable the
+					// functionality that depends on this permission.
+				}
+				return;
+			}
+
+			// other 'case' lines to check for other
+			// permissions this app might request
+		}
+	}
 	/**
 	 * Initialize IHM After Service is setted in business
 	 */
