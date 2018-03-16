@@ -3,7 +3,9 @@
     <dimen name="solutions_view_max_font_size">50dp</dimen>
 
     <!--Maison <string name="mapKey">0NC_kQLhmewR48PaqBwUBwNOOPWXqDOQISoVK6A</string-->
-    <!--Pro--> <string name="mapKey">0NC_kQLhmewRx6s8DtplN12pVRbz1DkOhkwgRWg</string>
+    <!--Pro <string name="mapKey">0NC_kQLhmewRx6s8DtplN12pVRbz1DkOhkwgRWg</string-->
+    <!--string name="mapKey">AIzaSyBSB5rHqn0m_xBl20HZM2f4SY1BKTbjJ-Q</string-->
+    <string name="mapKey">AIzaSyBg7Px8HP4ofbs4ydPIetOhDOr53_0P3qw</string>
     
     <string name="app_name">RunningStars</string>
     <string name="menu_settings">Settings</string>
