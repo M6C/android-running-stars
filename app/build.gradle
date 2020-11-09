@@ -1,11 +1,13 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "draw.lock.screen.org.myapplication"
-        minSdkVersion 19
-        targetSdkVersion 26
+        minSdkVersion 26
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -33,6 +35,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
 // https://mvnrepository.com/artifact/com.google.android.maps/maps
 //    provided group: 'com.google.android.maps', name: 'maps', version: '15_r2'
@@ -40,4 +43,7 @@ dependencies {
 //    compile group: 'org.apache.httpcomponents', name: 'httpcore', version: '4.4.9'
 // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
 //    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.5'
+}
+repositories {
+    mavenCentral()
 }
