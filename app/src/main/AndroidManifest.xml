@@ -1,130 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.runningstars"
-    android:versionCode="1"
-    android:versionName="1.0">
+    package="com.runningstars">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-	<!-- GPS -->
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the "MyLocation" functionality.
+    -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- Required for foreground services on P+. -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
-	<!-- SD Card Writing -->
-	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.RunningStars">
 
-    <!-- <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="15" /> -->
-    <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="15" />
-    
-    <application android:label="@string/app_name"
-        android:icon="@drawable/ic_launcher"
-	    android:theme="@style/CustomThemeRed"
-    	android:allowBackup="true"
-    >
-<!-- 	    android:name=".application.GPSApplication" -->
-	    
-    	<uses-library android:name="com.google.android.maps"/>
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
 
-	    <activity
-            android:name=".activity.GPSLocationActivity"
-            android:label="@string/title_activity_gpslocation"
-            android:screenOrientation="landscape"
-            android:noHistory="false"
-            android:configChanges="keyboardHidden|orientation"
-        >
-	        <intent-filter>
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps">
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-	    
-		<!--     android:theme="@android:style/Theme.NoTitleBar" -->
-	    <activity
-			android:name=".activity.GPSMapActivity"
-			android:label="@string/app_name"
-            android:screenOrientation="landscape"
-		/>
-<!--             android:noHistory="true" -->
 
-	    <activity
-            android:name=".activity.DbToolActivity"
-            android:label="@string/title_activity_dbTool"
-            android:screenOrientation="portrait"
-        />
-<!--             android:noHistory="true" -->
-
-	    <activity
-        	android:name=".activity.ProfilActivity"
-            android:label="@string/title_activity_session_manager_no_session"
-            android:screenOrientation="portrait"
-         />
-<!--             android:noHistory="true" -->
-
-	    <activity
-        	android:name=".activity.SessionManagerActivity"
-            android:label="@string/title_activity_session_manager_no_session"
-            android:screenOrientation="portrait"
-         />
-<!--             android:noHistory="true" -->
-	    
-	    <activity
-			android:name=".activity.SessionDetailActivity"
-            android:label="@string/title_activity_session_detail"
-            android:screenOrientation="portrait"
-         />
-<!--             android:noHistory="true" -->
-
-	    <activity
-	        android:name=".activity.ApplicationDataPreferenceActivity"
-            android:label="@string/title_activity_application_data_preference"
-            android:screenOrientation="portrait"
-            android:theme="@style/CustomPreferenceRedTheme"
-         />
-<!--             android:noHistory="true" -->
-	    
-	    <activity
-	        android:name=".activity.ParameterActivity"
-            android:label="@string/title_activity_parameter"
-            android:screenOrientation="portrait"
-         />
-<!--             android:noHistory="true" -->
-
-		<activity
-            android:name=".activity.dialog.RunDialogActivity"
-            android:label="@string/title_activity_dialog_run"
-            android:noHistory="true"
-         />
-<!--             android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar.MinWidth" -->
-<!-- 
-	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-		<receiver android:name=".receiver.StartServiceOnBootReceiver">  
-		    <intent-filter>  
-		        <action android:name="android.intent.action.BOOT_COMPLETED" />  
-		    </intent-filter>  
-		</receiver>
- -->
-		<!-- DB Services -->
-		<service android:name=".service.db.DbBackupService" />
-		<service android:name=".service.db.DbRestoreService" />
-		<service android:name=".service.db.DbRecreateService" />
-
-		<!-- Session Services -->
-		<service android:name=".service.session.SessionSendService" />
-		<service android:name=".service.session.SessionRepaireService" />
-		<service android:name=".service.session.SessionDeleteService" />
-		<service android:name=".service.session.SessionKmlService" />
-
-		<!-- System Services -->
-		<service
-		    android:name=".service.system.SystemGpsSessionService"
-		    android:process=":remote"
-		/>
-		<service
-		    android:name=".service.system.SystemGpsLocationService"
-		    android:process=":remote"
-		/>
-		
-		<!-- Map Services -->
-		<service android:name=".service.map.MapCalculateLocationService" />
-		
-	</application>
+        <service
+            android:name=".service.ForegroundOnlyLocationService"
+            android:enabled="true"
+            android:exported="false" />
+    </application>
 
 </manifest>
