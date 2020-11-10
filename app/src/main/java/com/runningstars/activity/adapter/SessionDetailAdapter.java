@@ -1,23 +1,24 @@
 package com.runningstars.activity.adapter;
 
-import java.util.List;
-
-import org.gdocument.gtracergps.launcher.domain.Localisation;
-
-import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import org.gdocument.gtracergps.launcher.domain.Localisation;
+
+import java.util.List;
+
 public class SessionDetailAdapter extends ArrayAdapter<Localisation> {
 
 	private List<Localisation> value;
-	private Activity activity;
+	private AppCompatActivity activity;
 	
 	//http://www.vogella.com/articles/AndroidListView/article.html
-	public SessionDetailAdapter(Activity activity, int resource, int textViewResourceId, List<Localisation> value) {
+	public SessionDetailAdapter(AppCompatActivity activity, int resource, int textViewResourceId, List<Localisation> value) {
 		super(activity, resource, textViewResourceId, value);
 
 		this.activity = activity;

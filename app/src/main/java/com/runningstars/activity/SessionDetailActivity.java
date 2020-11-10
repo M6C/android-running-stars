@@ -1,11 +1,5 @@
 package com.runningstars.activity;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-
-import org.gdocument.gtracergps.launcher.domain.Session;
-
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -15,6 +9,8 @@ import android.view.View;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.cameleon.common.factory.FactoryDialog;
 import com.cameleon.common.factory.FactoryLayoutInFlater;
@@ -28,7 +24,12 @@ import com.runningstars.listener.onitemclick.OnItemClickSessionDetailTrackListen
 import com.runningstars.listener.ontouch.SessionDetailOnTouchListener;
 import com.runningstars.tool.ToolCalculate;
 
-public class SessionDetailActivity extends Activity implements INotifierMessage {
+import org.gdocument.gtracergps.launcher.domain.Session;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+
+public class SessionDetailActivity extends AppCompatActivity implements INotifierMessage {
 
 	private static final int MANAGE_MENU_ITEM = Menu.FIRST;
 	private static final int TRACK_MENU_ITEM = MANAGE_MENU_ITEM + 1;

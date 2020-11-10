@@ -15,6 +15,7 @@ Activity Usage :
 -->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -25,7 +26,7 @@ Activity Usage :
 
     <ImageView
         android:id="@+id/button_menu"
-        android:src="@drawable/title_red_button_menu"
+        app:srcCompat="@drawable/title_red_button_menu"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -57,7 +58,7 @@ Activity Usage :
  
     <ImageView
         android:id="@+id/button_run"
-        android:src="@drawable/title_red_button_no_run"
+        app:srcCompat="@drawable/title_red_button_no_run"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"

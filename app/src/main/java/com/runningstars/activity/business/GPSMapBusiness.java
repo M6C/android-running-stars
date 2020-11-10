@@ -1,17 +1,11 @@
 package com.runningstars.activity.business;
 
-import java.util.List;
-
-import org.gdocument.gtracergps.launcher.domain.Localisation;
-import org.gdocument.gtracergps.launcher.domain.Session;
-import org.gdocument.gtracergps.launcher.log.Logger;
-
-import android.app.Activity;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 
-//import com.addon.api.graphics.ScreenShoot;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.cameleon.common.factory.FactoryNotifier;
 import com.cameleon.common.tool.ToolDatetime;
 import com.runningstars.ApplicationData;
@@ -26,6 +20,14 @@ import com.runningstars.service.map.receiver.inotifier.INotifierMapCalculateLoca
 import com.runningstars.service.session.receiver.SessionProgressReceiver;
 import com.runningstars.service.session.receiver.inotifier.INotifierSessionProgress;
 import com.runningstars.tool.ToolCalculate;
+
+import org.gdocument.gtracergps.launcher.domain.Localisation;
+import org.gdocument.gtracergps.launcher.domain.Session;
+import org.gdocument.gtracergps.launcher.log.Logger;
+
+import java.util.List;
+
+//import com.addon.api.graphics.ScreenShoot;
 
 public class GPSMapBusiness implements INotifierMapCalculateLocation {
 	private static final String TAG = GPSMapBusiness.class.getCanonicalName();
@@ -111,7 +113,7 @@ public class GPSMapBusiness implements INotifierMapCalculateLocation {
 		}
 	}
 
-	public Activity getContext() {
+	public AppCompatActivity getContext() {
 		return activity;
 	}
 

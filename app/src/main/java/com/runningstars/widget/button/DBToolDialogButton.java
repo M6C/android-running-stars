@@ -5,12 +5,13 @@ import android.content.Context;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Button;
+
+import androidx.appcompat.widget.AppCompatButton;
 
 import com.cameleon.common.factory.FactoryDialog;
 import com.runningstars.R;
 
-public class DBToolDialogButton extends Button {
+public class DBToolDialogButton extends AppCompatButton {
 
 	public DBToolDialogButton(Context context) {
 		super(context);

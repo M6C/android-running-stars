@@ -1,19 +1,22 @@
 package com.runningstars.listener.preference;
 
-import org.gdocument.gtracergps.GpsConstant;
-import org.gdocument.gtracergps.launcher.log.Logger;
-
+import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.runningstars.ApplicationData;
-import com.runningstars.activity.ApplicationDataPreferenceActivity;
+import com.runningstars.activity.IPreference;
+
+import org.gdocument.gtracergps.GpsConstant;
+import org.gdocument.gtracergps.launcher.log.Logger;
 
 public class ApplicationDataPreferenceListener implements SharedPreferences.OnSharedPreferenceChangeListener {
 
-	private ApplicationDataPreferenceActivity activity;
+	private Context activity;
+	private IPreference preference;
 	
-	public ApplicationDataPreferenceListener(ApplicationDataPreferenceActivity activity) {
+	public ApplicationDataPreferenceListener(Context activity, IPreference preference) {
 		this.activity = activity;
+		this.preference = preference;
 	}
 	
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
@@ -56,8 +59,8 @@ public class ApplicationDataPreferenceListener implements SharedPreferences.OnSh
     		int methodeCalculDistance = Integer.parseInt(sharedPreferences.getString(key, "1"));
     		ApplicationData.getInstance(activity).setDistanceMethodeCalcul(methodeCalculDistance);
         }
-		
-		activity.initializeSummary(key);
+
+		preference.initializeSummary(key);
 	}
 
 }

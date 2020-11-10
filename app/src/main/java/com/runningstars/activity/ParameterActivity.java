@@ -1,9 +1,5 @@
 package com.runningstars.activity;
 
-import org.gdocument.gtracergps.GpsConstant;
-import org.gdocument.gtracergps.launcher.log.Logger;
-
-import android.app.Activity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputFilter;
@@ -15,19 +11,24 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.ToggleButton;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.cameleon.common.factory.FactoryStyle;
 import com.runningstars.ApplicationData;
 import com.runningstars.R;
 import com.runningstars.filter.NumericInputFilter;
 import com.runningstars.listener.ontouch.ParameterOnTouchListener;
 
-public class ParameterActivity extends Activity {
+import org.gdocument.gtracergps.GpsConstant;
+import org.gdocument.gtracergps.launcher.log.Logger;
+
+public class ParameterActivity extends AppCompatActivity {
 
 	private EditText gpsLocationMapZoomTxt;
 	private SeekBar gpsLocationMapZoomBar;
 	private EditText mapScreenShootQualityTxt;
 	private SeekBar mapScreenShootQualityBar;
-	private Activity context;
+	private AppCompatActivity context;
 	private OnSeekBarChangeListener zoomSeekBarChangeListener;
 	private OnSeekBarChangeListener qualitySeekBarChangeListener;
 	private ToggleButton toggleButtonLog;

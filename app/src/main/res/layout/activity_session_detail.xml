@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout   
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/mainLayout"
     android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
@@ -134,7 +135,7 @@
 			<ImageView
 				android:layout_width="24dip"
 				android:layout_height="24dip"
-				android:src="@drawable/map_flag_start_48x48"
+				app:srcCompat="@drawable/map_flag_start_48x48"
 		    	android:contentDescription="@string/flag_start"/>
 			<TextView
 			    android:id="@+id/TextStart"
@@ -153,7 +154,7 @@
 			<ImageView
 				android:layout_width="24dip"
 				android:layout_height="24dip"
-				android:src="@drawable/map_flag_finish_48x48"
+				app:srcCompat="@drawable/map_flag_finish_48x48"
 		    	android:contentDescription="@string/flag_finish"
 		    />
 			<TextView
@@ -259,7 +260,7 @@
 	 	    android:id="@+id/imageMap"
 		    android:layout_width="fill_parent"
 		    android:layout_height="fill_parent"
-		    android:src="@drawable/no_image"
+		    app:srcCompat="@drawable/no_image"
 	 		android:contentDescription="@string/map"
  		    android:padding="10dip"
 	 	/>

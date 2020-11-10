@@ -1,12 +1,13 @@
 package com.runningstars.activity.dialog;
 
-import android.app.Activity;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.runningstars.R;
 import com.runningstars.activity.dialog.business.RunDialogBusiness;
 
-public class RunDialogActivity extends Activity {
+public class RunDialogActivity extends AppCompatActivity {
 
 	private RunDialogBusiness business;
 

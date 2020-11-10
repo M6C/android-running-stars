@@ -1,8 +1,9 @@
 package com.cameleon.common.factory;
 
-import android.app.Activity;
 import android.view.Gravity;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class FactoryStyle {
 
@@ -17,7 +18,7 @@ public class FactoryStyle {
 		return instance;
 	}
 
-	public void centerTitle(Activity activity) {
+	public void centerTitle(AppCompatActivity activity) {
 		((TextView)activity.findViewById(android.R.id.title)).setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL);
 	}
 }

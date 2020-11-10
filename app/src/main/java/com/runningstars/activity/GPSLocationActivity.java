@@ -1,22 +1,11 @@
 package com.runningstars.activity;
 
-import java.text.NumberFormat;
-import java.util.HashMap;
-import java.util.List;
-
-import org.gdocument.gtracergps.launcher.domain.Localisation;
-import org.gdocument.gtracergps.launcher.domain.Session;
-import org.gdocument.gtracergps.launcher.log.Logger;
-import org.gdocument.gtracergps.launcher.util.NumberUtil;
-
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
@@ -28,11 +17,14 @@ import android.widget.TableLayout.LayoutParams;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import com.cameleon.common.factory.FactoryFont;
 import com.cameleon.common.inotifier.INotifierMessage;
 import com.cameleon.common.tool.ToolDatetime;
 import com.google.android.maps.GeoPoint;
-import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
@@ -47,7 +39,16 @@ import com.runningstars.listener.onitemclick.IOnItemClickFieldData;
 import com.runningstars.map.GPSMapOverlay;
 import com.runningstars.tool.ToolCalculate;
 
-public class GPSLocationActivity extends MapActivity implements INotifierMessage, IOnItemClickFieldData {
+import org.gdocument.gtracergps.launcher.domain.Localisation;
+import org.gdocument.gtracergps.launcher.domain.Session;
+import org.gdocument.gtracergps.launcher.log.Logger;
+import org.gdocument.gtracergps.launcher.util.NumberUtil;
+
+import java.text.NumberFormat;
+import java.util.HashMap;
+import java.util.List;
+
+public class GPSLocationActivity extends AppCompatActivity implements INotifierMessage, IOnItemClickFieldData {
 	private static final String TAG = GPSLocationActivity.class.getCanonicalName();
 
 	private static final String KEY_SAVE_STATE_ADDRESS = "SAVE_STATE_ADDRESS";
@@ -84,6 +85,16 @@ public class GPSLocationActivity extends MapActivity implements INotifierMessage
 	/**********************************************************************
 	 * Activity overrides below
 	 **********************************************************************/
+//	@Override
+//	protected int onGetMapDataSource() {
+//		return 0;
+//	}
+
+//	@Override
+//	protected boolean isRouteDisplayed() {
+//		return false;
+//	}
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		logMe("onCreate START");
@@ -268,11 +279,6 @@ public class GPSLocationActivity extends MapActivity implements INotifierMessage
 		business.onDestroy();
 		super.onDestroy();
 		logMe("onDestroy END");
-	}
-
-	@Override
-	protected boolean isRouteDisplayed() {
-		return false;
 	}
 
 	@Override

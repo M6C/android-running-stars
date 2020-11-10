@@ -6,9 +6,10 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.text.TextPaint;
 import android.util.AttributeSet;
-import android.widget.TextView;
 
-public class TextFitTextView extends TextView {
+import androidx.appcompat.widget.AppCompatTextView;
+
+public class TextFitTextView extends AppCompatTextView {
 	String mText = "";
 	Paint mTextPaint;
 

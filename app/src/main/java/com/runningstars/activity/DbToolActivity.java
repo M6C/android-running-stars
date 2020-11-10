@@ -1,11 +1,12 @@
 package com.runningstars.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.cameleon.common.factory.FactoryStyle;
 import com.cameleon.common.inotifier.INotifierMessage;
@@ -18,7 +19,7 @@ import com.runningstars.listener.view.ViewOnClickDropTableListener;
 import com.runningstars.listener.view.ViewOnClickRestoreDbListener;
 import com.runningstars.listener.view.ViewOnClickSendDataListener;
 
-public class DbToolActivity extends Activity implements INotifierMessage {
+public class DbToolActivity extends AppCompatActivity implements INotifierMessage {
 
 	private TextView edtUrl;
 

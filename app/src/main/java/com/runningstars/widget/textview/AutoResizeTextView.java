@@ -8,6 +8,8 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.AppCompatTextView;
+
 /**
  * Text view that auto adjusts text size to fit within the view.
  * If the text size equals the minimum text size and still does not
@@ -16,7 +18,7 @@ import android.widget.TextView;
  * @author Chase Colburn
  * @since Apr 4, 2011
  */
-public class AutoResizeTextView extends TextView {
+public class AutoResizeTextView extends AppCompatTextView {
 //http://stackoverflow.com/questions/5033012/auto-scale-textview-text-to-fit-within-bounds
 
     // Minimum text size for this text view

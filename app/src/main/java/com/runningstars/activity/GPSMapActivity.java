@@ -1,21 +1,16 @@
 package com.runningstars.activity;
 
-import java.util.List;
-
-import org.gdocument.gtracergps.launcher.domain.Localisation;
-import org.gdocument.gtracergps.launcher.domain.Session;
-import org.gdocument.gtracergps.launcher.log.Logger;
-
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.cameleon.common.factory.FactoryStyle;
 import com.cameleon.common.inotifier.INotifierMessage;
 import com.google.android.maps.GeoPoint;
-import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
@@ -27,7 +22,13 @@ import com.runningstars.map.GPSMapOverlay;
 import com.runningstars.map.GPSMapOverlay.OnZoomChangeListener;
 import com.runningstars.tool.ToolCalculate;
 
-public class GPSMapActivity extends MapActivity implements INotifierMessage {
+import org.gdocument.gtracergps.launcher.domain.Localisation;
+import org.gdocument.gtracergps.launcher.domain.Session;
+import org.gdocument.gtracergps.launcher.log.Logger;
+
+import java.util.List;
+
+public class GPSMapActivity extends AppCompatActivity implements INotifierMessage {
 
 	private static final String TAG = GPSMapActivity.class.getCanonicalName();
 
@@ -38,6 +39,11 @@ public class GPSMapActivity extends MapActivity implements INotifierMessage {
 	private GPSMapOverlay startOverlay;
 	private GPSMapOverlay finishOverlay;
 	private GPSMapOverlay pathOverlay;
+
+//	@Override
+//	protected boolean isRouteDisplayed() {
+//		return false;
+//	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -122,11 +128,6 @@ public class GPSMapActivity extends MapActivity implements INotifierMessage {
 			}
 		}
 		return super.onOptionsItemSelected(item);
-	}
-
-	@Override
-	protected boolean isRouteDisplayed() {
-		return false;
 	}
 
 	/**

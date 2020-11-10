@@ -5,6 +5,8 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.runningstars.application.GPSApplication;
 import com.runningstars.listener.ongesture.AbstractGestureListener;
 
@@ -13,7 +15,7 @@ public abstract class AbstractOnTouchListener implements View.OnTouchListener {
 
 	private GestureDetector gestureDetector = null;
 
-	public AbstractOnTouchListener(Activity context) {
+	public AbstractOnTouchListener(AppCompatActivity context) {
 		gestureDetector = new GestureDetector(GPSApplication.getAppContext(), getGestureListener(context));
 	}
 

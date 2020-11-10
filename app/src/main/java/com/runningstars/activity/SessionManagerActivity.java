@@ -1,9 +1,5 @@
 package com.runningstars.activity;
 
-import java.util.List;
-
-import org.gdocument.gtracergps.launcher.domain.Session;
-
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,14 +7,16 @@ import android.view.View;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
-import com.cameleon.common.factory.FactoryStyle;
 import com.cameleon.common.inotifier.INotifierMessage;
 import com.runningstars.R;
 import com.runningstars.activity.adapter.SessionManagerAdapter;
 import com.runningstars.activity.business.SessionDetailBusiness;
 import com.runningstars.activity.business.SessionManagerBusiness;
-import com.runningstars.listener.ontouch.SessionManagerOnTouchListener;
 import com.runningstars.tool.ToolCalculate;
+
+import org.gdocument.gtracergps.launcher.domain.Session;
+
+import java.util.List;
 
 public class SessionManagerActivity extends ListActivity implements INotifierMessage {
 
@@ -30,9 +28,9 @@ public class SessionManagerActivity extends ListActivity implements INotifierMes
 
 		business = new SessionManagerBusiness(this);
 
-		getListView().setOnTouchListener(new SessionManagerOnTouchListener(this));
-		
-		FactoryStyle.getInstance().centerTitle(this);
+//		getListView().setOnTouchListener(new SessionManagerOnTouchListener(this));
+//
+//		FactoryStyle.getInstance().centerTitle(this);
 	}
 
 	/* (non-Javadoc)

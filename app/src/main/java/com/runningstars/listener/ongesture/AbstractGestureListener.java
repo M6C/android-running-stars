@@ -1,10 +1,11 @@
 package com.runningstars.listener.ongesture;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.runningstars.R;
 
@@ -15,9 +16,9 @@ public abstract class AbstractGestureListener extends SimpleOnGestureListener {
     private static final int SWIPE_MAX_OFF_PATH = 250;
     private static final int SWIPE_THRESHOLD_VELOCITY = 200;
 
-	private Activity context = null;
+	private AppCompatActivity context = null;
 
-	public AbstractGestureListener(Activity context) {
+	public AbstractGestureListener(AppCompatActivity context) {
 		this.context =  context;
 	}
 

@@ -1,6 +1,5 @@
 package com.runningstars.activity;
 
-import android.app.Activity;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -8,9 +7,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.runningstars.R;
 
-public class GPSLocationActivitySimple extends Activity implements LocationListener{
+public class GPSLocationActivitySimple extends AppCompatActivity implements LocationListener{
 	private TextView latituteField;
     private LocationManager myManager;
 

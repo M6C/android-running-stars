@@ -16,7 +16,7 @@
 
     <style name="CustomWindowTitleRedBackground">
 <!--          <item name="android:background">@drawable/title_red</item> -->
-         <item name="android:background">@drawable/gradient_red</item>
+         <item name="background">@drawable/gradient_red</item>
 	</style>
 
     <style name="CustomThemeRed" parent="android:Theme">
@@ -40,7 +40,7 @@
     
 	<style name="CustomPreferenceRedListSeparator">
 <!-- 		<item name="android:background">@color/orange_bright_transparent</item> -->
-		<item name="android:background">@drawable/gradient_red</item>
+		<item name="background">@drawable/gradient_red</item>
 		<item name="android:layout_width">match_parent</item>
 		<item name="android:layout_height">36dip</item>
 		<item name="android:textStyle">bold</item>

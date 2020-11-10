@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout   
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/mainLayout"
     android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
@@ -22,7 +23,7 @@
 			<ImageView
 			    android:id="@+id/imageProfil"
 				android:contentDescription="@string/image_description_profil"
-			    android:src="@drawable/profil_user_2"
+			    app:srcCompat="@drawable/profil_user_2"
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
 			    android:gravity="center_horizontal"
@@ -66,7 +67,7 @@
 					<!-- Borne KM -->
 					<ImageView
 						android:contentDescription="@string/image_description_borne_km"
-					    android:src="@drawable/borne_km"
+					    app:srcCompat="@drawable/borne_km"
 					    android:layout_width="wrap_content"
 					    android:layout_height="wrap_content"
 					    android:paddingRight="10dp"
@@ -88,7 +89,7 @@
 					<!-- Horloge -->
 					<ImageView
 						android:contentDescription="@string/image_description_horloge"
-					    android:src="@drawable/horloge_orange"
+					    app:srcCompat="@drawable/horloge_orange"
 					    android:layout_width="wrap_content"
 					    android:layout_height="wrap_content"
 					    android:paddingRight="10dp"
@@ -189,7 +190,7 @@
 			<ImageView
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
-			    android:src="@drawable/trophee_record"
+			    app:srcCompat="@drawable/trophee_record"
 			    android:contentDescription="@string/image_description_trophee"
 			    android:paddingRight="5dp"
 			/>
@@ -217,7 +218,7 @@
 			<ImageView
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
-			    android:src="@drawable/slow_speed"
+			    app:srcCompat="@drawable/slow_speed"
 			    android:contentDescription="@string/image_description_slow_speed"
 			    android:paddingRight="5dp"
 			/>
@@ -245,7 +246,7 @@
 			<ImageView
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
-			    android:src="@drawable/trophee_record"
+			    app:srcCompat="@drawable/trophee_record"
 			    android:contentDescription="@string/image_description_trophee"
 			    android:paddingRight="5dp"
 			/>
@@ -273,7 +274,7 @@
 			<ImageView
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
-			    android:src="@drawable/short_distance"
+			    app:srcCompat="@drawable/short_distance"
 			    android:contentDescription="@string/image_description_short_distance"
 			    android:paddingRight="5dp"
 			/>

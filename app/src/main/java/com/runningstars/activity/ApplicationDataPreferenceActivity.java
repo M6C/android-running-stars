@@ -1,7 +1,5 @@
 package com.runningstars.activity;
 
-import org.gdocument.gtracergps.GpsConstant;
-
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.ListPreference;
@@ -11,7 +9,8 @@ import android.preference.PreferenceActivity;
 import com.runningstars.ApplicationData;
 import com.runningstars.R;
 import com.runningstars.listener.ontouch.ParameterOnTouchListener;
-import com.runningstars.listener.preference.ApplicationDataPreferenceListener;
+
+import org.gdocument.gtracergps.GpsConstant;
 
 public class ApplicationDataPreferenceActivity extends PreferenceActivity {
 
@@ -50,7 +49,7 @@ public class ApplicationDataPreferenceActivity extends PreferenceActivity {
 
 		enableOnTouchListenerMain();
 
-	    spChanged = new ApplicationDataPreferenceListener(this);
+//	    spChanged = new ApplicationDataPreferenceListener(this);
 	}
 
 	/**
@@ -110,11 +109,11 @@ public class ApplicationDataPreferenceActivity extends PreferenceActivity {
 
 	private void enableOnTouchListenerMain() {
 
-		if (onTouchListener == null)
-			onTouchListener = new ParameterOnTouchListener(this);
-
-		// Set the touch listener for the main view to be our custom gesture
-		// listener
-		this.getListView().setOnTouchListener(onTouchListener);
+//		if (onTouchListener == null)
+//			onTouchListener = new ParameterOnTouchListener(this);
+//
+//		// Set the touch listener for the main view to be our custom gesture
+//		// listener
+//		this.getListView().setOnTouchListener(onTouchListener);
 	}
 }

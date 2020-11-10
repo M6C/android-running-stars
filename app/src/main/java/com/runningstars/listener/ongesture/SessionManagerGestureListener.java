@@ -1,8 +1,9 @@
 package com.runningstars.listener.ongesture;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.runningstars.activity.ApplicationDataPreferenceActivity;
 import com.runningstars.activity.DbToolActivity;
@@ -10,7 +11,7 @@ import com.runningstars.activity.DbToolActivity;
 
 public class SessionManagerGestureListener extends AbstractGestureListener {
 
-	public SessionManagerGestureListener(Activity context) {
+	public SessionManagerGestureListener(AppCompatActivity context) {
 		super(context);
 	}
 

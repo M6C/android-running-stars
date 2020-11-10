@@ -20,7 +20,7 @@
  --> 
 	<style name="AlertDialogItem">
  	    <!-- <item name="android:background">@color/blanc</item> -->
- 	    <item name="android:background">@drawable/selector_list_view_item_background</item>
+ 	    <item name="background">@drawable/selector_list_view_item_background</item>
  	    <item name="android:textColor">@color/text_black_default</item>
 	</style>
 

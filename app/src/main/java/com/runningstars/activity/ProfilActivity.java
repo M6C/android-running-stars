@@ -1,12 +1,5 @@
 package com.runningstars.activity;
 
-import java.io.File;
-import java.util.Date;
-import java.util.List;
-
-import org.gdocument.gtracergps.launcher.domain.Session;
-
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -27,6 +20,8 @@ import android.widget.ProgressBar;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.cameleon.common.factory.FactoryStyle;
 import com.cameleon.common.inotifier.INotifierMessage;
 import com.runningstars.R;
@@ -38,7 +33,13 @@ import com.runningstars.listener.ontouch.SessionManagerOnTouchListener;
 import com.runningstars.listener.textwatcher.UserNameTextWatcherListener;
 import com.runningstars.tool.ToolCalculate;
 
-public class ProfilActivity extends Activity implements INotifierMessage, OnItemClickListener {
+import org.gdocument.gtracergps.launcher.domain.Session;
+
+import java.io.File;
+import java.util.Date;
+import java.util.List;
+
+public class ProfilActivity extends AppCompatActivity implements INotifierMessage, OnItemClickListener {
 
 	public static final String KEY_PREF_IMAGE_PROFIL = "IMAGE_PROFIL";
 	public static final String PREFS_NAME = "PROFIL_RUNNING";

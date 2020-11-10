@@ -3,9 +3,10 @@ package com.runningstars.widget.textview;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.TypedValue;
-import android.widget.TextView;
 
-public class AutoFitTextView extends TextView {
+import androidx.appcompat.widget.AppCompatTextView;
+
+public class AutoFitTextView extends AppCompatTextView {
 
 public AutoFitTextView(Context context) {
     super(context);

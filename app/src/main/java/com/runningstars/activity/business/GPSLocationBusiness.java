@@ -1,13 +1,10 @@
 package com.runningstars.activity.business;
 
-import org.gdocument.gtracergps.launcher.domain.Localisation;
-import org.gdocument.gtracergps.launcher.domain.Session;
-import org.gdocument.gtracergps.launcher.log.Logger;
-
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.RemoteException;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.runningstars.ApplicationData;
 import com.runningstars.activity.GPSLocationActivity;
@@ -21,6 +18,10 @@ import com.runningstars.service.system.connection.inotifier.INotifierSystemGpsLo
 import com.runningstars.service.system.connection.inotifier.INotifierSystemGpsSessionServiceConnection;
 import com.runningstars.service.system.receiver.inotifier.INotifierSystemGpsLocation;
 import com.runningstars.service.system.receiver.inotifier.INotifierSystemGpsSession;
+
+import org.gdocument.gtracergps.launcher.domain.Localisation;
+import org.gdocument.gtracergps.launcher.domain.Session;
+import org.gdocument.gtracergps.launcher.log.Logger;
 
 public class GPSLocationBusiness implements INotifierSystemGpsSessionServiceConnection, INotifierSystemGpsLocationServiceConnection, INotifierSystemGpsSession, INotifierSystemGpsLocation {
 	private static final String TAG = GPSLocationBusiness.class.getCanonicalName();
@@ -167,7 +168,7 @@ public class GPSLocationBusiness implements INotifierSystemGpsSessionServiceConn
 	 * Context Methodes
 	 */
 	
-	public Activity getContext() {
+	public AppCompatActivity getContext() {
 		return activity;
 	}
 

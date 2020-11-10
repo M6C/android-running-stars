@@ -1,8 +1,9 @@
 package com.runningstars.listener.ongesture;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.runningstars.activity.DbToolActivity;
 import com.runningstars.activity.ProfilActivity;
@@ -10,7 +11,7 @@ import com.runningstars.activity.ProfilActivity;
 
 public class ParameterGestureListener extends AbstractGestureListener {
 
-	public ParameterGestureListener(Activity context) {
+	public ParameterGestureListener(AppCompatActivity context) {
 		super(context);
 	}
 

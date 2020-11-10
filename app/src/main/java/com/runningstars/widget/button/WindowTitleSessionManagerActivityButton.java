@@ -3,11 +3,12 @@ package com.runningstars.widget.button;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
-import android.widget.Button;
+
+import androidx.appcompat.widget.AppCompatButton;
 
 import com.runningstars.activity.ProfilActivity;
 
-public class WindowTitleSessionManagerActivityButton extends Button {
+public class WindowTitleSessionManagerActivityButton extends AppCompatButton {
 
 	public WindowTitleSessionManagerActivityButton(Context context) {
 		super(context);

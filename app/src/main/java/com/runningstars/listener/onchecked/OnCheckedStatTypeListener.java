@@ -1,12 +1,13 @@
 package com.runningstars.listener.onchecked;
 
-import android.app.Activity;
 import android.os.Handler;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.runningstars.R;
 
@@ -20,11 +21,11 @@ public class OnCheckedStatTypeListener implements OnCheckedChangeListener, OnCli
 	private View tabMessage4;
 	private View tabMessage5;
 	private View tabMessage6;
-	private Activity context;
+	private AppCompatActivity context;
 	private Handler handler;
 	private Runnable runner;
 	
-	public OnCheckedStatTypeListener(Activity context) {
+	public OnCheckedStatTypeListener(AppCompatActivity context) {
 		super();
 		this.context = context;
 		this.handler = new Handler();
