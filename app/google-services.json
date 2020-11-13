@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "642817930575",
+    "firebase_url": "https://running-stars-e6cba.firebaseio.com",
+    "project_id": "running-stars-e6cba",
+    "storage_bucket": "running-stars-e6cba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642817930575:android:fa57b8045868796d88813a",
+        "android_client_info": {
+          "package_name": "com.runningstars"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "642817930575-dc1it13f5qqtplhpt46o842rac2a7ddi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzc_YRcmk-f-K-Vq1rM_EaHaEnlI_FquI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "642817930575-dc1it13f5qqtplhpt46o842rac2a7ddi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
